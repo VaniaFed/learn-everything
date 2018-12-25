@@ -8,6 +8,8 @@
     "build": "webpack --config webpack-prod.config.js --mode production"
   },
   "dependencies": {
+    "bootstrap": "4",
+    "popper.js": "^1.14.6",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   },
