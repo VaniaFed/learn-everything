@@ -25,13 +25,23 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/views/index.pug',
+      filename: 'started.html',
+      template: 'src/views/pages/started.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'manageCards.html',
+      template: 'src/views/pages/manageCards.pug',
       chunks: false,
     }),
     new HtmlWebpackPlugin({
       filename: 'test.html',
-      template: './src/views/test.pug',
+      template: 'src/views/pages/test.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'remember.html',
+      template: 'src/views/pages/remember.pug',
       chunks: false,
     }),
   ],
@@ -39,6 +49,8 @@ module.exports = {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
   },
   output: {
+    filename: 'bundle.js',
+    publicPath: '',
     path: path.resolve(__dirname, 'dist'),
   },
 };

@@ -9,13 +9,15 @@ const sass = require('./webpack/sass');
 
 module.exports = {
   entry: './src/public/ts/index.ts',
-  node: {
-    fs: 'empty',
+  output: {
+    path: __dirname,
+    filename: 'bundle.js',
+    publicPath: '/',
   },
   mode: 'development',
   devServer: {
-    contentBase: 'dist',
-    port: 3001,
+    contentBase: './',
+    port: '9000',
   },
   module: {
     rules: [
@@ -28,20 +30,24 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'src/views/index.pug',
+      filename: 'started.html',
+      template: 'src/views/pages/started.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'manageCards.html',
+      template: 'src/views/pages/manageCards.pug',
       chunks: false,
     }),
     new HtmlWebpackPlugin({
       filename: 'test.html',
-      template: 'src/views/test.pug',
+      template: 'src/views/pages/test.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'remember.html',
+      template: 'src/views/pages/remember.pug',
       chunks: false,
     }),
   ],
-  resolve: {
-    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-  },
 };
