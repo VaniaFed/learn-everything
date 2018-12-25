@@ -6,12 +6,14 @@ const typescript = require('./webpack/typescript');
 const pug = require('./webpack/pug');
 const css = require('./webpack/css');
 const sass = require('./webpack/sass');
+const images = require('./webpack/images');
 
 module.exports = {
   entry: './src/public/ts/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   mode: 'development',
   devServer: {
@@ -25,6 +27,7 @@ module.exports = {
       pug,
       css,
       sass,
+      images,
     ],
   },
   plugins: [
