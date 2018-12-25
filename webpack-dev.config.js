@@ -10,14 +10,13 @@ const sass = require('./webpack/sass');
 module.exports = {
   entry: './src/public/ts/index.ts',
   output: {
-    path: __dirname,
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/',
   },
   mode: 'development',
   devServer: {
-    contentBase: './',
-    port: '9000',
+    contentBase: 'dist',
+    port: '3001',
   },
   module: {
     rules: [
