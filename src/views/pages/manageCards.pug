@@ -1,26 +1,9 @@
 doctype html
 html(lang='ru')
   include ../includes/head.pug
-  include ../includes/menu.pug
   body#cards-review
     .wrapper
-      .container
-        header.header
-          .logo
-            h1.logo__text Train to Memorize!!!
-            p.logo__tagline Запоминайте больше информации и развивайте свою память
-          .user
-            a.user__link.user__login(href='/login') Войти
-            a.user__link.user__checkin(href='/checkin') Зарегестрироваться
-      nav.nav-action
-        .container
-          ul.action-list
-            li.action-item
-              a.action__link.action__review(href='#') Обзор
-            li.action-item
-              a.action__link.action__test(href='#') Тест
-            li.action-item
-              a.action__link.action__learn(href='#') Заучивание (12)
+      include ../includes/header.pug
       main.cards-container.container
         .cards
           .card-item
