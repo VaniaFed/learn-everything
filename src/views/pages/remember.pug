@@ -2,6 +2,10 @@ doctype html
 html(lang="ru")
   include ../includes/head.pug
   body
-    include ../includes/header.pug
-    .container
-      h1 Remember page!
+    .wrapper
+      include ../includes/header.pug
+      .container
+        main.remember-container
+          h2.remember__title Название списка
+          .remember__question Знакомый
+          button.remember__check Проверить
