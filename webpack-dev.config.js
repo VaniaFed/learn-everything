@@ -51,5 +51,15 @@ module.exports = {
       template: 'src/views/pages/remember.pug',
       chunks: false,
     }),
+    new HtmlWebpackPlugin({
+      filename: 'authorization.html',
+      template: 'src/views/pages/authorization.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'registration.html',
+      template: 'src/views/pages/registration.pug',
+      chunks: false,
+    }),
   ],
 };

@@ -1,11 +1,16 @@
-doctype html
-html(lang="ru")
-  include ../includes/head.pug
-  body
-    .wrapper
-      include ../includes/header.pug
-      .container
-        main.remember-container
-          h2.remember__title Название списка
-          .remember__question Знакомый
-          button.remember__check Проверить
+include ../includes/head.pug
+body
+  .wrapper
+    include ../includes/header.pug
+    include ../includes/nav.pug
+    .container
+      main.remember-container
+        h2.remember__title Название списка
+        .remember__question Знакомый
+        button.remember__check.button-hover Проверить
+        .remember-container__complexity.hidden
+          button.complexity__item.button-hover Забыл
+          button.complexity__item.button-hover Сложно
+          button.complexity__item.button-hover Нормально
+          button.complexity__item.button-hover Легко
+

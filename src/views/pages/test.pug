@@ -1,18 +1,17 @@
-doctype html
-html(lang="ru")
-  include ../includes/head.pug
-  body
-    .wrapper
-      include ../includes/header.pug
-      .container
-        main.test-container
-          h2.test__title Название списка
-          .test-items
-            .test-item
-              .item__bg
-                .item__title Вопрос
-                input.test__input.test__question(type="text" disabled)
-              .item__bg.answer
-                .item__title Ответ
-                input.test__input.test__answer(type="text" placeholder="Ответ")
-          button.test__check Проверить
+include ../includes/head.pug
+body
+  .wrapper
+    include ../includes/header.pug
+    include ../includes/nav.pug
+    .container
+      main.test-container
+        h2.test__title Название списка
+        .test-items
+          .test-item
+            .item__bg
+              .item__title Вопрос
+              input.test__input.test__question(type="text" disabled)
+            .item__bg.answer
+              .item__title Ответ
+              input.test__input.test__answer(type="text" placeholder="Ответ")
+        button.test__check Проверить

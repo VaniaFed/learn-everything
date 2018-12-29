@@ -114,17 +114,28 @@ Database
         user_id
         login
         password
+        list_id JSON
     list
         list_id
         name
-        user_id
     card
         card_id
-        list_id
         question
         answer
         date_prev_revise
         date_next_revise
+        list_id
 
+Sample database
+user
+    0 VaniaFed John2332   { [0, 1, 3] }
+    1 Dron     HelloWorld { [0, 1, 3] }
 
+list
+    0 ENG past simple 
+    1 Eng future simple
 
+card
+    0 'привет' 'hi' 27.12.2018 11:23 30.12.2018 11:23
+    1 'пока' 'bye' 27.11.2018 9:53 30.12.2018 11:23
+    2 'лод' 'jlkj' 27.12.2018 11:23 30.12.2018 11:23

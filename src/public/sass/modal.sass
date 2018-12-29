@@ -1,0 +1,51 @@
+.modal-bg
+  position: absolute
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background: rgba(0, 0, 0, .4)
+  text-align: center
+  &:before
+    display: inline-block
+    height: 100%
+    vertical-align: middle
+    content: ''
+
+.modal-container
+  max-width: 500px
+  width: 100%
+  background: #fff
+  padding: 60px 40px
+  margin: 0 auto
+  display: inline-block
+  vertical-align: middle
+
+.modal__title
+  text-align: center
+  font-weight: 300
+  font-size: 30px
+
+.modal__input
+  width: 100%
+  margin-top: 25px
+  padding: 16px 20px
+  font-weight: 300
+  &:focus
+    outline: none
+  &__text
+    &::placeholder
+      font-weight: 300
+  &__submit
+    background: #304ffe
+    color: #fff
+    border: none
+    cursor: pointer
+    font-weight: 700
+    font-size: 18px
+    margin-top: 40px
+    &:hover
+      background: #2962FF
+      color: #fff
+    &:active
+      background: #304ffe

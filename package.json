@@ -8,7 +8,10 @@
     "build": "webpack --config webpack-prod.config.js --mode production"
   },
   "dependencies": {
+    "body-parser": "^1.18.3",
     "bootstrap": "4",
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
     "popper.js": "^1.14.6",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
