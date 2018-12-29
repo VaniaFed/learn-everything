@@ -1,0 +1,6 @@
+{
+  "name": "readerNode",
+  "scripts": {
+    "start": "nodemon app.js"
+  }
+}

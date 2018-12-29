@@ -11,7 +11,7 @@ const images = require('./webpack/images');
 module.exports = {
   entry: './src/public/ts/index.ts',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/public'),
     filename: 'bundle.js',
     publicPath: '/',
   },
