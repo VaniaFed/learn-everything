@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const babel = require('./webpack/babel');
 const typescript = require('./webpack/typescript');
 const pug = require('./webpack/pug');
+const movePug = require('./webpack/move-pug');
 const css = require('./webpack/css');
 const sass = require('./webpack/sass');
 const images = require('./webpack/images');
@@ -20,6 +21,7 @@ module.exports = {
       babel,
       typescript,
       pug,
+      movePug,
       css,
       sass,
       images,

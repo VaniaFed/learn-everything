@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '../sass/index.sass';
 
-import './auxiliary';
-import './postForm';
+import './auxiliary.ts';
+import './authorization.ts'

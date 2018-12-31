@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.set('view engine', 'pug');
 
 app.use(express.static('public'));
 
-const port = 3001;
+const port = 8080;
 
 app.get('/', (req, res) => {
   res.render('pages/started', {});
@@ -22,6 +22,11 @@ app.get('/registration', (req, res) => {
 app.get('/authorization', (req, res) => {
   res.render('pages/authorization', {});
 });
+
+app.post('/createUser', (req, res) => {
+  res.send(req.query);
+});
+
 app.listen(port, () => {
   console.log('Server ran successful');
 });
