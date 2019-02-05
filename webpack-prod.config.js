@@ -2,14 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const babel = require('./webpack/babel');
-const typescript = require('./webpack/typescript');
 const pug = require('./webpack/pug');
 const css = require('./webpack/css');
 const sass = require('./webpack/sass');
-
+const images = require('./webpack/images');
 
 module.exports = {
-  entry: './src/public/js/index.jsx',
+  entry: './src/public/components/App.jsx',
   node: {
     fs: 'empty',
   },
@@ -17,21 +16,26 @@ module.exports = {
   module: {
     rules: [
       babel,
-      // typescript,
       pug,
       css,
       sass,
+      images,
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './src/views/index.pug',
+      filename: 'remember.html',
+      template: 'src/views/pages/remember.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'manageCards.html',
+      template: 'src/views/pages/manageCards.pug',
       chunks: false,
     }),
     new HtmlWebpackPlugin({
       filename: 'test.html',
-      template: './src/views/test.pug',
+      template: 'src/views/pages/test.pug',
       chunks: false,
     }),
   ],

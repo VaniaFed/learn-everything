@@ -8,7 +8,7 @@ const sass = require('./webpack/sass');
 const images = require('./webpack/images');
 
 module.exports = {
-  entry: './src/public/js/index.js',
+  entry: './src/public/components/App.jsx',
   node: {
     fs: 'empty',
   },
