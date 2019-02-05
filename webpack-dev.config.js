@@ -2,28 +2,24 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const babel = require('./webpack/babel');
-const typescript = require('./webpack/typescript');
 const pug = require('./webpack/pug');
 const css = require('./webpack/css');
 const sass = require('./webpack/sass');
 const images = require('./webpack/images');
 
 module.exports = {
-  entry: './src/public/ts/index.ts',
-  output: {
-    path: path.resolve(__dirname, 'dist/public'),
-    filename: 'bundle.js',
-    publicPath: '/',
+  entry: './src/public/js/index.js',
+  node: {
+    fs: 'empty',
   },
   mode: 'development',
   devServer: {
     contentBase: 'dist',
-    port: '3001',
+    port: 3001,
   },
   module: {
     rules: [
       babel,
-      typescript,
       pug,
       css,
       sass,
@@ -32,8 +28,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'started.html',
-      template: 'src/views/pages/started.pug',
+      filename: 'remember.html',
+      template: 'src/views/pages/remember.pug',
       chunks: false,
     }),
     new HtmlWebpackPlugin({
@@ -46,20 +42,11 @@ module.exports = {
       template: 'src/views/pages/test.pug',
       chunks: false,
     }),
-    new HtmlWebpackPlugin({
-      filename: 'remember.html',
-      template: 'src/views/pages/remember.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'authorization.html',
-      template: 'src/views/pages/authorization.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'registration.html',
-      template: 'src/views/pages/registration.pug',
-      chunks: false,
-    }),
   ],
+  resolve: {
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx'],
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+  },
 };
