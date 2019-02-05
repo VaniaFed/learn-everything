@@ -4,25 +4,4 @@ body#cards-review
     include ../includes/header.pug
     include ../includes/nav.pug
     main.cards-container.container
-      .cards
-        .card-item
-          a.card__link.button-hover(href='/cards/card/3')
-            .card__quantity 23 комбинаций
-            .card__name English past simple
-          a.card__delete.button-hover(href='#') Удалить
-        .card-item
-          a.card__link.button-hover(href='/cards/card/3')
-            .card__quantity 23 комбинаций
-            .card__name English past simple
-          a.card__delete.button-hover(href='#') Удалить
-        .card-item
-          a.card__link.button-hover(href='/cards/card/3')
-            .card__quantity 23 комбинаций
-            .card__name English past simple
-          a.card__delete.button-hover(href='#') Удалить
-        .card-item
-          a.card__link.button-hover(href='/cards/card/3')
-            .card__quantity 23 комбинаций
-            .card__name English past simple
-          a.card__delete.button-hover(href='#') Удалить
-      a.cards__add(href='#') Добавить новую карточку
+      #react-cards-manage
