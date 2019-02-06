@@ -4,10 +4,10 @@ import { render } from 'react-dom';
 import Answer from './Answer';
 import Question from './Question';
 
-const TestItem = ({ answerText, questionText }) => (
+const TestItem = ({ questionText }) => (
   <div className="test-item">
-    <Answer answer={answerText}/>
-    <Question answer={questionText}/>
+    <Question questionText={questionText}/>
+    <Answer />
   </div>
 );
 

@@ -8,7 +8,17 @@ const sass = require('./webpack/sass');
 const images = require('./webpack/images');
 
 module.exports = {
-  entry: './src/public/components/App.jsx',
+  entry: {
+    test: './src/public/components/test/Test.jsx',
+    // manage: './src/public/components/manage/Manage.jsx',
+    // remember: './src/public/components/remember/Remember.jsx',
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js',
+    sourceMapFilename: 'name.js'
+  },
+  devtool: '#source-map',
   node: {
     fs: 'empty',
   },
@@ -45,8 +55,5 @@ module.exports = {
   ],
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx'],
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
   },
 };

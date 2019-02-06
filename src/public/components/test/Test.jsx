@@ -1,13 +1,24 @@
+import 'bootstrap';
+import '../../sass/index.sass';
+
 import React from 'react';
 import { render } from 'react-dom';
+import TestItem from './TestItem';
+import Title from './Title';
 
-import TestItem from './TestItem'
+const questionsList = [
+  'Кто лох?',
+  'Ты идиот?',
+];
 
-const Test = ({ title, answersList, questionsList }) => (
-  <h2 className="test__title">{title}</h2>
-  <div className="test-items">
-  </div>
+const Test = ( title ) => (
+  <Title title={title} />
+  // {questionsList.map((question, i) => 
+  //   <TestItem key={i} questionText={question}/>
+  // )};
 );
 
-export default List;
-
+render(
+  <Title title="Some title"/>,
+  document.getElementById('test')
+);
