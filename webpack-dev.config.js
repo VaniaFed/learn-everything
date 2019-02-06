@@ -38,6 +38,7 @@ module.exports = {
     ],
   },
   plugins: [
+    require('autoprefixer'),
     new MiniCssExtractPlugin({
       filename: 'index.css',
     }),
