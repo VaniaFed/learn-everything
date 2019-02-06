@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const babel = require('./webpack/babel');
 const pug = require('./webpack/pug');
@@ -31,10 +32,8 @@ module.exports = {
     ],
   },
   plugins: [
-    new config.confi({
-      sourceMap: true,
-      warnings: false,
-      mangle: true,
+    new MiniCssExtractPlugin({
+      filename: 'index.css',
     }),
     new HtmlWebpackPlugin({
       filename: 'remember.html',
