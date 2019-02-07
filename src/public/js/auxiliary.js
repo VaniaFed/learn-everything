@@ -1,7 +1,10 @@
 const inputGiveAutoFocus = () => {
-  const itemBg = document.getElementsByClassName('answer');
-  itemBg.forEach(key => {
-    if (itemBg.hasOwnProperty(key)) {
+  const textarea = document.querySelectorAll('textarea');
+  const itemBg = document.querySelectorAll('textarea');
+  console.log(textarea)
+  console.log(itemBg)
+  textarea.forEach(key => {
+    if (textarea.hasOwnProperty(key)) {
       const element = itemBg[key];
       element.addEventListener('click', () => {
         const textArea = element.childNodes[1];

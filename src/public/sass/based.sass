@@ -1,4 +1,5 @@
 @import '~bootstrap/scss/bootstrap'
+@import './vars'
 *
   margin: 0
   padding: 0
@@ -25,9 +26,27 @@ body
   font: 16px/1.5 Roboto, Arial, 'Sans-serif'
   background: #efefef
   color: #333
+  overflow-x: hidden
 
 .wrapper
-  overflow-x: hidden
-  overflow-y: auto
   perspective: 2px
-  height: 100%
+  margin-bottom: 100px
+
+.default-btn
+  padding: 16px 24px
+  text-align: center
+  border: none
+  outline: none
+  background: $accent-color
+  color: #fff
+  cursor: pointer
+  &:hover
+    background: $accent-color-dark
+  &:active
+    background: $accent-color
+    outline: none
+  &:focus
+    outline: none
+
+
+

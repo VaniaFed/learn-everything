@@ -1,11 +1,9 @@
-import 'bootstrap';
-import '../../sass/index.sass';
-
 import React from 'react';
 import { render } from 'react-dom';
 
 import Title from './Title';
 import TestItem from './TestItem';
+import Button from './Button';
 
 const questionsList = [
   'Кто лох?',
@@ -22,6 +20,7 @@ const Test = ({ title, questionsList }) => (
       {questionsList.map((question, i) =>
         <TestItem key={i} questionText={question}/>
       )}
+      <Button content="Check the result"/>
     </div>
   </div>
 );

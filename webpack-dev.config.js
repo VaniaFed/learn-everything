@@ -11,7 +11,8 @@ const images = require('./webpack/images');
 module.exports = {
   entry: {
     test: './src/public/components/test/Test.jsx',
-    // manage: './src/public/components/manage/Manage.jsx',
+    manage: './src/public/components/manage/Manage.jsx',
+    index: './src/public/js/index.js',
     // remember: './src/public/components/remember/Remember.jsx',
   },
   output: {
