@@ -3,7 +3,6 @@ import '../../sass/index.sass';
 
 import React from 'react';
 import { render } from 'react-dom';
-import TestItem from './TestItem';
 import Title from './Title';
 
 const questionsList = [
@@ -11,7 +10,8 @@ const questionsList = [
   'Ты идиот?',
 ];
 
-const Test = ( title ) => (
+const Test = ({ title }) => (
+  // <h1>hello</h1>
   <Title title={title} />
   // {questionsList.map((question, i) => 
   //   <TestItem key={i} questionText={question}/>
@@ -19,6 +19,6 @@ const Test = ( title ) => (
 );
 
 render(
-  <Title title="Some title"/>,
-  document.getElementById('test')
+  <Test title="This is my title!"/>,
+  document.querySelector('#test')
 );
