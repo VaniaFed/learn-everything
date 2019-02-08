@@ -11,7 +11,8 @@ const images = require('./webpack/images');
 module.exports = {
   entry: {
     test: './src/public/components/test/Test.jsx',
-    manage: './src/public/components/manage/Manage.jsx',
+    manageLists: './src/public/components/manageLists/ManageLists.jsx',
+    manageCards: './src/public/components/manageCards/ManageCards.jsx',
     index: './src/public/js/index.js',
     // remember: './src/public/components/remember/Remember.jsx',
     registration: './src/public/components/Modal/ModalRegistration.jsx',
@@ -42,6 +43,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'remember.html',
       template: 'src/views/pages/remember.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'manageLists.html',
+      template: 'src/views/pages/manageLists.pug',
       chunks: false,
     }),
     new HtmlWebpackPlugin({

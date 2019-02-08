@@ -22,7 +22,7 @@ const data = [
   },
 ];
 
-const Lists = ({ data }) => (
+const ManageLists = ({ data }) => (
   <div>
     <div className="lists">
       {data.map((list, i) => 
@@ -34,6 +34,6 @@ const Lists = ({ data }) => (
 );
 
 render(
-  <Lists data={data} />,
-  document.querySelector('#cards-manage')
+  <ManageLists data={data} />,
+  document.querySelector('#manage-lists')
 );

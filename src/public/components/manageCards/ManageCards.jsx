@@ -13,12 +13,20 @@ const questionsList = [
   'Ты идиот?',
 ];
 
-const Test = ({ title, questionsList }) => (
+const answersList = [
+  'Да',
+  'Да',
+  'Да',
+  'Да',
+  'Да',
+];
+
+const ManageCards = ({ title, questionsList, answersList }) => (
   <div>
     <Title title={title} />
     <div className="test-items">
       {questionsList.map((question, i) =>
-        <TestItem key={i} questionText={question}/>
+        <TestItem key={i} questionText={question} answerText={answersList[i]} />
       )}
       <Button className="default-btn" content="Check the result"/>
     </div>
@@ -26,6 +34,6 @@ const Test = ({ title, questionsList }) => (
 );
 
 render(
-  <Test title="Present continious" questionsList={questionsList}/>,
-  document.querySelector('#test')
+  <ManageCards title="Present simple" questionsList={questionsList} answersList={answersList} />,
+  document.querySelector('#manage-cards')
 );
