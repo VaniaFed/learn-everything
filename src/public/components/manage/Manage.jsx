@@ -5,6 +5,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import List from './List.jsx';
+import Button from '../common/Button';
 
 const data = [
   {
@@ -22,10 +23,13 @@ const data = [
 ];
 
 const Lists = ({ data }) => (
-  <div className="lists">
-    {data.map((list, i) => 
-      <List key={i} name={list.name} quantity={list.quantity} />
-    )}
+  <div>
+    <div className="lists">
+      {data.map((list, i) => 
+        <List key={i} name={list.name} quantity={list.quantity} />
+      )}
+    </div>
+    <Button content="Добавить список"/>
   </div>
 );
 

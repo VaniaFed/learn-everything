@@ -1,9 +1,10 @@
+
 import React from 'react';
 import { render } from 'react-dom';
 
-import Title from './Title';
+import Title from '../common/Title';
 import TestItem from './TestItem';
-import Button from './Button';
+import Button from '../common/Button';
 
 const questionsList = [
   'Кто лох?',
