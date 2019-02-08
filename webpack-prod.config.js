@@ -12,7 +12,10 @@ module.exports = {
   entry: {
     test: './src/public/components/test/Test.jsx',
     manage: './src/public/components/manage/Manage.jsx',
-    remember: './src/public/components/remember/Remember.jsx',
+    index: './src/public/js/index.js',
+    // remember: './src/public/components/remember/Remember.jsx',
+    registration: './src/public/components/Modal/ModalRegistration.jsx',
+    authorization: './src/public/components/Modal/ModalAuthorization.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -32,6 +35,7 @@ module.exports = {
     ],
   },
   plugins: [
+    require('autoprefixer'),
     new MiniCssExtractPlugin({
       filename: 'index.css',
     }),
@@ -48,6 +52,16 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'test.html',
       template: 'src/views/pages/test.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'registration.html',
+      template: 'src/views/pages/registration.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'authorization.html',
+      template: 'src/views/pages/authorization.pug',
       chunks: false,
     }),
   ],
