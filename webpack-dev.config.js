@@ -14,6 +14,8 @@ module.exports = {
     manage: './src/public/components/manage/Manage.jsx',
     index: './src/public/js/index.js',
     // remember: './src/public/components/remember/Remember.jsx',
+    registration: './src/public/components/Modal/ModalRegistration.jsx',
+    authorization: './src/public/components/Modal/ModalAuthorization.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

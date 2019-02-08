@@ -21,7 +21,7 @@ const Test = ({ title, questionsList }) => (
       {questionsList.map((question, i) =>
         <TestItem key={i} questionText={question}/>
       )}
-      <Button content="Check the result"/>
+      <Button className="default-btn" content="Check the result"/>
     </div>
   </div>
 );

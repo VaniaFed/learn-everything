@@ -29,7 +29,7 @@ const Lists = ({ data }) => (
         <List key={i} name={list.name} quantity={list.quantity} />
       )}
     </div>
-    <Button content="Добавить список"/>
+    <Button className="default-btn" content="Добавить список"/>
   </div>
 );
 
