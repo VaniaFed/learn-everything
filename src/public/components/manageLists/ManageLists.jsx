@@ -2,6 +2,7 @@
 // import '../../sass/index.sass';
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 
 import List from './List.jsx';
@@ -22,18 +23,21 @@ const data = [
   },
 ];
 
-const ManageLists = ({ data }) => (
+const ManageLists = ({ listsData=[] }) => (
   <div>
     <div className="lists">
-      {data.map((list, i) => 
+      {listsData.map((list, i) => 
         <List key={i} name={list.name} quantity={list.quantity} />
       )}
     </div>
     <Button className="default-btn" content="Добавить список"/>
   </div>
 );
+ManageLists.propTypes = {
+  listsData: PropTypes.array,
+}
 
 render(
-  <ManageLists data={data} />,
+  <ManageLists listsData={data} />,
   document.querySelector('#manage-lists')
 );

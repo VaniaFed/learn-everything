@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 
 import Input from './Input';
@@ -15,6 +16,10 @@ const ModalAuthorization = ({ title }) => (
     </div>
   </div>
 );
+
+ModalAuthorization.propTypes = {
+  title: PropTypes.string,
+}
 
 render(
   <ModalAuthorization title="Авторизация" />,

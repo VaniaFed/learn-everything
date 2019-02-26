@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
+import PropTypes from 'prop-types';
 
-const List = ({ quantity, name }) => (
+const List = ({ quantity=0, name='Deck' }) => (
   <div className="card-item">
     <a href="#" className="card__link button-hover">
       <div className="card__quantity">{quantity} комбинаций</div> 
@@ -10,5 +10,10 @@ const List = ({ quantity, name }) => (
     <a href="#" className="card__delete button-hover">Удалить</a>
   </div>
 );
+
+List.propTypes = {
+  quantity: PropTypes.number,
+  name: PropTypes.string,
+}
 
 export default List;

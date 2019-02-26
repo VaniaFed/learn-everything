@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
+import PropTypes from 'prop-types';
 
-const Question = ({ questionText }) => (
+const Question = ({ questionText='' }) => (
   <div className="item__bg">
     <div className="item__title">Вопрос</div> 
     <input type="text"
@@ -11,5 +11,8 @@ const Question = ({ questionText }) => (
     />
   </div>
 );
+Question.propTypes = {
+  questionText: PropTypes.string,
+}
 
 export default Question;
