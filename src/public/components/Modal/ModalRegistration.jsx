@@ -11,13 +11,38 @@ class ModalRegistration extends Component {
     this.login = React.createRef();
     this.password = React.createRef();
     this.passwordRepeat = React.createRef();
-    this.register = this.register.bind(this);
+
+    this.state = {
+      err: false
+    };
   }
 
   register (e) {
     e.preventDefault();
-    [this.login.current.value, this.password.current.value, this.passwordRepeat.current.value]
-      .map(i => console.log(i));
+
+    const login = this.login.current.value;
+    const password = this.password.current.value;
+    const passwordRepeat = this.passwordRepeat.current.value;
+
+    console.log(login, password, passwordRepeat);
+    let error = '';
+    (login.length === 0) ?
+      error = 'Вы не заполнили поле логин' :
+      (password.length === 0) ?
+        error = 'Вы не заполнили поле пароль' :
+      (password !== passwordRepeat) ?
+        error = 'Пароли не совпадают' :
+        null
+
+    error ?
+      this.setState({
+        err: true,
+        errText: error,
+      }) :
+      this.setState({
+        err: false,
+        errText: '',
+      })
   }
 
   render() {
@@ -25,13 +50,14 @@ class ModalRegistration extends Component {
       <div className="modal-bg">
         <div className="modal-container">
           <Title className="modal__title" title={this.props.title} />
-          {/* <Input className="modal__input modal__input__text" placeholder="Логин" ref={this.login} /> */}
           <input className="modal__input modal__input__text" placeholder="Логин" ref={this.login} />
-          <input className="modal__input modal__input__text" placeholder="Пароль" ref={this.password} />
-          <input className="modal__input modal__input__text" placeholder="Повторите пароль" ref={this.passwordRepeat} />
+          <input type="password" className="modal__input modal__input__text" placeholder="Пароль" ref={this.password} />
+          <input type="password" className="modal__input modal__input__text" placeholder="Повторите пароль" ref={this.passwordRepeat} />
+          <p style={{'color': 'red'}}>{this.state.err ? this.state.errText : null}</p>
+          
           <Submit className="modal__input modal__input__submit"
                   value="Зарегистрироваться"
-                  onClick={this.register}
+                  onClick={e => this.register(e)}
           />
         </div>
       </div>
