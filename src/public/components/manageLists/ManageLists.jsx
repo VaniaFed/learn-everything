@@ -11,15 +11,15 @@ import Button from '../common/Button';
 const data = [
   {
     "name": "Past progressive",
-    "quantity": "5",
+    "quantity": 5,
   },
   {
     "name": "Future simple",
-    "quantity": "14",
+    "quantity": 14,
   },
   {
     "name": "Complex object",
-    "quantity": "53",
+    "quantity": 53,
   },
 ];
 
