@@ -10,6 +10,7 @@ const images = require('./webpack/images');
 
 module.exports = {
   entry: {
+    // app: './src/public/components/App.jsx',
     test: './src/public/components/test/Test.jsx',
     manageLists: './src/public/components/manageLists/ManageLists.jsx',
     manageCards: './src/public/components/manageCards/ManageCards.jsx',
