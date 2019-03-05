@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 
 import Title from '../common/Title';
-import Input from './Input';
 import Submit from './Submit';
 
 class ModalRegistration extends Component {

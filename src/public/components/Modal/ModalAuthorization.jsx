@@ -4,7 +4,6 @@ import { render } from 'react-dom';
 
 import Submit from './Submit';
 import Title from '../common/Title';
-import { isError } from 'util';
 
 class ModalAuthorization extends Component {
   constructor(props) {

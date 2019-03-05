@@ -1,30 +1,56 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { render } from 'react-dom';
+import { v4 } from 'uuid';
 
 import Title from '../common/Title';
-import TestItem from '../common/viewCards/TestItem';
+import TestItem from './TestItem';
 import Button from '../common/Button';
 
-const questionsList = [
-  'Кто лох?',
-  'Ты идиот?',
-  'Ты идиот?',
-  'Ты идиот?',
-  'Ты идиот?',
-];
+class Test extends Component {
+  constructor(props) {
+    super(props);
 
-const Test = ({ title, questionsList=[] }) => (
-  <div>
-    <Title title={title} />
-    <div className="test-items">
-      {questionsList.map((question, i) =>
-        <TestItem key={i} questionText={question} enabled={true} />
-      )}
-      <Button className="default-btn" content="Check the result"/>
-    </div>
-  </div>
-);
+    this.checkAnswer = this.checkAnswer.bind(this);
+
+    this.state = {
+      title: 'Present Continuous',
+      cards: [
+        {
+          id: v4(),
+          question: 'Кто ты?',
+          answer: 'Who are you?',
+        },
+        {
+          id: v4(),
+          question: 'Кто ты?',
+          answer: 'Who are you?',
+        },
+      ],
+    }
+  }
+
+  checkAnswer(correctAnswer, userAnswer) {
+    console.log('checked');
+    return correctAnswer.toLowerCase() === userAnswer.toLowerCase();
+  }
+
+  render() {
+    const { cards, title } = this.state;
+    const { checkAnswer } = this;
+    return (
+      <div>
+        <Title title={title} />
+        <div className="test-items">
+          {cards.map((card, i) =>
+            <TestItem key={i} questionText={card.question} enabled={true} />
+          )}
+          <Button className="default-btn" content="Check the result" onClick={checkAnswer} />
+        </div>
+      </div>
+    )
+  }
+}
 
 Test.propTypes = {
   title: PropTypes.string,
@@ -32,6 +58,6 @@ Test.propTypes = {
 }
 
 render(
-  <Test title="Present continious" questionsList={questionsList}/>,
+  <Test />,
   document.querySelector('#test')
 );
