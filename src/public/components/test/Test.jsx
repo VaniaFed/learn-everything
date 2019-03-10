@@ -33,6 +33,10 @@ class Test extends Component {
     }
   }
 
+  componentDidMount() {
+    console.log('Test was mount');
+  }
+
   changeCards(id, userAnswer) {
     const cards = this.state.cards.map(card =>
       card.id !== id ?

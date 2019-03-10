@@ -43,7 +43,6 @@ class ManageCards extends Component {
     )
 
     this.setState({ cards });
-    console.log(this.state.cards)
   }
 
   changeAnswer(cardId, answer) {
@@ -57,7 +56,6 @@ class ManageCards extends Component {
     )
 
     this.setState({ cards });
-    console.log(this.state.cards)
   }
 
   addCard() {
@@ -74,12 +72,16 @@ class ManageCards extends Component {
   }
 
   deleteCard (id) {
-    console.log('presser', id)
     const cards = this.state.cards.filter(card =>
       card.id !== id
     );
 
     this.setState({cards});
+  }
+
+  componenWillUpdate(nextProps) {
+    console.log(this.state)
+    console.log(nextProps);
   }
 
   render() {
@@ -93,7 +95,7 @@ class ManageCards extends Component {
           {cards.length === 0 ?
           <h3>Тут пусто. (Создать карточку?)</h3> :
           cards.map((card, i) =>
-            <TestItem key={i}
+            <TestItem key={card.id}
                       questionText={card.question}
                       answerText={card.answer}
                       onDelete={() => deleteCard(card.id)}
