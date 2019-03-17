@@ -29,54 +29,6 @@ class Test extends Component {
           answer: 'Who are you?',
           userAnswer: '',
         },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
       ],
     }
   }
