@@ -79,11 +79,6 @@ class ManageCards extends Component {
     this.setState({cards});
   }
 
-  componenWillUpdate(nextProps) {
-    console.log(this.state)
-    console.log(nextProps);
-  }
-
   render() {
     const { cards } = this.state;
     const { title } = this.props;
