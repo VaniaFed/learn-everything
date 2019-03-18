@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
 import { v4 } from 'uuid';
 
 
 import Title from '../common/Title';
 import Row from './row/Row';
-import Button from '../common/Button.jsx';
+import Button from '../common/Button';
 
 import css from './test.module.sass';
 
@@ -68,7 +67,7 @@ class Test extends Component {
     const { cards, title } = this.state;
     const { checkAllAnswers, changeCards } = this;
     return (
-      <div>
+      <div className="container">
         <Title className={css.title} title={title} />
         <div className={css.items}>
           {cards.map((card, i) =>
@@ -84,7 +83,8 @@ class Test extends Component {
   }
 }
 
-render(
-  <Test />,
-  document.querySelector('#test')
-);
+// render(
+//   <Test />,
+//   document.querySelector('#test')
+// );
+export default Test;

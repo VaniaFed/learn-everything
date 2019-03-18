@@ -48,6 +48,11 @@ module.exports = {
       filename: 'index.css',
     }),
     new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'src/views/pages/index.pug',
+      chunks: false,
+    }),
+    new HtmlWebpackPlugin({
       filename: 'remember.html',
       template: 'src/views/pages/remember.pug',
       chunks: false,
