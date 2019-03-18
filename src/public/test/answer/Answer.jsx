@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const  Answer = ({ onChange=f=>f }) => {
-  const userAnswer = React.createRef();
+import css from './answer.module.sass';
 
+const Answer = ({ onChange=f=>f }) => {
+  const userAnswer = React.createRef();
   return (
-    <div className="item__bg answer_bg">
-      <div className="item__title">Ответ</div>
-    <textarea
-      className="test__input test__question answer"
-      ref={userAnswer}
-      onChange={() => onChange(userAnswer.current.value)}
-      placeholder="Type an answer..."
-    />
+    <div className={css.answer__bg}>
+      <div className={css.title}>Ответ</div>
+      <textarea
+        className={`${css.input} ${css.no_resize}`}
+        ref={userAnswer}
+        onChange={() => onChange(userAnswer.current.value)}
+        placeholder="Type an answer..."
+      />
     </div>
   )
 }

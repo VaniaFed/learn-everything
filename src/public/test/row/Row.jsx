@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Answer from '../answer/Answer';
 import Question from '../question/Question';
 
+import css from './row.module.sass';
 class TestItem extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,7 @@ class TestItem extends Component {
   render() {
     const { questionText, onChange } = this.props;
     return (
-      <div style={this.style} className="test__item">
+      <div className={css.item}>
         <Question questionText={questionText} />
         <Answer onChange={onChange} />
       </div>

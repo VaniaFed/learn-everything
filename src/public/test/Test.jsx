@@ -5,10 +5,9 @@ import { v4 } from 'uuid';
 
 import Title from '../common/Title';
 import Row from './row/Row';
-import Button from '../common/Button';
+import Button from '../common/Button.jsx';
 
 import css from './test.module.sass';
-console.log(css);
 
 class Test extends Component {
   constructor(props) {

@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import css from './question.module.sass';
+
 const Question = ({ questionText='' }) => (
-  <div className="item__bg">
-    <div className="item__title">Вопрос</div> 
+  <div className={css.question__bg}>
+    <div className={css.title}>Вопрос</div> 
     <input type="text"
-      className="test__input test__question"
+      className={`${css.input} ${css.no_resize}`}
       disabled 
       value={questionText}
     />

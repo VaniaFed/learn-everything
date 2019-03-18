@@ -1,4 +1,2 @@
-import 'bootstrap';
-
-import './auxiliary.js';
-// import './authorization.js'
+import 'bootstrap/dist/css/bootstrap.css';
+import '../sass/based.sass';
