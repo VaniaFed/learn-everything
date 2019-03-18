@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Title = ({ title='Title' }) => (
-  <h2 className="test__title">{title}</h2>
+const Title = ({ title='Title', className='' }) => (
+  <h2 className={className}>{title}</h2>
 );
 
 Title.propTypes = {

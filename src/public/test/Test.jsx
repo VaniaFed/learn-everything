@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import { v4 } from 'uuid';
 
+
 import Title from '../common/Title';
-import TestItem from './TestItem';
+import Row from './row/Row';
 import Button from '../common/Button';
+
+import css from './test.module.sass';
+console.log(css);
 
 class Test extends Component {
   constructor(props) {
@@ -67,10 +70,10 @@ class Test extends Component {
     const { checkAllAnswers, changeCards } = this;
     return (
       <div>
-        <Title title={title} />
-        <div className="test-items">
+        <Title className={css.title} title={title} />
+        <div className={css.items}>
           {cards.map((card, i) =>
-            <TestItem key={i}
+            <Row key={i}
                       questionText={card.question}
                       onChange={(userAnswer) => changeCards(card.id, userAnswer)}
             />
@@ -80,11 +83,6 @@ class Test extends Component {
       </div>
     )
   }
-}
-
-Test.propTypes = {
-  title: PropTypes.string,
-  questionsLIst: PropTypes.array,
 }
 
 render(

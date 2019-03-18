@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Answer from './Answer';
-import Question from './Question';
+import Answer from '../answer/Answer';
+import Question from '../question/Question';
 
 class TestItem extends Component {
   constructor(props) {

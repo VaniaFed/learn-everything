@@ -10,14 +10,14 @@ const images = require('./webpack/images');
 
 module.exports = {
   entry: {
-    // app: './src/public/components/App.jsx',
-    test: './src/public/components/test/Test.jsx',
-    manageLists: './src/public/components/manageLists/ManageLists.jsx',
-    manageCards: './src/public/components/manageCards/ManageCards.jsx',
-    index: './src/public/js/index.js',
-    // remember: './src/public/components/remember/Remember.jsx',
-    registration: './src/public/components/Modal/ModalRegistration.jsx',
-    authorization: './src/public/components/Modal/ModalAuthorization.jsx',
+    // app: './src/public/App.jsx',
+    test: './src/public/test/Test.jsx',
+    // manageLists: './src/public/manageLists/ManageLists.jsx',
+    // manageCards: './src/public/manageCards/ManageCards.jsx',
+    // index: './src/public/js/index.js',
+    // remember: './src/public/remember/Remember.jsx',
+    // registration: './src/public/Modal/ModalRegistration.jsx',
+    // authorization: './src/public/Modal/ModalAuthorization.jsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),

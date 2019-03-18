@@ -3,9 +3,14 @@ module.exports = {
   test: /\.sass$/,
   use: [
     'style-loader',
-    MiniCssExtractPlugin.loader, 
-    'css-loader',
+    // MiniCssExtractPlugin.loader, 
+    {
+      loader: 'css-loader',
+      options: {
+        modules: true,
+      }
+    },
     'sass-loader',
-    'postcss-loader',
+    // 'postcss-loader',
   ],
 };
