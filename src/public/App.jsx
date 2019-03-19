@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { HashRouter, Route } from 'react-router-dom';
+import { HashRouter, Route, Switch, BrowserRouter } from 'react-router-dom';
 
 import Header from './header/Header';
 import Test from './test/Test';
-import ManageLists from './decks/Decks';
+import Decks from './decks/Decks';
 import Revise from './revise/Revise';
+import Whoops404 from './whoops404/Whoops404';
 // import Footer from './footer/Footer';
 
 class App extends Component {
@@ -16,10 +17,14 @@ class App extends Component {
     return (
       <HashRouter>
         <Header />
-        <Route path="/test" component={Test} />
-        <Route path="/decks" component={ManageLists} />
-        <Route path="/revise" component={Revise} />
-        {/* <Footer /> */}
+        <Switch>
+          <Route exact path="/" component={Decks} />
+          <Route path="/test" component={Test} />
+          <Route path="/decks" component={Decks} />
+          <Route path="/revise" component={Revise} />
+          <Route component={Whoops404} />
+          {/* <Footer /> */}
+        </Switch>
       </HashRouter>
     )
   }

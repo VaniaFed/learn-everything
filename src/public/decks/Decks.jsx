@@ -63,6 +63,7 @@ class Decks extends Component {
     const { addList, deleteList } = this;
     return (
       <div className="container">
+        <h1>Decks</h1>
         <div className={css.lists}>
           {lists.map((list, i) => 
             <List key={list.id} name={list.name} quantity={list.quantity} onDelete={() => deleteList(list.id)} />
