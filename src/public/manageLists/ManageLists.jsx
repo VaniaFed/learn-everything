@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { render } from 'react-dom';
 import { v4 } from 'uuid';
 
 import List from './List.jsx';
@@ -73,7 +72,4 @@ class ManageLists extends Component {
   }
 }
 
-render(
-  <ManageLists />,
-  document.querySelector('#manage-lists')
-)
+export default ManageLists;
