@@ -5,8 +5,9 @@ import css from './whoops404.module.sass';
 
 const Whoops404 = ({ location='' }) => {
   return (
-    <div className="whoops404 container">
-      <h1>Resource not found at '{location.pathname}'</h1> 
+    <div className={`${css.whoops404__Container} container`}>
+      <h1 className={css.number404}>404</h1>
+      <h1 className={css.whoops404__title}>Resource not found at '{location.pathname}'</h1> 
     </div>
   )
 }
