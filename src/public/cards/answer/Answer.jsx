@@ -23,4 +23,3 @@ Answer.propTypes = {
 }
 
 export default Answer;
-//
