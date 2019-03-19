@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import { render } from 'react-dom';
 import { v4 } from 'uuid';
 
+import css from './cards.module.sass';
+
 import Title from '../common/Title';
-import TestItem from './TestItem';
+import Row from './row/Row';
 import Button from '../common/Button';
 
-class ManageCards extends Component {
+class Cards extends Component {
   constructor(props) {
     super(props);
 
@@ -84,13 +86,13 @@ class ManageCards extends Component {
     const { title } = this.props;
     const { changeQuestion, changeAnswer, addCard, deleteCard } = this;
     return (
-      <div>
+      <div className="container">
         <Title title={title} />
-        <div className="test-items">
+        <div className={css.testItems}>
           {cards.length === 0 ?
           <h3>Тут пусто. (Создать карточку?)</h3> :
           cards.map((card, i) =>
-            <TestItem key={card.id}
+            <Row key={card.id}
                       questionText={card.question}
                       answerText={card.answer}
                       onDelete={() => deleteCard(card.id)}
@@ -108,16 +110,16 @@ class ManageCards extends Component {
   }
 }
 
-ManageCards.propTypes = {
+Cards.propTypes = {
   title: PropTypes.string,
   questionsList: PropTypes.array,
   answersList: PropTypes.array,
 }
 
-ManageCards.defaultProps = {
+Cards.defaultProps = {
   title: 'untitled list',
   questionsList: [],
   answersList: [],
 }
 
-export default ManageCards;
+export default Cards;

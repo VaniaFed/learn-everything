@@ -5,6 +5,7 @@ import Answer from '../answer/Answer';
 import Question from '../question/Question';
 
 import css from './row.module.sass';
+
 class Row extends Component {
   constructor(props) {
     super(props);
