@@ -8,8 +8,8 @@ const Question = ({ questionText='' }) => (
     <div className={css.title}>Вопрос</div> 
     <input type="text"
       className={`${css.input} ${css.no_resize}`}
-      disabled 
-      value={questionText}
+      defaultValue={questionText}
+      placeholder="Type a question"
     />
   </div>
 );

@@ -16,9 +16,10 @@ class Row extends Component {
   }
 
   render() {
-    const { questionText, onChange } = this.props;
+    const { questionText, onChange, onDelete } = this.props;
     return (
       <div className={css.item}>
+      <h3 className={css.delete} onClick={onDelete}>x</h3>
         <Question questionText={questionText} />
         <Answer onChange={onChange} />
       </div>
