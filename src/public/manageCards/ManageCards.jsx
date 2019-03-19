@@ -120,7 +120,4 @@ ManageCards.defaultProps = {
   answersList: [],
 }
 
-render(
-  <ManageCards title="Present simple" />,
-  document.querySelector('#manage-cards')
-);
+export default ManageCards;

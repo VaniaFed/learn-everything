@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 
 import css from './decks.module.sass';
 
-import List from './Deck/Deck';
+import Deck from './Deck/Deck';
 import Button from '../common/Button';
 
 class Decks extends Component {
@@ -66,7 +66,7 @@ class Decks extends Component {
         <h1>Decks</h1>
         <div className={css.lists}>
           {lists.map((list, i) => 
-            <List key={list.id} name={list.name} quantity={list.quantity} onDelete={() => deleteList(list.id)} />
+            <Deck key={list.id} id={list.id} name={list.name} quantity={list.quantity} onDelete={() => deleteList(list.id)} />
           )}
         </div>
         <Button className="default-btn" onClick={addList} content="Добавить список"/>

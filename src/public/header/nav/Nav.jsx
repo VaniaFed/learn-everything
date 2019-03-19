@@ -5,7 +5,7 @@ import css from './nav.module.sass';
 
 const Nav = () => {
   return (
-    <nav className="nav" style={{ background: '#fff', padding: '16px 20px'}}>
+    <nav className="nav">
       <ul className={css.list}>
         <li className={css.item}><Link className={css.link} to="/decks">Колоды</Link></li>
         <li className={css.item}><Link className={css.link} to="/test">Тест</Link></li>
