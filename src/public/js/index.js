@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.css';
 import '../sass/based.sass';
+import '../sass/auxiliary.sass';
 
-import React, { Component } from 'react';
+import React from 'react';
 import { render } from 'react-dom';
 import App from '../App';
 

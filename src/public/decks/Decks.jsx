@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
-import List from './List.jsx';
+import css from './decks.module.sass';
+
+import List from './Deck/Deck';
 import Button from '../common/Button';
 
-class ManageLists extends Component {
+class Decks extends Component {
   constructor(props) {
     super(props);
 
@@ -60,8 +62,8 @@ class ManageLists extends Component {
     const { lists } = this.state;
     const { addList, deleteList } = this;
     return (
-      <div>
-        <div className="lists">
+      <div className="container">
+        <div className={css.lists}>
           {lists.map((list, i) => 
             <List key={list.id} name={list.name} quantity={list.quantity} onDelete={() => deleteList(list.id)} />
           )}
@@ -72,4 +74,4 @@ class ManageLists extends Component {
   }
 }
 
-export default ManageLists;
+export default Decks;

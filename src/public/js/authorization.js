@@ -4,8 +4,8 @@ submit.addEventListener('click', (e) => {
   e.preventDefault();
   console.log('Pressed');
 
-  const form = document.querySelector('.authorization_form') as HTMLFormElement;
-  const formData = new FormData();
+  const form = document.querySelector('.authorization_form');
+  const formData = new FormData(form);
   formData.append('name', 'Ivan');
 
   console.log(formData);
