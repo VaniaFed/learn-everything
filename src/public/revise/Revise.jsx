@@ -10,7 +10,7 @@ const Revise = ({questionText='Question text', answerText='Answer text'}) => {
         <h2 className={css.remember__title}>Present Simple</h2>
         <div className={css.remember__question}>{questionText}</div>
         <button className={`${css.remember__check} button-hover`}>Проверить</button>
-        <div className={css.rememberContainer__complexity}>
+        <div className={`${css.rememberContainer__complexity} hidden`}>
           <button className={`${css.complexity__item} button-hover`}>Забыл</button>
           <button className={`${css.complexity__item} button-hover`}>Сложно</button>
           <button className={`${css.complexity__item} button-hover`}>Нормально</button>
