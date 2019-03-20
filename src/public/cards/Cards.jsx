@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { render } from 'react-dom';
 import { v4 } from 'uuid';
 
 import css from './cards.module.sass';
@@ -8,6 +7,7 @@ import css from './cards.module.sass';
 import Title from '../common/Title';
 import Row from './row/Row';
 import Button from '../common/Button';
+import CardsNav from './cardsNav/CardsNav';
 
 class Cards extends Component {
   constructor(props) {
@@ -88,6 +88,7 @@ class Cards extends Component {
     return (
       <div className="container">
         <Title title={title} />
+        <CardsNav />        
         <div className={css.testItems}>
           {cards.length === 0 ?
           <h3>Тут пусто. (Создать карточку?)</h3> :

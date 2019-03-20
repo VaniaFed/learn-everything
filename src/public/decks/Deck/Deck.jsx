@@ -18,12 +18,12 @@ class Deck extends Component {
   render() {
     const { id, quantity, name, onDelete } = this.props;
     return (
-      <div className={css.cardItem}>
-        <Link to='/deck' className={`${css.card__link} button-hover`}>
-          <div className={css.card__quantity}>{quantity} комбинаций</div> 
+      <div className={css.item}>
+        <Link to='/deck' className={`${css.link} button-hover`}>
+          <div className={css.quantity}>{quantity} комбинаций</div> 
           <div className="card__name" style={this.style}>{name}</div> 
         </Link> 
-        <a href="#" className={`${css.card__delete} button-hover`} onClick={onDelete}>Удалить</a>
+        <a href="#" className={`${css.delete} button-hover`} onClick={onDelete} onMouseDown={() => false}>Удалить</a>
       </div>
     )
   }
