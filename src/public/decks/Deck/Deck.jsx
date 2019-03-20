@@ -19,7 +19,7 @@ class Deck extends Component {
     const { id, quantity, name, onDelete } = this.props;
     return (
       <div className={css.item}>
-        <Link to='/deck' className={`${css.link} button-hover`}>
+        <Link to='/cards' className={`${css.link} button-hover`}>
           <div className={css.quantity}>{quantity} комбинаций</div> 
           <div className="card__name" style={this.style}>{name}</div> 
         </Link> 
