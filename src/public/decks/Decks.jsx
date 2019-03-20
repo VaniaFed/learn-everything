@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 import css from './decks.module.sass';
