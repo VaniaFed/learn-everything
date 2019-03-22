@@ -8,7 +8,7 @@ import Cards from './cards/Cards';
 import Revise from './revise/Revise';
 import Whoops404 from './whoops404/Whoops404';
 // import Footer from './footer/Footer';
-import './reducers';
+import './store';
 
 class App extends Component {
   constructor(props) {
