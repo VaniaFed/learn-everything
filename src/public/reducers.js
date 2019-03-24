@@ -8,6 +8,8 @@ export const user = (state={}, action) => {
         ...state,
         userName
       }
+    default:
+      return state;
   }
 }
 
@@ -27,7 +29,7 @@ export const card = (state={}, action) => {
   }
 }
 
-export const deck = (state=[], action) => {
+export const cards = (state=[], action) => {
   const { type, id, title, quantityCards } = action;
   switch(type) {
     case C.ADD_CARD:
@@ -41,6 +43,8 @@ export const deck = (state=[], action) => {
         title,
         quantityCards,
       }
+    default:
+      return state;
   }
 }
 
@@ -50,15 +54,17 @@ export const decks = (state=[], action) => {
     case C.ADD_DECK:
       return [
         ...state,
-        deck({}, action)
+        cards({}, action)
       ]
     case C.REMOVE_DECK:
       return state.filter( deck =>  deck.id !== id);
       // TODO: нужно также удалить все карточки, ссылающиеся на deck
-
+    default:
+      return state;
   }
 }
 
+// examples of state changes
 // let state = [
 //   {
 //     id: 0,
