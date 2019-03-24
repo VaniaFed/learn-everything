@@ -37,6 +37,10 @@ export const cards = (state=[], action) => {
         ...state,
         card({}, action)
       ]
+    case C.REMOVE_CARD:
+      state.map(card => console.log(card.id))
+      return state.filter( card => card.id !== id);
+      // TODO: нужно также удалить все карточки, ссылающиеся на deck
     case C.ADD_DECK:
       return {
         id,
@@ -57,7 +61,7 @@ export const decks = (state=[], action) => {
         cards({}, action)
       ]
     case C.REMOVE_DECK:
-      return state.filter( deck =>  deck.id !== id);
+      return state.filter( deck => deck.id !== id);
       // TODO: нужно также удалить все карточки, ссылающиеся на deck
     default:
       return state;
@@ -65,36 +69,36 @@ export const decks = (state=[], action) => {
 }
 
 // examples of state changes
-// let state = [
-//   {
-//     id: 0,
-//     question: 'Hello',
-//     answer: 'Привет',
-//     datePrevRevise: '2918.o3.95',
-//     dateNextRevise: '2018.93.05'
-//   },
-//   {
-//     id: 1,
-//     question: 'Hello',
-//     answer: 'Привет',
-//     datePrevRevise: '2918.o3.95',
-//     dateNextRevise: '2018.93.05'
-//   },
-//   {
-//     id: 2,
-//     question: 'Hello',
-//     answer: 'Привет',
-//     datePrevRevise: '2918.o3.95',
-//     dateNextRevise: '2018.93.05'
-//   },
-//   {
-//     id: 3,
-//     question: 'Hello',
-//     answer: 'Привет',
-//     datePrevRevise: '2918.o3.95',
-//     dateNextRevise: '2018.93.05'
-//   },
-// ]
+let state = [
+  {
+    id: 0,
+    question: 'Hello',
+    answer: 'Привет',
+    datePrevRevise: '2918.o3.95',
+    dateNextRevise: '2018.93.05'
+  },
+  {
+    id: 1,
+    question: 'Hello',
+    answer: 'Привет',
+    datePrevRevise: '2918.o3.95',
+    dateNextRevise: '2018.93.05'
+  },
+  {
+    id: 2,
+    question: 'Hello',
+    answer: 'Привет',
+    datePrevRevise: '2918.o3.95',
+    dateNextRevise: '2018.93.05'
+  },
+  {
+    id: 3,
+    question: 'Hello',
+    answer: 'Привет',
+    datePrevRevise: '2918.o3.95',
+    dateNextRevise: '2018.93.05'
+  },
+]
 
 // const cardAddAction = {
 //   type: C.ADD_CARD,
@@ -113,13 +117,13 @@ export const decks = (state=[], action) => {
 // }
 // state = decks(state, deckAddAction);
 
-// const deckRemoveAction = {
-//   type: C.REMOVE_DECK,
-//   id: 1,
+// const cardRemoveAction = {
+//   type: C.REMOVE_CARD,
+//   id: 0,
 // }
 
-// state = decks(state, deckRemoveAction);
-// console.log (state)
+// state = cards(state, cardRemoveAction);
+// console.log(state);
 
 
 

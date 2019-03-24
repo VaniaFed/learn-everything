@@ -1,7 +1,8 @@
 import { createStore, combineReducers } from 'redux';
 
 import { user, decks, cards } from './reducers';
-import C from './constants';
+import { changeUserName, addCard, removeCard, addDeck, removeDeck } from './actions';
+import './actions';
 
 const exampleState = {
   // user: {
@@ -70,7 +71,39 @@ const store = createStore(
 )
 
 store.subscribe( () => {
-  localStorage['redux-store'] = JSON.stringify( store.getState() )
+  localStorage['redux-store'] = JSON.stringify( store.getState() );
+  console.log( store.getState() );
 });
 
-console.log (store.getState() );
+const card = {
+  id: 0,
+  deckId: 1,
+  question: 'Question4',
+  answer: 'Answer4',
+  datePrevRevise: '2019.94.23',
+  dateNextRevise: '2019.40.53',
+};
+
+const myDecks = [
+  {
+    id: 0,
+    title: 'Deck1',
+    quantityCards: 26,
+  },
+  {
+    id: 1,
+    title: 'Deck1',
+    quantityCards: 12,
+  },
+  {
+    id: 2,
+    title: 'Deck2',
+    quantityCards: 3,
+  },
+]
+
+
+// myDecks.map(deck => store.dispatch( addDeck(deck) ));
+// store.dispatch( removeDeck(2) );
+// store.dispatch( addDeck() )
+// store.dispatch( addCard(card) )
