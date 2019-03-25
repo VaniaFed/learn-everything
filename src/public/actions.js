@@ -58,6 +58,16 @@ export const addDeck = (deck) => {
   )
 }
 
+export const renameDeck = (id, newDeckName) => {
+  return (
+    {
+      type: C.RENAME_DECK,
+      id,
+      newDeckName,
+    }
+  )
+}
+
 export const removeDeck = (deckId) => {
   return (
     {

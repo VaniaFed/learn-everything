@@ -57,7 +57,6 @@ export const cards = (state=[], action) => {
       return state.filter( card => card.id !== id);
     case C.CHANGE_QUESTION_CARD: 
       return card(state, action);
-        
     case C.CHANGE_ANSWER_CARD: 
       return card(state, action);
     case C.ADD_DECK:
@@ -66,6 +65,15 @@ export const cards = (state=[], action) => {
         title: title || 'untitled',
         quantityCards,
       }
+    case C.RENAME_DECK: {
+      const { newDeckName } = action;
+      if (deck.id === id) {
+        return {
+          ...state,
+          title: newDeckName,
+        }
+      }
+    }
     default:
       return state;
   }
@@ -79,6 +87,16 @@ export const decks = (state=[], action) => {
         ...state,
         cards({}, action)
       ]
+    case C.RENAME_DECK: {
+      console.log(state);
+      // state.map
+
+        return {
+          ...state,
+          title: newDeckName,
+        }
+      }
+    }
     case C.REMOVE_DECK:
       return state.filter( deck => deck.id !== id);
       // TODO: нужно также удалить все карточки, ссылающиеся на deck

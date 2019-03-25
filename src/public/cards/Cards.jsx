@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 import css from './cards.module.sass';
+import { renameDeck } from '../actions';
 
-import Title from '../common/Title';
 import Row from './row/Row';
 import Button from '../common/Button';
 import CardsNav from './cardsNav/CardsNav';
@@ -85,10 +85,20 @@ class Cards extends Component {
     const { cards } = this.state;
     const { title } = this.props;
     const { changeQuestion, changeAnswer, addCard, deleteCard } = this;
+    const { store } = this.props;
+    console.log(store.getState()); 
     return (
+      // TODO: превратить h1 в input при вводе текста изменять название deck
+      // при помощи роута достаем из URL id колоды
       <div className="container">
-        // TODO: превратить h1 в input при вводе текста изменять название deck
-        <Title title={title} />
+        <input className={css.input_deck_name}
+               defaultValue={store.getState().decks[0].title}
+               type="text"
+               onBlur={() => {
+                 console.log('hello')
+                 store.dispatch( renameDeck(store.getState().decks[0].id, 'hello') )
+               }}
+        />
         <CardsNav />        
         <div className={css.testItems}>
           {cards.length === 0 ?
