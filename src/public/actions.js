@@ -20,6 +20,24 @@ export const addCard = (card) => {
   )
 }
 
+export const changeQuestionCard = (card, newQuestion) => {
+  return (
+    {
+      type: C.CHANGE_QUESTION_CARD,
+      ...card,
+      question: newQuestion
+    }
+  )
+}
+export const changeAnswerCard = (card, newAnswer) => {
+  return (
+    {
+      type: C.CHANGE_ANSWER_CARD,
+      ...card,
+      answer: newAnswer
+    }
+  )
+}
 export const removeCard = (cardId) => {
   return (
     {
