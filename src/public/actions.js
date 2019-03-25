@@ -1,4 +1,5 @@
 import C from './constants';
+import { v4 } from 'uuid';
 
 export const changeUserName = (userName) => {
   return (
@@ -13,6 +14,7 @@ export const addCard = (card) => {
   return (
     {
       type: C.ADD_CARD,
+      id: v4(),
       ...card,
     }
   )
@@ -31,6 +33,8 @@ export const addDeck = (deck) => {
   return (
     {
       type: C.ADD_DECK,
+      id: v4(),
+      quantityCards: 0,
       ...deck,
     }
   )

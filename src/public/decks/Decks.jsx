@@ -1,74 +1,40 @@
 import React, { Component } from 'react';
-import { v4 } from 'uuid';
 
 import css from './decks.module.sass';
 
 import Deck from './Deck/Deck';
 import Button from '../common/Button';
+import { removeDeck, addDeck } from '../actions';
 
 class Decks extends Component {
   constructor(props) {
     super(props);
-
-    this.addList = this.addList.bind(this);
-    this.deleteList = this.deleteList.bind(this);
-    this.state = {
-      lists: [
-        {
-          'id': v4(),
-          'name': 'list',
-          'quantity': 0,
-        },
-        {
-          'id': v4(),
-          'name': 'future simple',
-          'quantity': 14,
-        },
-        {
-          'id': v4(),
-          'name': 'Complex object',
-          'quantity': 53,
-        },
-      ],
-    }
-  }
-
-  addList() {
-    const lists = [
-      ...this.state.lists,
-      {
-        'id': v4(),
-        'name': 'noname',
-        'quantity': 0
-      }
-    ]
-
-    this.setState({ lists });
-
-  }
-
-  componentDidUpdate() {
-    console.log('updated');
-  }
-
-  deleteList(id) {
-    this.setState(prevState => ({
-      lists: prevState.lists.filter(list => list.id !== id)
-    }));
+    console.log(props);
   }
 
   render() {
-    const { lists } = this.state;
-    const { addList, deleteList } = this;
+    const { store } = this.props;
     return (
       <div className="container">
         <h1>Decks</h1>
         <div className={css.lists}>
-          {lists.map((list, i) => 
-            <Deck key={list.id} id={list.id} name={list.name} quantity={list.quantity} onDelete={() => deleteList(list.id)} />
+          {store.getState().decks.map((deck, i) => 
+            <Deck key={deck.id}
+                  id={deck.id}
+                  name={deck.name}
+                  quantity={deck.quantity}
+                  onDelete={() => {
+                    // TODO: I stopped here.
+                    store.dispatch( removeDeck(deck.id) )
+                  }}
+            />
           )}
         </div>
-        <Button className="default-btn" onClick={addList} content="Добавить список"/>
+        <Button className="default-btn"
+                onClick={() => {
+                  store.dispatch( addDeck() )
+                }} 
+                content="Добавить список"/>
       </div>
     )
   }

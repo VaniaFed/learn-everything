@@ -8,7 +8,6 @@ import Cards from './cards/Cards';
 import Revise from './revise/Revise';
 import Whoops404 from './whoops404/Whoops404';
 // import Footer from './footer/Footer';
-import './store';
 
 class App extends Component {
   constructor(props) {
@@ -16,11 +15,12 @@ class App extends Component {
   }
 
   render() {
+    const { store } = this.props;
     return (
       <HashRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={Decks} />
+          <Route exact path="/" component={() => <Decks store={store} />} />
           <Route path="/test" component={Test} />
           <Route path="/decks" component={Decks} />
           <Route path="/cards" component={Cards} />
