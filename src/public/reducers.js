@@ -43,7 +43,7 @@ export const cards = (state=[], action) => {
     case C.ADD_DECK:
       return {
         id,
-        title,
+        title: title || 'untitled',
         quantityCards,
       }
     default:

@@ -21,8 +21,8 @@ class Decks extends Component {
           {store.getState().decks.map((deck, i) => 
             <Deck key={deck.id}
                   id={deck.id}
-                  name={deck.name}
-                  quantity={deck.quantity}
+                  name={deck.title}
+                  quantity={deck.quantityCards}
                   onDelete={() => {
                     // TODO: I stopped here.
                     store.dispatch( removeDeck(deck.id) )
