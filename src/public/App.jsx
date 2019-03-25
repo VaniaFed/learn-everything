@@ -22,8 +22,8 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={() => <Decks store={store} />} />
           <Route path="/test" component={Test} />
-          <Route path="/decks" component={Decks} />
-          <Route path="/cards" component={Cards} />
+          <Route exact path="/decks" component={() => <Decks store={store} />} />
+          <Route path="/cards" component={() => <Cards store={store} />} />
           <Route path="/revise" component={Revise} />
           <Route component={Whoops404} />
           {/* <Footer /> */}

@@ -14,9 +14,9 @@ export const user = (state={}, action) => {
 }
 
 export const card = (state={}, action) => {
-  const { type, id, question, answer, datePrevRevise, dateNextRevise } = action;
-  switch(type) {
-    case C.ADD_CARD:
+  switch(action.type) {
+    case C.ADD_CARD: {
+      const { id, question, answer, datePrevRevise, dateNextRevise } = action;
       return {
         id,
         question,
@@ -24,6 +24,21 @@ export const card = (state={}, action) => {
         datePrevRevise,
         dateNextRevise
       }
+    }
+    case C.CHANGE_QUESTION_CARD: {
+      const { newQuestion } = action;
+      return {
+        ...state,
+        question: newQuestion
+      }
+    }
+    case C.CHANGE_ANSWER_CARD: {
+      const { newAnswer } = action;
+      return {
+        ...state,
+        answer: newAnswer
+      }
+    }
     default:
       return state;
   }
@@ -40,6 +55,11 @@ export const cards = (state=[], action) => {
     case C.REMOVE_CARD:
       state.map(card => console.log(card.id))
       return state.filter( card => card.id !== id);
+    case C.CHANGE_QUESTION_CARD: 
+      return card(state, action);
+        
+    case C.CHANGE_ANSWER_CARD: 
+      return card(state, action);
     case C.ADD_DECK:
       return {
         id,

@@ -1,5 +1,7 @@
 import { createStore, combineReducers } from 'redux';
 import { user, decks, cards } from './reducers';
+import { changeQuestionCard } from './actions';
+import C from './constants';
 // import { changeUserName, addCard, removeCard, addDeck, removeDeck } from './actions';
 
 const store = createStore(

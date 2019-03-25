@@ -87,6 +87,7 @@ class Cards extends Component {
     const { changeQuestion, changeAnswer, addCard, deleteCard } = this;
     return (
       <div className="container">
+        // TODO: превратить h1 в input при вводе текста изменять название deck
         <Title title={title} />
         <CardsNav />        
         <div className={css.testItems}>
@@ -97,6 +98,7 @@ class Cards extends Component {
                       questionText={card.question}
                       answerText={card.answer}
                       onDelete={() => deleteCard(card.id)}
+                      // TODO: сделать изменение вопроса / ответа карточки при вводе в инпут
                       onChangeQuestion={(newQuestion) => changeQuestion(card.id, newQuestion)}          
                       onChangeAnswer={(newAnswer) => changeAnswer(card.id, newAnswer)}          
             />
