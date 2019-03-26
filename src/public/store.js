@@ -1,8 +1,5 @@
 import { createStore, combineReducers } from 'redux';
 import { user, decks, cards } from './reducers';
-import { addDeck, renameDeck, addCard } from './actions';
-// import { changeUserName, addCard, removeCard, addDeck, removeDeck } from './actions';
-// delete localStorage['redux-learn-everything'];
 const store = createStore(
   combineReducers({ user, decks, cards }),
   (localStorage['redux-learn-everything']) ?
@@ -15,6 +12,7 @@ store.subscribe( () => {
   console.log( store.getState() );
 });
 
+export default store;
 
 // const myCards =  [
 //   {
@@ -73,7 +71,6 @@ store.subscribe( () => {
 // store.dispatch( renameDeck(1, 'hello') );
 // console.log( store.getState() )
 
-export default store;
 
 // const exampleState = {
   // user: {
