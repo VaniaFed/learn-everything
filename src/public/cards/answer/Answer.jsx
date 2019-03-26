@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import css from './answer.module.sass';
 
-const Answer = ({ onChange=f=>f }) => {
+const Answer = ({ answerText='', onChange=f=>f }) => {
   const userAnswer = React.createRef();
   return (
     <div className={css.answer__bg}>
@@ -11,7 +11,10 @@ const Answer = ({ onChange=f=>f }) => {
       <textarea
         className={`${css.input} ${css.no_resize}`}
         ref={userAnswer}
-        onChange={() => onChange(userAnswer.current.value)}
+        defaultValue={answerText}
+        onBlur={() => {
+          onChange(userAnswer.current.value)
+        }}
         placeholder="Type an answer..."
       />
     </div>

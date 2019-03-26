@@ -28,18 +28,17 @@ const card = (state={}, action) => {
         dateNextRevise
       }
     }
-    case C.CHANGE_QUESTION_CARD: {
-      const { newQuestion } = action;
+    case C.CHANGE_QUESTION: {
       return {
         ...state,
-        question: newQuestion
+        question
       }
     }
-    case C.CHANGE_ANSWER_CARD: {
-      const { newAnswer } = action;
+    case C.CHANGE_ANSWER: {
+      const { answer } = action;
       return {
         ...state,
-        answer: newAnswer
+        answer
       }
     }
     default:
@@ -58,10 +57,18 @@ export const cards = (state=[], action) => {
       const { id } = action;
       return state.filter( card => card.id !== id);
     }
-    case C.CHANGE_QUESTION_CARD: 
+    case C.CHANGE_QUESTION: 
       return card(state, action);
-    case C.CHANGE_ANSWER_CARD: 
+    case C.CHANGE_ANSWER: {
+      const { id } = action;
+      return state.map(oneCard => {
+        return (oneCard.id === id) ?
+          card(oneCard, action) :
+          oneCard
+
+      })
       return card(state, action);
+    } 
     default:
       return state;
   }

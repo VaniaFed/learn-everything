@@ -10,31 +10,34 @@ export const changeUserName = (userName) => {
   )
 }
 
-export const addCard = (card) => {
+export const addCard = () => {
   return (
     {
       type: C.ADD_CARD,
       id: v4(),
-      ...card,
+      question: '',
+      answer: '',
+      datePrevRevise: '',
+      dateNextRevise: '',
     }
   )
 }
 
-export const changeQuestionCard = (card, newQuestion) => {
+export const changeQuestion = (id, question) => {
   return (
     {
-      type: C.CHANGE_QUESTION_CARD,
-      ...card,
-      question: newQuestion
+      type: C.CHANGE_QUESTION,
+      id,
+      question,
     }
   )
 }
-export const changeAnswerCard = (card, newAnswer) => {
+export const changeAnswer = (id, answer) => {
   return (
     {
-      type: C.CHANGE_ANSWER_CARD,
-      ...card,
-      answer: newAnswer
+      type: C.CHANGE_ANSWER,
+      id,
+      answer,
     }
   )
 }

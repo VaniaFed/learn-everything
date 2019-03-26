@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 import css from './cards.module.sass';
-import { renameDeck, removeCard, addCard } from '../actions';
+import { renameDeck, removeCard, addCard, changeQuestion, changeAnswer } from '../actions';
 
 import Row from './row/Row';
 import Button from '../common/Button';
@@ -19,7 +19,7 @@ class Cards extends Component {
     // TODO: title нужно будет получать из deck, где id = idDeck
     const state = this.props.store.getState();
     const { store } = this.props;
-    console.log(state); 
+    console.log(state.cards); 
     return (
       // TODO: превратить h1 в input при вводе текста изменять название deck
       // при помощи роута достаем из URL id колоды
@@ -42,8 +42,8 @@ class Cards extends Component {
                       answerText={card.answer}
                       onDelete={() => store.dispatch( removeCard(card.id) )}
                       // TODO: сделать изменение вопроса / ответа карточки при вводе в инпут
-                      // onChangeQuestion={(newQuestion) => changeQuestion(card.id, newQuestion)}          
-                      // onChangeAnswer={(newAnswer) => changeAnswer(card.id, newAnswer)}          
+                      onChangeQuestion={(newQuestion) => { console.log(card.id); store.dispatch( changeQuestion(card.id, newQuestion) )}}
+                      onChangeAnswer={(newAnswer) => { console.log(card.id); store.dispatch( changeAnswer(card.id, newAnswer) )}}          
             />
           )}
           <Button className="default-btn"
