@@ -16,12 +16,12 @@ class Deck extends Component {
   }
 
   render() {
-    const { id, quantity, name, onDelete } = this.props;
+    const { id, quantity, title, onDelete } = this.props;
     return (
       <div className={css.item}>
         <Link to='/cards' className={`${css.link} button-hover`}>
           <div className={css.quantity}>{quantity} комбинаций</div> 
-          <div className="card__name" style={this.style}>{name}</div> 
+          <div className="card__name" style={this.style}>{title}</div> 
         </Link> 
         <a href="#" className={`${css.delete} button-hover`} onClick={onDelete} onMouseDown={() => false}>Удалить</a>
       </div>
