@@ -47,13 +47,13 @@ export const removeCard = (cardId) => {
   )
 }
 
-export const addDeck = (deck) => {
+export const addDeck = () => {
   return (
     {
       type: C.ADD_DECK,
       id: v4(),
+      title: 'Untitled Deck',
       quantityCards: 0,
-      ...deck,
     }
   )
 }

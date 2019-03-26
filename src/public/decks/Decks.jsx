@@ -26,7 +26,6 @@ class Decks extends Component {
                     title={deck.title}
                     quantity={deck.quantityCards}
                     onDelete={() => {
-                      // TODO: I stopped here.
                       store.dispatch( removeDeck(deck.id) )
                     }}
               />
@@ -35,7 +34,7 @@ class Decks extends Component {
         </div>
         <Button className="default-btn"
                 onClick={() => {
-                  // store.dispatch( addDeck() )
+                  store.dispatch( addDeck() )
                 }} 
                 content="Добавить список"/>
       </div>
