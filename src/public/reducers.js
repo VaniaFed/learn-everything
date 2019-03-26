@@ -1,19 +1,22 @@
 import C from './constants';
+import { renameDeck } from './actions';
 
 export const user = (state={}, action) => {
-  const { type, userName } = action;
-  switch(type) {
-    case C.CHANGE_USERNAME:
+  switch(action.type) {
+    case C.CHANGE_USERNAME: {
+      const { userName } = action;
       return {
         ...state,
         userName
       }
+
+    }
     default:
       return state;
   }
 }
 
-export const card = (state={}, action) => {
+const card = (state={}, action) => {
   switch(action.type) {
     case C.ADD_CARD: {
       const { id, question, answer, datePrevRevise, dateNextRevise } = action;
@@ -45,33 +48,40 @@ export const card = (state={}, action) => {
 }
 
 export const cards = (state=[], action) => {
-  const { type, id, title, quantityCards } = action;
-  switch(type) {
+  switch(action.type) {
     case C.ADD_CARD:
       return [
         ...state,
         card({}, action)
       ]
-    case C.REMOVE_CARD:
-      state.map(card => console.log(card.id))
+    case C.REMOVE_CARD: {
+      const { id } = action;
       return state.filter( card => card.id !== id);
+    }
     case C.CHANGE_QUESTION_CARD: 
       return card(state, action);
     case C.CHANGE_ANSWER_CARD: 
       return card(state, action);
-    case C.ADD_DECK:
+    default:
+      return state;
+  }
+}
+
+const deck = (state={}, action) => {
+  switch(action.type) {
+    case C.ADD_DECK: {
+      const { id, title, quantityCards } = action;
       return {
         id,
         title: title || 'untitled',
         quantityCards,
       }
+    }
     case C.RENAME_DECK: {
       const { newDeckName } = action;
-      if (deck.id === id) {
-        return {
-          ...state,
-          title: newDeckName,
-        }
+      return {
+        ...state,
+        title: newDeckName,
       }
     }
     default:
@@ -85,20 +95,17 @@ export const decks = (state=[], action) => {
     case C.ADD_DECK:
       return [
         ...state,
-        cards({}, action)
+        deck({}, action)
       ]
     case C.RENAME_DECK: {
-      console.log(state);
-      // state.map
-
-        return {
-          ...state,
-          title: newDeckName,
-        }
-      }
+       return state.map(oneDeck => {
+        return (oneDeck.id === id) ?
+          deck(oneDeck, action) :
+          oneDeck
+      });
     }
     case C.REMOVE_DECK:
-      return state.filter( deck => deck.id !== id);
+      return state.filter( oneDeck => oneDeck.id !== id);
       // TODO: нужно также удалить все карточки, ссылающиеся на deck
     default:
       return state;
@@ -137,6 +144,29 @@ export const decks = (state=[], action) => {
   // },
 // ]
 
+// const myDecks = [
+//   {
+//     id: 0,
+//     title: 'Deck1',
+//     quantityCards: 26,
+//   },
+//   {
+//     id: 1,
+//     title: 'Deck1',
+//     quantityCards: 12,
+//   },
+//   {
+//     id: 2,
+//     title: 'Deck2',
+//     quantityCards: 3,
+//   },
+// ]
+// const actionRenameDeck = {
+//   type: C.RENAME_DECK,
+//   newDeckName: 'New deck name!!!',
+//   id: 1,
+// }
+// console.log( decks(myDecks, actionRenameDeck) );
 // const cardAddAction = {
 //   type: C.ADD_CARD,
 //   id: 4,
