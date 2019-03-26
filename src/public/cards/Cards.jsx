@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 import css from './cards.module.sass';
-import { renameDeck, removeCard } from '../actions';
+import { renameDeck, removeCard, addCard } from '../actions';
 
 import Row from './row/Row';
 import Button from '../common/Button';
@@ -48,7 +48,7 @@ class Cards extends Component {
           )}
           <Button className="default-btn"
                   content="Add new Card"
-                  // onClick={addCard}
+                  onClick={ () => store.dispatch( addCard({}) ) }
           />
         </div>
       </div>
