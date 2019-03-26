@@ -29,6 +29,7 @@ const card = (state={}, action) => {
       }
     }
     case C.CHANGE_QUESTION: {
+      const { question } = action;
       return {
         ...state,
         question
@@ -57,17 +58,21 @@ export const cards = (state=[], action) => {
       const { id } = action;
       return state.filter( card => card.id !== id);
     }
-    case C.CHANGE_QUESTION: 
-      return card(state, action);
+    case C.CHANGE_QUESTION: {
+      const { id } = action;
+      return state.map(oneCard => {
+        return (oneCard.id === id) ?
+          card(oneCard, action) :
+          oneCard
+      });
+    }
     case C.CHANGE_ANSWER: {
       const { id } = action;
       return state.map(oneCard => {
         return (oneCard.id === id) ?
           card(oneCard, action) :
           oneCard
-
-      })
-      return card(state, action);
+      });
     } 
     default:
       return state;

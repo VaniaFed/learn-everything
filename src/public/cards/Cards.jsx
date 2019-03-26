@@ -42,8 +42,8 @@ class Cards extends Component {
                       answerText={card.answer}
                       onDelete={() => store.dispatch( removeCard(card.id) )}
                       // TODO: сделать изменение вопроса / ответа карточки при вводе в инпут
-                      onChangeQuestion={(newQuestion) => { console.log(card.id); store.dispatch( changeQuestion(card.id, newQuestion) )}}
-                      onChangeAnswer={(newAnswer) => { console.log(card.id); store.dispatch( changeAnswer(card.id, newAnswer) )}}          
+                      onChangeQuestion={(newQuestion) => { console.log(newQuestion); store.dispatch( changeQuestion(card.id, newQuestion) )}}
+                      onChangeAnswer={(newAnswer) => { console.log(newAnswer); store.dispatch( changeAnswer(card.id, newAnswer) )}}          
             />
           )}
           <Button className="default-btn"
