@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 import css from './cards.module.sass';
-import { renameDeck } from '../actions';
+import { renameDeck, removeCard } from '../actions';
 
 import Row from './row/Row';
 import Button from '../common/Button';
@@ -16,8 +16,9 @@ class Cards extends Component {
 
   render() {
     const { title } = this.props;
-    const { changeQuestion, changeAnswer, addCard, deleteCard } = this;
+    // TODO: title нужно будет получать из deck, где id = idDeck
     const state = this.props.store.getState();
+    const { store } = this.props;
     console.log(state); 
     return (
       // TODO: превратить h1 в input при вводе текста изменять название deck
@@ -28,10 +29,10 @@ class Cards extends Component {
                type="text"
                onBlur={() => {
                  console.log('hello')
-                 store.dispatch( renameDeck(state.decks[0].id, 'hello') )
+                //  store.dispatch( renameDeck(state.decks[0].id, 'hello') )
                }}
         />
-        <CardsNav />        
+        <CardsNav />
         <div className={css.testItems}>
           {state.cards.length === 0 ?
           <h3>Тут пусто. (Создать карточку?)</h3> :
@@ -39,15 +40,15 @@ class Cards extends Component {
             <Row key={card.id}
                       questionText={card.question}
                       answerText={card.answer}
-                      onDelete={() => deleteCard(card.id)}
+                      onDelete={() => store.dispatch( removeCard(card.id) )}
                       // TODO: сделать изменение вопроса / ответа карточки при вводе в инпут
-                      onChangeQuestion={(newQuestion) => changeQuestion(card.id, newQuestion)}          
-                      onChangeAnswer={(newAnswer) => changeAnswer(card.id, newAnswer)}          
+                      // onChangeQuestion={(newQuestion) => changeQuestion(card.id, newQuestion)}          
+                      // onChangeAnswer={(newAnswer) => changeAnswer(card.id, newAnswer)}          
             />
           )}
           <Button className="default-btn"
                   content="Add new Card"
-                  onClick={addCard}
+                  // onClick={addCard}
           />
         </div>
       </div>
