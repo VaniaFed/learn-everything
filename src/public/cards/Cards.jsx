@@ -3,11 +3,10 @@ import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
 import css from './cards.module.sass';
-import { renameDeck, removeCard, addCard, changeQuestion, changeAnswer } from '../actions';
+import { renameDeck } from '../actions';
 
-import Row from './row/Row';
-import Button from '../common/Button';
 import CardsNav from './cardsNav/CardsNav';
+import CardsContainer from './CardsContainer/CardsContainer';
 
 class Cards extends Component {
   constructor(props) {
@@ -15,57 +14,34 @@ class Cards extends Component {
   }
 
   render() {
-    const { title } = this.props;
-    // TODO: title нужно будет получать из deck, где id = idDeck
     const state = this.props.store.getState();
     const { store } = this.props;
-    console.log(state.cards); 
     return (
-      // TODO: превратить h1 в input при вводе текста изменять название deck
-      // при помощи роута достаем из URL id колоды
+      // TODO: title нужно будет получать из deck, где id = idDeck
+      // TODO: при помощи роута достаем из URL id колоды
       <div className="container">
         <input className={css.input_deck_name}
-               defaultValue={title}
+               defaultValue={state.decks[0].title}
                type="text"
-               onBlur={() => {
-                 console.log('hello')
-                //  store.dispatch( renameDeck(state.decks[0].id, 'hello') )
+               onBlur={(e) => {
+                 const newName = e.target.value
+                 store.dispatch( renameDeck(state.decks[0].id, newName) )
                }}
+               onMouseOver={(e) => e.target.focus() }
         />
         <CardsNav />
-        <div className={css.testItems}>
-          {state.cards.length === 0 ?
-          <h3>Тут пусто. (Создать карточку?)</h3> :
-          state.cards.map((card, i) =>
-            <Row key={card.id}
-                      questionText={card.question}
-                      answerText={card.answer}
-                      onDelete={() => store.dispatch( removeCard(card.id) )}
-                      // TODO: сделать изменение вопроса / ответа карточки при вводе в инпут
-                      onChangeQuestion={(newQuestion) => { console.log(newQuestion); store.dispatch( changeQuestion(card.id, newQuestion) )}}
-                      onChangeAnswer={(newAnswer) => { console.log(newAnswer); store.dispatch( changeAnswer(card.id, newAnswer) )}}          
-            />
-          )}
-          <Button className="default-btn"
-                  content="Add new Card"
-                  onClick={ () => store.dispatch( addCard({}) ) }
-          />
-        </div>
+        <CardsContainer store={store} />
       </div>
     )
   }
 }
 
 Cards.propTypes = {
-  title: PropTypes.string,
-  questionsList: PropTypes.array,
-  answersList: PropTypes.array,
+  store: PropTypes.object,
 }
 
 Cards.defaultProps = {
-  title: 'untitled list',
-  questionsList: [],
-  answersList: [],
+  store: {},
 }
 
 export default Cards;

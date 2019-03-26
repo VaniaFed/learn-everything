@@ -6,7 +6,10 @@ import css from './question.module.sass';
 const Question = ({ questionText='', onChange=f=>f }) => {
   const questionValue = React.createRef();
   return (
-    <div className={css.question__bg}>
+    <div className={css.question__bg} 
+         onMouseOver={() => questionValue.current.focus() }
+         onMouseOut={() => questionValue.current.blur() } 
+    >
       <div className={css.title}>Вопрос</div> 
       <input type="text"
         className={`${css.input} ${css.no_resize}`}

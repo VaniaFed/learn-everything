@@ -12,7 +12,7 @@ class Row extends Component {
   }
 
   shouldComponentUpdate(nextProps) {
-    return this.props.questionText !== nextProps.questionText;
+    return this.props.store.decks !== nextProps.store.decks;
   }
 
   render() {
