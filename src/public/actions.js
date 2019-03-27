@@ -10,7 +10,7 @@ export const changeUserName = (userName) => {
   )
 }
 
-export const addCard = () => {
+export const addCard = (deckId) => {
   return (
     {
       type: C.ADD_CARD,
@@ -19,6 +19,7 @@ export const addCard = () => {
       answer: '',
       datePrevRevise: '',
       dateNextRevise: '',
+      deckId,
     }
   )
 }
@@ -32,6 +33,7 @@ export const changeQuestion = (id, question) => {
     }
   )
 }
+
 export const changeAnswer = (id, answer) => {
   return (
     {
@@ -41,6 +43,7 @@ export const changeAnswer = (id, answer) => {
     }
   )
 }
+
 export const removeCard = (cardId) => {
   return (
     {

@@ -6,13 +6,12 @@ import Button from '../../common/Button';
 import css from './CardsContainer.module.sass';
 import { removeCard, addCard, changeQuestion, changeAnswer } from '../../actions';
 
-const CardsContainer = ({ store={} }) => {
-  const state = store.getState();
+const CardsContainer = ({ store={}, cards=[], deckId=-1 }) => {
   return (
     <div className={css.container}>
-      {state.cards.length === 0 ?
+      {cards.length === 0 ?
         <h3>Тут пусто. (Создать карточку?)</h3> :
-        state.cards.map((card, i) =>
+        cards.map((card, i) =>
           <Row key={card.id}
                     questionText={card.question}
                     answerText={card.answer}
@@ -22,8 +21,8 @@ const CardsContainer = ({ store={} }) => {
           />
         )}
       <Button className="default-btn"
-              content="Add new Card"
-              onClick={ () => store.dispatch( addCard() ) }
+              content="Добавить карточку"
+              onClick={ () => store.dispatch( addCard(deckId) ) }
       />
     </div>
   )

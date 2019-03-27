@@ -23,7 +23,7 @@ class Deck extends Component {
           <div className={css.quantity}>{quantity} комбинаций</div> 
           <div className="card__name" style={this.style}>{title}</div> 
         </Link> 
-        <a href="#" className={`${css.delete} button-hover`} onClick={onDelete} onMouseDown={() => false}>Удалить</a>
+        <a href="#" className={`${css.delete} button-hover`} onClick={onDelete}>Удалить</a>
       </div>
     )
   }

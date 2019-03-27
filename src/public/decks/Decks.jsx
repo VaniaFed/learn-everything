@@ -14,29 +14,36 @@ class Decks extends Component {
   render() {
     const state = this.props.store.getState(); 
     const { store } = this.props;
+
     return (
 
       <div className="container">
-        <h1>Decks</h1>
-        <div className={css.lists}>
-          {state.decks.map((deck, i) => {
-            return (
-              <Deck key={deck.id}
-                    id={deck.id}
-                    title={deck.title}
-                    quantity={deck.quantityCards}
-                    onDelete={() => {
-                      store.dispatch( removeDeck(deck.id) )
-                    }}
-              />
-            )
-          })}
-        </div>
+        <h1>Колоды</h1>
+        {(state.decks.length > 0) ?
+          <div className={css.lists}>
+            {state.decks.map((deck, i) => {
+              const filteredCards = state.cards.filter(card => card.deckId === deck.id);
+              const quantityCards = filteredCards.length;
+              return (
+                <Deck key={deck.id}
+                      id={deck.id}
+                      title={deck.title}
+                      quantity={quantityCards}
+                      onDelete={() => {
+                        store.dispatch( removeDeck(deck.id) )
+                      }}
+                />
+              )
+            })}
+          </div>
+          :
+          null
+        }
         <Button className="default-btn"
                 onClick={() => {
                   store.dispatch( addDeck() )
                 }} 
-                content="Добавить список"/>
+                content="Добавить колоду"/>
       </div>
     )
   }

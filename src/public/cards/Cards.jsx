@@ -11,29 +11,29 @@ import CardsContainer from './CardsContainer/CardsContainer';
 class Cards extends Component {
   constructor(props) {
     super(props);
-    console.log(this.props.match.params.id);
   }
 
   render() {
     const state = this.props.store.getState();
     const { store } = this.props;
     const { id } = this.props.match.params;
-    console.log(id);
+    const currentDeck = state.decks.find(deck => deck.id === id);
+    const cards = state.cards.filter(card => card.deckId === id);
     return (
       // TODO: title нужно будет получать из deck, где id = idDeck
       // TODO: при помощи роута достаем из URL id колоды
       <div className="container">
         <input className={css.input_deck_name}
-               defaultValue={state.decks[0].title}
+               defaultValue={currentDeck.title}
                type="text"
                onBlur={(e) => {
                  const newName = e.target.value
-                 store.dispatch( renameDeck(state.decks[0].id, newName) )
+                 store.dispatch( renameDeck(id, newName) )
                }}
                onMouseOver={(e) => e.target.focus() }
         />
         <CardsNav />
-        <CardsContainer store={store} />
+        <CardsContainer store={store} cards={cards} deckId={id} />
       </div>
     )
   }
