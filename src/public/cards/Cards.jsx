@@ -11,11 +11,14 @@ import CardsContainer from './CardsContainer/CardsContainer';
 class Cards extends Component {
   constructor(props) {
     super(props);
+    console.log(this.props.match.params.id);
   }
 
   render() {
     const state = this.props.store.getState();
     const { store } = this.props;
+    const { id } = this.props.match.params;
+    console.log(id);
     return (
       // TODO: title нужно будет получать из deck, где id = idDeck
       // TODO: при помощи роута достаем из URL id колоды

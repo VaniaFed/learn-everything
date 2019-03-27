@@ -23,7 +23,7 @@ class App extends Component {
           <Route exact path="/" component={() => <Decks store={store} />} />
           <Route path="/test" component={Test} />
           <Route exact path="/decks" component={() => <Decks store={store} />} />
-          <Route path="/cards" component={() => <Cards store={store} />} />
+          <Route path="/deck/:deckId" component={() => <Cards store={store} />} />
           <Route path="/revise" component={Revise} />
           <Route component={Whoops404} />
           {/* <Footer /> */}
