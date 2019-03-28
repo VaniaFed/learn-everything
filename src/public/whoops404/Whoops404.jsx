@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import css from './whoops404.module.sass';
+import css from './whoops404.module.sass'
 
-const Whoops404 = ({ location='' }) => {
+const Whoops404 = ({ location = '' }) => {
   return (
     <div className={`${css.whoops404__Container} container`}>
       <h1 className={css.number404}>404</h1>
@@ -13,7 +13,7 @@ const Whoops404 = ({ location='' }) => {
 }
 
 Whoops404.propTypes = {
-  location: PropTypes.string,
-};
+  location: PropTypes.string
+}
 
-export default Whoops404;
+export default Whoops404

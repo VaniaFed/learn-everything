@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Row from '../row/Row'
-import Button from '../../common/Button'
+import Button from '../../common/button/Button'
 import css from './CardsContainer.module.sass'
 import { removeCard, addCard, changeQuestion, changeAnswer } from '../../actions'
 

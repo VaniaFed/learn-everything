@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-import css from './revise.module.sass';
+import css from './revise.module.sass'
 
-const Revise = ({questionText='Question text', answerText='Answer text'}) => {
+const Revise = ({ questionText = 'Question text', answerText = 'Answer text' }) => {
   return (
-    <div className="container">
+    <div className='container'>
       <main className={css.rememberContainer}>
         <h2 className={css.remember__title}>Present Simple</h2>
         <div className={css.remember__question}>{questionText}</div>
@@ -21,4 +21,9 @@ const Revise = ({questionText='Question text', answerText='Answer text'}) => {
   )
 }
 
-export default Revise;
+Revise.propTypes = {
+  questionText: PropTypes.string.isRequired,
+  answerText: PropTypes.string.isRequired
+}
+
+export default Revise

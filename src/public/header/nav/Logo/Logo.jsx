@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import css from './logo.module.sass';
+import css from './logo.module.sass'
 
 const Logo = () => {
   return (
@@ -11,5 +11,4 @@ const Logo = () => {
   )
 }
 
-export default Logo;
-
+export default Logo

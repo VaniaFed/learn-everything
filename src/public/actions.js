@@ -1,11 +1,11 @@
-import C from './constants';
-import { v4 } from 'uuid';
+import C from './constants'
+import { v4 } from 'uuid'
 
 export const changeUserName = (userName) => {
   return (
     {
       type: C.CHANGE_USERNAME,
-      userName,
+      userName
     }
   )
 }
@@ -19,7 +19,7 @@ export const addCard = (deckId) => {
       answer: '',
       datePrevRevise: '',
       dateNextRevise: '',
-      deckId,
+      deckId
     }
   )
 }
@@ -29,7 +29,7 @@ export const changeQuestion = (id, question) => {
     {
       type: C.CHANGE_QUESTION,
       id,
-      question,
+      question
     }
   )
 }
@@ -39,7 +39,7 @@ export const changeAnswer = (id, answer) => {
     {
       type: C.CHANGE_ANSWER,
       id,
-      answer,
+      answer
     }
   )
 }
@@ -48,7 +48,7 @@ export const removeCard = (cardId) => {
   return (
     {
       type: C.REMOVE_CARD,
-      id: cardId,
+      id: cardId
     }
   )
 }
@@ -59,7 +59,7 @@ export const addDeck = () => {
       type: C.ADD_DECK,
       id: v4(),
       title: 'Untitled Deck',
-      quantityCards: 0,
+      quantityCards: 0
     }
   )
 }
@@ -69,7 +69,7 @@ export const renameDeck = (id, newDeckName) => {
     {
       type: C.RENAME_DECK,
       id,
-      newDeckName,
+      newDeckName
     }
   )
 }
@@ -78,7 +78,7 @@ export const removeDeck = (deckId) => {
   return (
     {
       type: C.REMOVE_DECK,
-      id: deckId,
+      id: deckId
     }
   )
 }

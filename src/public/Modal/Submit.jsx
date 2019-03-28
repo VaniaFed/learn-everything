@@ -1,15 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import PropTypes from 'prop-types'
 
-const Submit = ({ className, value='Submit', onClick=()=>{} }) => (
-  <input type="submit"
-         className={className}
-         value={value}
-         onClick={onClick}/>
-);
+const Submit = ({ className, value = 'Submit', onClick = f => f }) => (
+  <input type='submit'
+    className={className}
+    value={value}
+    onClick={onClick} />
+)
+
 Submit.propTypes = {
   value: PropTypes.string,
-  onClick: PropTypes.func,
+  onClick: PropTypes.func
 }
- 
-export default Submit;
+
+export default Submit

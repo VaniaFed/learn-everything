@@ -1,30 +1,30 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
+import React, { Component } from 'react'
+import { render } from 'react-dom'
 
-import Title from '../common/Title';
-import Submit from './Submit';
+import Title from '../common/Title'
+import Submit from './Submit'
 
 class ModalRegistration extends Component {
   constructor (props) {
-    super(props);
-    this.login = React.createRef();
-    this.password = React.createRef();
-    this.passwordRepeat = React.createRef();
+    super(props)
+    this.login = React.createRef()
+    this.password = React.createRef()
+    this.passwordRepeat = React.createRef()
 
     this.state = {
       err: false
-    };
+    }
   }
 
   register (e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const login = this.login.current.value;
-    const password = this.password.current.value;
-    const passwordRepeat = this.passwordRepeat.current.value;
+    const login = this.login.current.value
+    const password = this.password.current.value
+    const passwordRepeat = this.passwordRepeat.current.value
 
-    console.log(login, password, passwordRepeat);
-    let error = '';
+    console.log(login, password, passwordRepeat)
+    let error = ''
     (login.length === 0) ?
       error = 'Вы не заполнили поле логин' :
       (password.length === 0) ?
@@ -33,30 +33,29 @@ class ModalRegistration extends Component {
         error = 'Пароли не совпадают' :
         null
 
-    error ?
-      this.setState({
+    error
+      ? this.setState({
         err: true,
-        errText: error,
-      }) :
-      this.setState({
+        errText: error
+      })
+      : this.setState({
         err: false,
-        errText: '',
+        errText: ''
       })
   }
 
-  render() {
+  render () {
     return (
-      <div className="modal-bg">
-        <div className="modal-container">
-          <Title className="modal__title" title={this.props.title} />
-          <input className="modal__input modal__input__text" placeholder="Логин" ref={this.login} />
-          <input type="password" className="modal__input modal__input__text" placeholder="Пароль" ref={this.password} />
-          <input type="password" className="modal__input modal__input__text" placeholder="Повторите пароль" ref={this.passwordRepeat} />
+      <div className='modal-bg'>
+        <div className='modal-container'>
+          <Title className='modal__title' title={this.props.title} />
+          <input className='modal__input modal__input__text' placeholder='Логин' ref={this.login} />
+          <input type='password' className='modal__input modal__input__text' placeholder='Пароль' ref={this.password} />
+          <input type='password' className='modal__input modal__input__text' placeholder='Повторите пароль' ref={this.passwordRepeat} />
           <p style={{'color': 'red'}}>{this.state.err ? this.state.errText : null}</p>
-          
-          <Submit className="modal__input modal__input__submit"
-                  value="Зарегистрироваться"
-                  onClick={e => this.register(e)}
+          <Submit className='modal__input modal__input__submit'
+            value='Зарегистрироваться'
+            onClick={e => this.register(e)}
           />
         </div>
       </div>
@@ -64,8 +63,7 @@ class ModalRegistration extends Component {
   }
 }
 
-
 render(
-  <ModalRegistration title="Регистрация" />,
+  <ModalRegistration title='Регистрация' />,
   document.querySelector('#registration')
-);
+)

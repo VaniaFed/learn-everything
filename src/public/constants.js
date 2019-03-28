@@ -6,7 +6,7 @@ const constants = {
   CHANGE_ANSWER: 'CHANGE_ANSWER',
   ADD_DECK: 'ADD_DECK',
   REMOVE_DECK: 'REMOVE_DECK',
-  RENAME_DECK: 'RENAME_DECK',
-};
+  RENAME_DECK: 'RENAME_DECK'
+}
 
-export default constants;
+export default constants

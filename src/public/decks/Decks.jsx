@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import css from './decks.module.sass'
 
 import Deck from './Deck/Deck'
-import Button from '../common/Button'
+import Button from '../common/button/Button'
 import { removeDeck, addDeck } from '../actions'
 
 class Decks extends Component {
@@ -12,7 +12,7 @@ class Decks extends Component {
   }
 
   render () {
-    const state = this.props.store.getState() 
+    const state = this.props.store.getState()
     const { store } = this.props
 
     return (
@@ -41,7 +41,8 @@ class Decks extends Component {
           onClick={() => {
             store.dispatch(addDeck())
           }}
-          content='Добавить колоду' />
+          content='Добавить колоду'
+        />
       </div>
     )
   }
