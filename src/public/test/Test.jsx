@@ -1,57 +1,21 @@
-import React, { Component } from 'react';
-import { v4 } from 'uuid';
+import React, { Component } from 'react'
 
+import Title from '../common/Title'
+import Row from './row/Row'
+import Button from '../common/Button'
 
-import Title from '../common/Title';
-import Row from './row/Row';
-import Button from '../common/Button';
-
-import css from './test.module.sass';
+import css from './test.module.sass'
 
 class Test extends Component {
-  constructor(props) {
-    super(props);
-
-    this.checkAllAnswers = this.checkAllAnswers.bind(this);
-    this.changeCards = this.changeCards.bind(this);
-
-    this.state = {
-      title: 'Present Continuous',
-      cards: [
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-        {
-          id: v4(),
-          question: 'Кто ты?',
-          answer: 'Who are you?',
-          userAnswer: '',
-        },
-      ],
-    }
+  constructor (props) {
+    super(props)
   }
 
-  changeCards(id, userAnswer) {
-    const cards = this.state.cards.map(card =>
-      card.id !== id ?
-        card :
-        {
-          ...card,
-          userAnswer
-        }
-    )
-
-    this.setState({cards});
+  isAnswerCorrectly (correctAnswer, userAnswer) {
+    return correctAnswer.toLowerCase() === userAnswer.toLowerCase()
   }
 
-  isAnswerCorrectly(correctAnswer, userAnswer) {
-    return correctAnswer.toLowerCase() === userAnswer.toLowerCase();
-  }
-
-  checkAllAnswers() {
+  checkAllAnswers () {
     this.state.cards.map(card =>
       this.isAnswerCorrectly(card.answer, card.userAnswer) ?
         console.log(true) :
@@ -59,17 +23,22 @@ class Test extends Component {
     )
   }
 
-  render() {
-    const { cards, title } = this.state;
-    const { checkAllAnswers, changeCards } = this;
+  render () {
+    const { store } = this.props
+    const state = store.getState()
+    const { id } = this.props.match.params
+    const currentDeck = state.decks.find(deck => deck.id === id)
+    const cards = state.cards.filter(card => card.deckId === id)
+    const { checkAllAnswers } = this
+    console.log('currentDeck: ', cards)
     return (
-      <div className="container">
-        <Title className={css.title} title={title} />
+      <div className='container'>
+        <Title className={css.title} title={currentDeck.title} />
         <div className={css.items}>
           {cards.map((card, i) =>
             <Row key={i}
-                      questionText={card.question}
-                      onChange={(userAnswer) => changeCards(card.id, userAnswer)}
+              questionText={card.question}
+              // onChange={(userAnswer) => changeCards (card.id, userAnswer)}
             />
           )}
           <Button className="default-btn" content="Check the result" onClick={checkAllAnswers} />

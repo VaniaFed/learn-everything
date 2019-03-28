@@ -32,7 +32,7 @@ class Cards extends Component {
                }}
                onMouseOver={(e) => e.target.focus() }
         />
-        <CardsNav />
+        <CardsNav deckId={id} />
         <CardsContainer store={store} cards={cards} deckId={id} />
       </div>
     )
