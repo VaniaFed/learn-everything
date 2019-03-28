@@ -1,21 +1,22 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
-import Answer from '../answer/Answer';
-import Question from '../question/Question';
+import Answer from '../answer/Answer'
+import Question from '../question/Question'
 
-import css from './row.module.sass';
+import css from './row.module.sass'
+
 class Row extends Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super (props)
   }
 
-  shouldComponentUpdate(nextProps) {
-    return this.props.questionText !== nextProps.questionText;
+  shouldComponentUpdate (nextProps) {
+    return this.props.questionText !== nextProps.questionText
   }
 
-  render() {
-    const { questionText, onChange } = this.props;
+  render () {
+    const { questionText, onChange } = this.props
     return (
       <div className={css.item}>
         <Question questionText={questionText} />
@@ -27,12 +28,12 @@ class Row extends Component {
 
 Row.propTypes = {
   questionText: PropTypes.string,
-  onDelete: PropTypes.func,
+  onDelete: PropTypes.func
 }
 
 Row.defaultProps = {
   questionText: 'empty question',
-  onDelete: f=>f,
+  onDelete: f => f
 }
 
-export default Row;
+export default Row

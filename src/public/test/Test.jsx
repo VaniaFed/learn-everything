@@ -7,8 +7,8 @@ import Button from '../common/Button'
 import css from './test.module.sass'
 
 class Test extends Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
   }
 
   isAnswerCorrectly (correctAnswer, userAnswer) {
@@ -17,9 +17,9 @@ class Test extends Component {
 
   checkAllAnswers () {
     this.state.cards.map(card =>
-      this.isAnswerCorrectly(card.answer, card.userAnswer) ?
-        console.log(true) :
-        console.log(false)
+      this.isAnswerCorrectly(card.answer, card.userAnswer)
+        ? console.log(true)
+        : console.log(false)
     )
   }
 
@@ -41,7 +41,7 @@ class Test extends Component {
               // onChange={(userAnswer) => changeCards (card.id, userAnswer)}
             />
           )}
-          <Button className="default-btn" content="Check the result" onClick={checkAllAnswers} />
+          <Button className='default-btn' content='Check the result' onClick={checkAllAnswers} />
         </div>
       </div>
     )
@@ -51,5 +51,5 @@ class Test extends Component {
 // render(
 //   <Test />,
 //   document.querySelector('#test')
-// );
-export default Test;
+// )
+export default Test
