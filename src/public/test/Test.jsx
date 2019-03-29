@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Title from '../common/Title'
 import Row from './row/Row'
-import Button from '../common/Button'
+import Button from '../common/button/Button'
 
 import css from './test.module.sass'
 
