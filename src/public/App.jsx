@@ -32,11 +32,11 @@ class App extends Component {
       <HashRouter>
         <Header />
         <Switch>
-          <Route exact path='/' component={() => <Decks />} />
-          <Route path='/test/:id' component={(props) => <Test {...props} />} />
+          <Route exact path='/' component={Decks} />
           <Route exact path='/decks' component={(props) => <Decks {...props} />} />
           <Route path='/deck/:id' component={(props) => <Cards {...props} />} />
-          <Route path='/revise' component={Revise} />
+          <Route path='/test/:id' component={(props) => <Test {...props} />} />
+          <Route path='/revise/:id' component={(props) => <Revise {...props} />} />
           <Route component={Whoops404} />
           {/* <Footer /> */}
         </Switch>
