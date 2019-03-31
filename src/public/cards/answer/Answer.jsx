@@ -8,6 +8,7 @@ class Answer extends Component {
     super(props)
     this.answerValue = React.createRef()
   }
+
   render () {
     const { onChange, answerText } = this.props
     const { answerValue } = this

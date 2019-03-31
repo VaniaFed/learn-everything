@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import Title from '../common/Title'
 import Row from './row/Row'
@@ -7,10 +8,6 @@ import Button from '../common/button/Button'
 import css from './test.module.sass'
 
 class Test extends Component {
-  constructor () {
-    super()
-  }
-
   isAnswerCorrectly (correctAnswer, userAnswer) {
     return correctAnswer.toLowerCase() === userAnswer.toLowerCase()
   }
@@ -48,8 +45,9 @@ class Test extends Component {
   }
 }
 
-// render(
-//   <Test />,
-//   document.querySelector('#test')
-// )
+Test.contextTypes = {
+  store: PropTypes.object
+}
+
 export default Test
+

@@ -2,11 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Row from '../row/Row'
-import Button from '../../common/button/Button'
 import css from './CardsContainer.module.sass'
-import { removeCard, addCard, changeQuestion, changeAnswer } from '../../actions'
+import { removeCard, changeQuestion, changeAnswer } from '../../actions'
 
-const CardsContainer = ({ store = {}, cards = [], deckId = -1 }) => {
+const CardsContainer = ({ cards = [], deckId = -1 }, { store }) => {
   return (
     <div className={css.container}>
       {cards.length === 0
@@ -20,16 +19,12 @@ const CardsContainer = ({ store = {}, cards = [], deckId = -1 }) => {
             onChangeAnswer={(newAnswer) => store.dispatch(changeAnswer(card.id, newAnswer))}
           />
         )}
-      <Button className='default-btn'
-        content='Добавить карточку'
-        onClick={() => store.dispatch(addCard(deckId))}
-      />
-      <Button className='default-btn btn-margin'
-        content='Сохранить все'
-        onClick={() => store.dispatch(addCard(deckId))}
-      />
     </div>
   )
+}
+
+CardsContainer.contextTypes = {
+  store: PropTypes.object
 }
 
 CardsContainer.propTypes = {
