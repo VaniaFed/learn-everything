@@ -10,10 +10,6 @@ import Whoops404 from './whoops404/Whoops404'
 // import Footer from './footer/Footer'
 
 class App extends Component {
-  constructor (props) {
-    super (props)
-  }
-
   render () {
     const { store } = this.props
     return (
@@ -22,7 +18,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={() => <Decks store={store} />} />
           <Route path='/test/:id' component={(props) => <Test {...props} store={store} />} />
-          <Route exact path='/decks' component={() => <Decks store={store} />} />
+          <Route exact path='/decks' component={(props) => <Decks {...props} store={store} />} />
           <Route path='/deck/:id' component={(props) => <Cards {...props} store={store} />} />
           <Route path='/revise' component={Revise} />
           <Route component={Whoops404} />

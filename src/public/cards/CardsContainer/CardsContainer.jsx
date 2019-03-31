@@ -24,6 +24,10 @@ const CardsContainer = ({ store = {}, cards = [], deckId = -1 }) => {
         content='Добавить карточку'
         onClick={() => store.dispatch(addCard(deckId))}
       />
+      <Button className='default-btn btn-margin'
+        content='Сохранить все'
+        onClick={() => store.dispatch(addCard(deckId))}
+      />
     </div>
   )
 }

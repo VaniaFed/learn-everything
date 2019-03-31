@@ -4,10 +4,7 @@ import PropTypes from 'prop-types'
 import css from './question.module.sass'
 
 class Question extends Component {
-  constructor (props) {
-    super(props)
-    this.questionValue = React.createRef()
-  }
+  questionValue = React.createRef()
 
   shouldComponentUpdate (nextProps) {
     return this.props.questionText !== nextProps.questionText
@@ -23,16 +20,18 @@ class Question extends Component {
           questionValue.current.focus()
         }} >
         <div className={css.title}>Вопрос</div>
-        <input type='text'
-          className={`${css.input} ${css.no_resize}`}
-          ref={questionValue}
-          defaultValue={questionText}
-          placeholder='Type a question'
-          onMouseOut={() => {
-            if (questionText !== questionValue.current.value) {
-              onChange(questionValue.current.value)
-            }
-          }} />
+        <div className={css.textarea__container}>
+          <input type='text'
+            className={`${css.input} ${css.no_resize}`}
+            ref={questionValue}
+            defaultValue={questionText}
+            placeholder='Type a question'
+            onBlur={(e) => {
+              if (questionText !== questionValue.current.value || e.target !== questionValue.current) {
+                onChange(questionValue.current.value)
+              }
+            }} />
+        </div>
       </div>
     )
   }

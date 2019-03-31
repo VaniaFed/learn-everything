@@ -1,32 +1,45 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import css from './answer.module.sass'
 
-const Answer = ({ answerText = '', onChange = f => f }) => {
-  const answerValue = React.createRef()
-  return (
-    <div className={css.answer__bg}
-      onMouseOver={() => answerValue.current.focus()}
-      onMouseOut={() => answerValue.current.blur()}
-    >
-      <div className={css.title}>Ответ</div>
-      <textarea
-        className={`${css.input} ${css.no_resize}`}
-        ref={answerValue}
-        defaultValue={answerText}
-        placeholder='Type an answer...'
-        onBlur={() => {
-          // TODO: он обновляет state при каждом наведении. Надо изменять state только при когда старое значение !== новому 
-          onChange(answerValue.current.value)
+class Answer extends Component {
+  constructor (props) {
+    super(props)
+    this.answerValue = React.createRef()
+  }
+  render () {
+    const { onChange, answerText } = this.props
+    const { answerValue } = this
+    return (
+      <div className={css.answer__bg}
+        onClick={(e) => {
+          console.log(e.target)
+          answerValue.current.focus()
         }}
-      />
-    </div>
-  )
+      >
+        <div className={css.title}>Ответ</div>
+        <textarea
+          className={`${css.input} ${css.no_resize}`}
+          ref={answerValue}
+          defaultValue={answerText}
+          placeholder='Type an answer...'
+          onBlur={() => {
+            if (answerText !== answerValue.current.value) {
+              onChange(answerValue.current.value)
+            }
+          }}
+        />
+      </div>
+    )
+  }
 }
 
 Answer.propTypes = {
   onChange: PropTypes.func
+}
+Answer.defaultProps = {
+  onChange: f => f
 }
 
 export default Answer

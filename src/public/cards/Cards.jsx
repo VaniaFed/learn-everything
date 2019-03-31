@@ -8,10 +8,6 @@ import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
 
 class Cards extends Component {
-  constructor (props) {
-    super (props)
-  }
-
   render () {
     const state = this.props.store.getState()
     const { store } = this.props
@@ -29,7 +25,6 @@ class Cards extends Component {
             const newName = e.target.value
             store.dispatch(renameDeck(id, newName))
           }}
-          onMouseOver={(e) => e.target.focus()}
         />
         <CardsNav deckId={id} />
         <CardsContainer store={store} cards={cards} deckId={id} />
