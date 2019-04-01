@@ -2,15 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import css from './cards.module.sass'
-import { renameDeck, addCard } from '../../../actions'
 
 import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
 import Button from '../common/button/Button'
 
 const Cards = ({ cards, decks, id, onDelete, onAdd, onRenameDeck }) => {
-  console.log('in new Cards: ', cards);
-  console.log('in new Cards: ', decks);
+  console.log('in new Cards: ', cards)
+  console.log('in new Cards: ', decks)
   const currentDeck = decks.find(deck => deck.id === id)
   const currentCards = cards.filter(card => card.deckId === id)
   return (
@@ -19,8 +18,8 @@ const Cards = ({ cards, decks, id, onDelete, onAdd, onRenameDeck }) => {
         defaultValue={currentDeck.title}
         type='text'
         onBlur={(e) => {
-          // const newName = e.target.value
-          // store.dispatch(renameDeck(id, newName))
+          const newName = e.target.value
+          onRenameDeck(id, newName)
         }}
       />
       <CardsNav deckId={id} />

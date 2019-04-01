@@ -2,7 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import Cards from '../ui/cards/Cards'
-import { removeCard, addCard } from '../../actions'
+import { removeCard, addCard, renameDeck } from '../../actions'
 
 export const CardsList = (props, { store }) => {
   const { decks, cards } = store.getState()
@@ -16,6 +16,9 @@ export const CardsList = (props, { store }) => {
       }
       onAdd={
         (deckId) => store.dispatch(addCard(deckId))
+      }
+      onRenameDeck={
+        (id, newName) => store.dispatch(renameDeck(id, newName))
       }
     />
   )
