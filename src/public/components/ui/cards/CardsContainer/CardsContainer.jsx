@@ -5,19 +5,22 @@ import Row from '../row/Row'
 import css from './CardsContainer.module.sass'
 import { removeCard, changeQuestion, changeAnswer } from '../../../../actions'
 
-const CardsContainer = ({ cards = [], deckId = -1 }, { store }) => {
+const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f }, { store }) => {
   return (
     <div className={css.container}>
       {cards.length === 0
         ? <h3>Тут пусто. (Создать карточку?)</h3>
-        : cards.map((card, i) =>
-          <Row key={card.id}
-            questionText={card.question}
-            answerText={card.answer}
-            onDelete={() => store.dispatch(removeCard(card.id))}
-            onChangeQuestion={(newQuestion) => store.dispatch(changeQuestion(card.id, newQuestion))}
-            onChangeAnswer={(newAnswer) => store.dispatch(changeAnswer(card.id, newAnswer))}
-          />
+        : cards.map((card, i) => {
+          return (
+            <Row key={card.id}
+              questionText={card.question}
+              answerText={card.answer}
+              onDelete={() => onDelete(card.id)}
+              onChangeQuestion={(newQuestion) => store.dispatch(changeQuestion(card.id, newQuestion))}
+              onChangeAnswer={(newAnswer) => store.dispatch(changeAnswer(card.id, newAnswer))}
+            />
+          )
+        }
         )}
     </div>
   )

@@ -7,10 +7,6 @@ import Question from '../question/Question'
 import css from './row.module.sass'
 
 class Row extends Component {
-  constructor (props) {
-    super (props)
-  }
-
   shouldComponentUpdate (nextProps) {
     return this.props.store.decks !== nextProps.store.decks
   }

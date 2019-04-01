@@ -5,10 +5,6 @@ import { Link } from 'react-router-dom'
 import css from './deck.module.sass'
 
 class Deck extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   shouldComponentUpdate (nextProps) {
     return (this.props.name !== nextProps.name &&
             this.props.quantity !== nextProps.quantity

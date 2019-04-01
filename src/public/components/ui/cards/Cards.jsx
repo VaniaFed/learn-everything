@@ -23,7 +23,7 @@ const Cards = ({ cards, decks, id, onDelete, onAdd, onRenameDeck }) => {
         }}
       />
       <CardsNav deckId={id} />
-      <CardsContainer cards={currentCards} deckId={id} />
+      <CardsContainer onDelete={onDelete} cards={currentCards} deckId={id} />
       <Button className='default-btn'
         content='Добавить карточку'
         onClick={() => onAdd(id)}
