@@ -10,7 +10,7 @@ const images = require('./webpack/images');
 
 module.exports = {
   entry: {
-    index: './src/public/js/index.js'
+    index: './src/public/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
