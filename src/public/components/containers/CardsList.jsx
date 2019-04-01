@@ -11,11 +11,11 @@ export const CardsList = (props, { store }) => {
     <Cards decks={decks}
       cards={cards}
       id={id}
-      enDelete={
-        (cardId) => store.dispatch(removeCard(cardId))
-      }
       onAdd={
         (deckId) => store.dispatch(addCard(deckId))
+      }
+      onDelete={
+        (cardId) => store.dispatch(removeCard(cardId))
       }
       onRenameDeck={
         (id, newName) => store.dispatch(renameDeck(id, newName))
