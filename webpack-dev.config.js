@@ -10,14 +10,7 @@ const images = require('./webpack/images');
 
 module.exports = {
   entry: {
-    index: './src/public/js/index.js',
-    test: './src/public/test/Test.jsx',
-    // app: './src/public/App.jsx',
-    // manageLists: './src/public/manageLists/ManageLists.jsx',
-    // manageCards: './src/public/manageCards/ManageCards.jsx',
-    // remember: './src/public/remember/Remember.jsx',
-    // registration: './src/public/Modal/ModalRegistration.jsx',
-    // authorization: './src/public/Modal/ModalAuthorization.jsx',
+    index: './src/public/js/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -53,33 +46,8 @@ module.exports = {
       chunks: false,
     }),
     new HtmlWebpackPlugin({
-      filename: 'remember.html',
-      template: 'src/views/pages/remember.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'manageLists.html',
-      template: 'src/views/pages/manageLists.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'manageCards.html',
-      template: 'src/views/pages/manageCards.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'test.html',
-      template: 'src/views/pages/test.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'registration.html',
-      template: 'src/views/pages/registration.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'authorization.html',
-      template: 'src/views/pages/authorization.pug',
+      filename: 'started.html',
+      template: 'src/views/pages/started.pug',
       chunks: false,
     }),
   ],

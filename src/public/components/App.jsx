@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import Proptypes from 'prop-types'
 
-import Header from './header/Header'
-import Test from './test/Test'
-import Decks from './decks/Decks'
-import Cards from './cards/Cards'
-import Revise from './revise/Revise'
-import Whoops404 from './whoops404/Whoops404'
+import Header from './ui/header/Header'
+import Test from './ui/test/Test'
+import Decks from './ui/decks/Decks'
+import Cards from './ui/cards/Cards'
+import Revise from './ui/revise/Revise'
+import Whoops404 from './ui/whoops404/Whoops404'
 // import Footer from './footer/Footer'
 
 class App extends Component {

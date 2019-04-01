@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Row from '../row/Row'
 import css from './CardsContainer.module.sass'
-import { removeCard, changeQuestion, changeAnswer } from '../../actions'
+import { removeCard, changeQuestion, changeAnswer } from '../../../../actions'
 
 const CardsContainer = ({ cards = [], deckId = -1 }, { store }) => {
   return (

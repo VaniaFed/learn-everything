@@ -10,13 +10,7 @@ const images = require('./webpack/images');
 
 module.exports = {
   entry: {
-    test: './src/public/components/test/Test.jsx',
-    manageLists: './src/public/components/manageLists/ManageLists.jsx',
-    manageCards: './src/public/components/manageCards/ManageCards.jsx',
-    index: './src/public/js/index.js',
-    // remember: './src/public/components/remember/Remember.jsx',
-    registration: './src/public/components/Modal/ModalRegistration.jsx',
-    authorization: './src/public/components/Modal/ModalAuthorization.jsx',
+    index: './src/public/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -31,44 +25,24 @@ module.exports = {
       babel,
       pug,
       css,
-      sass,
+      ...sass,
       images,
     ],
   },
   plugins: [
     require('autoprefixer'),
     new MiniCssExtractPlugin({
-      filename: 'index.css',
+      filename: 'index.css'
     }),
     new HtmlWebpackPlugin({
-      filename: 'remember.html',
-      template: 'src/views/pages/remember.pug',
-      chunks: false,
+      filename: 'index.html',
+      template: 'src/views/pages/index.pug',
+      chunks: false
     }),
     new HtmlWebpackPlugin({
-      filename: 'manageLists.html',
-      template: 'src/views/pages/manageLists.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'manageCards.html',
-      template: 'src/views/pages/manageCards.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'test.html',
-      template: 'src/views/pages/test.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'registration.html',
-      template: 'src/views/pages/registration.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'authorization.html',
-      template: 'src/views/pages/authorization.pug',
-      chunks: false,
+      filename: 'started.html',
+      template: 'src/views/pages/started.pug',
+      chunks: false
     }),
   ],
   resolve: {

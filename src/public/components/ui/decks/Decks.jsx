@@ -4,8 +4,8 @@ import css from './decks.module.sass'
 
 import Deck from './Deck/Deck'
 import Button from '../common/button/Button'
-import { removeDeck, addDeck } from '../actions'
-import { PropTypes } from 'prop-types';
+import { removeDeck, addDeck } from '../../../actions'
+import { PropTypes } from 'prop-types'
 
 const Decks = (props, { store }) => {
   const state = store.getState()

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import css from './cards.module.sass'
-import { renameDeck, addCard } from '../actions'
+import { renameDeck, addCard } from '../../../actions'
 
 import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
