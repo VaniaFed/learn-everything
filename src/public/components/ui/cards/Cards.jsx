@@ -8,30 +8,26 @@ import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
 import Button from '../common/button/Button'
 
-const Cards = (props = {}, { store }) => {
-  console.log('store in Cards: ', store.getState())
-  const state = store.getState()
-  const { id } = props.match.params
-  const currentDeck = state.decks.find(deck => deck.id === id)
-  const cards = state.cards.filter(card => card.deckId === id)
-  console.log(id)
-  // TODO: title нужно будет получать из deck, где id = idDeck
-  // TODO: при помощи роута достаем из URL id колоды
+const Cards = ({ cards, decks, id, onDelete, onAdd, onRenameDeck }) => {
+  console.log('in new Cards: ', cards);
+  console.log('in new Cards: ', decks);
+  const currentDeck = decks.find(deck => deck.id === id)
+  const currentCards = cards.filter(card => card.deckId === id)
   return (
     <div className='container'>
       <input className={css.input_deck_name}
         defaultValue={currentDeck.title}
         type='text'
         onBlur={(e) => {
-          const newName = e.target.value
-          store.dispatch(renameDeck(id, newName))
+          // const newName = e.target.value
+          // store.dispatch(renameDeck(id, newName))
         }}
       />
       <CardsNav deckId={id} />
-      <CardsContainer cards={cards} deckId={id} />
+      <CardsContainer cards={currentCards} deckId={id} />
       <Button className='default-btn'
         content='Добавить карточку'
-        onClick={() => store.dispatch(addCard(id))}
+        onClick={() => onAdd(id)}
       />
       <Button className='default-btn btn-margin'
         content='Сохранить все'

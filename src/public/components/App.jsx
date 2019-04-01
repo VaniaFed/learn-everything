@@ -11,6 +11,7 @@ import Whoops404 from './ui/whoops404/Whoops404'
 // import StartedPage from './started'
 
 import { DecksList } from './containers/DecksList'
+import { CardsList } from './containers/CardsList'
 
 class App extends Component {
   getChildContext () {
@@ -36,7 +37,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={DecksList} />
           <Route exact path='/decks' component={DecksList} />
-          <Route path='/deck/:id' component={(props) => <Cards {...props} />} />
+          <Route path='/deck/:id' component={(props) => <CardsList {...props} />} />
           <Route path='/test/:id' component={(props) => <Test {...props} />} />
           <Route path='/revise/:id' component={(props) => <Revise {...props} />} />
           <Route component={Whoops404} />
