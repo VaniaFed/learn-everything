@@ -8,11 +8,14 @@ import { Provider } from 'react-redux'
 import App from './components/App'
 import store from './store/store'
 
+window.React = React
+window.store = store
+
 const render = () => {
   ReactDom.render(
-    // <Provider store={store}>
-    <App store={store} />,
-    // {/* </Provider>, */}
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.querySelector('#root')
   )
 }

@@ -14,22 +14,6 @@ import { DecksList } from './containers/DecksList'
 import { CardsList } from './containers/CardsList'
 
 class App extends Component {
-  getChildContext () {
-    return {
-      store: this.props.store
-    }
-  }
-
-  componentWillMount () {
-    this.unsubscribe = this.props.store.subscribe(
-      () => this.forceUpdate()
-    )
-  }
-
-  componentWillUnmount () {
-    this.unsubscribe()
-  }
-
   render () {
     return (
       <HashRouter>
@@ -46,10 +30,6 @@ class App extends Component {
       </HashRouter>
     )
   }
-}
-
-App.childContextTypes = {
-  store: PropTypes.object.isRequired
 }
 
 export default App
