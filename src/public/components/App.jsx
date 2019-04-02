@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import Header from './ui/header/Header'
@@ -15,6 +15,13 @@ import { CardsList } from './containers/CardsList'
 import { TestList } from './containers/TestList'
 import { ReviseList } from './containers/ReviseList'
 
+/*
+  TODO:
+    1. remove { store } from presentation components
+    2. add propTypes and defaultProps to components
+    3. add revise
+    4. when there is no one card to revise in revise, render button to come back to previous page
+*/
 class App extends Component {
   render () {
     return (
@@ -22,6 +29,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path='/' component={DecksList} />
+          <Redirect from='/decks' to='/' />
           <Route exact path='/decks' component={DecksList} />
           <Route path='/deck/:id' component={CardsList} />
           <Route path='/test/:id' component={TestList} />
