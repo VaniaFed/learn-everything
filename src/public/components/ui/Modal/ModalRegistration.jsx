@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import { render } from 'react-dom'
 
 import Title from '../common/Title'
 import Submit from './Submit'
+
+import css from './defaultModal.module.sass'
 
 class ModalRegistration extends Component {
   constructor (props) {
@@ -46,14 +47,14 @@ class ModalRegistration extends Component {
 
   render () {
     return (
-      <div className='modal-bg'>
-        <div className='modal-container'>
-          <Title className='modal__title' title={this.props.title} />
-          <input className='modal__input modal__input__text' placeholder='Логин' ref={this.login} />
-          <input type='password' className='modal__input modal__input__text' placeholder='Пароль' ref={this.password} />
-          <input type='password' className='modal__input modal__input__text' placeholder='Повторите пароль' ref={this.passwordRepeat} />
+      <div className={css.modal_bg}>
+        <div className={css.modalContainer}>
+          <Title className={css.modal__title} title={this.props.title} />
+          <input className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Логин' ref={this.login} />
+          <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Пароль' ref={this.password} />
+          <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Повторите пароль' ref={this.passwordRepeat} />
           <p style={{'color': 'red'}}>{this.state.err ? this.state.errText : null}</p>
-          <Submit className='modal__input modal__input__submit'
+          <Submit className={`${css.modal__input} ${css.modal__input__submit}`}
             value='Зарегистрироваться'
             onClick={e => this.register(e)}
           />
@@ -63,7 +64,4 @@ class ModalRegistration extends Component {
   }
 }
 
-render(
-  <ModalRegistration title='Регистрация' />,
-  document.querySelector('#registration')
-)
+export default ModalRegistration

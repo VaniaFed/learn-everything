@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { render } from 'react-dom'
 
 import Submit from './Submit'
 import Title from '../common/Title'
 
+import css from './defaultModal.module.sass'
 class ModalAuthorization extends Component {
   constructor (props) {
     super(props)
@@ -24,24 +24,24 @@ class ModalAuthorization extends Component {
     const password = this.userPassword.current.value
     console.log(login, password)
 
-    let error = ''
-    let errorCode = 0
-    (login.length === 0)
-      ? error = 'Вы не заполнили поле логин'
-      : password.length === 0
-        ? error = 'Вы не заполнили поле пароль'
-        : null
-        (error)
-          ? this.setState({
-            err: true,
-            errText: error,
-            errCode: errorCode
-          })
-          : this.setState({
-            err: false,
-            errText: '',
-            errCode: errorCode
-          })
+    // let error = ''
+    // let errorCode = 0
+    // (login.length === 0)
+    //   ? error = 'Вы не заполнили поле логин'
+    //   : password.length === 0
+    //     ? error = 'Вы не заполнили поле пароль'
+    //     : null
+    //     (error)
+    //       ? this.setState({
+    //         err: true,
+    //         errText: error,
+    //         errCode: errorCode
+    //       })
+    //       : this.setState({
+    //         err: false,
+    //         errText: '',
+    //         errCode: errorCode
+    //       })
   }
 
   isError () {
@@ -50,15 +50,15 @@ class ModalAuthorization extends Component {
 
   render () {
     return (
-      <div className='modal-bg'>
-        <div className='modal-container'>
+      <div className={css.modal_bg}>
+        <div className={css.modalContainer}>
           <Title title={this.props.title} />
-          <input className='modal__input modal__input__text borderError'
+          <input className={`${css.modal__input} ${css.modal__input__text} ${css.borderError}`}
             placeholder='Логин'
             ref={this.userLogin} />
-          <input type='password' className='modal__input modal__input__text' placeholder='Пароль' ref={this.userPassword} />
+          <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Пароль' ref={this.userPassword} />
           <p style={{ 'color': 'red' }}>{this.state.err ? this.state.errText : null}</p>
-          <Submit className='modal__input modal__input__submit' value='Войти' onClick={this.login} />
+          <Submit className={`${css.modal__input} ${css.modal__input__submit}`} value='Войти' onClick={this.login} />
         </div>
       </div>
     )
@@ -69,7 +69,4 @@ ModalAuthorization.propTypes = {
   title: PropTypes.string
 }
 
-render(
-  <ModalAuthorization title='Авторизация' />,
-  document.querySelector('#authorization')
-)
+export default ModalAuthorization
