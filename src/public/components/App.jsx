@@ -20,8 +20,9 @@ import { ReviseList } from './containers/ReviseList'
     1. remove { store } from presentation components
     2. add propTypes and defaultProps to components
     3. add revise
-    4. when there is no one card to revise in revise, render button to come back to previous page
+    4. COMPLETED when there is no one card to revise in revise, render button to come back to previous page
     5. make footer and started page
+    6. add margins to buttons
 */
 class App extends Component {
   render () {
