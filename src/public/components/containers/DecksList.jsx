@@ -5,8 +5,8 @@ import { removeDeck, addDeck } from '../../actions'
 
 export const DecksList = connect(
   state => ({
-    decks: state.decks,
-    cards: state.cards
+    cards: state.cards,
+    decks: state.decks
   }),
   dispatch => ({
     onDelete (deckId) {

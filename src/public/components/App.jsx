@@ -12,6 +12,8 @@ import Whoops404 from './ui/whoops404/Whoops404'
 
 import { DecksList } from './containers/DecksList'
 import { CardsList } from './containers/CardsList'
+import { TestList } from './containers/TestList'
+import { ReviseList } from './containers/ReviseList'
 
 class App extends Component {
   render () {
@@ -21,9 +23,9 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={DecksList} />
           <Route exact path='/decks' component={DecksList} />
-          <Route path='/deck/:id' component={(props) => <CardsList {...props} />} />
-          <Route path='/test/:id' component={(props) => <Test {...props} />} />
-          <Route path='/revise/:id' component={(props) => <Revise {...props} />} />
+          <Route path='/deck/:id' component={CardsList} />
+          <Route path='/test/:id' component={TestList} />
+          <Route path='/revise/:id' component={ReviseList} />
           <Route component={Whoops404} />
           {/* <Footer /> */}
         </Switch>

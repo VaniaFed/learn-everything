@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 
 import Row from '../row/Row'
 import css from './CardsContainer.module.sass'
-import { removeCard, changeQuestion, changeAnswer } from '../../../../actions'
 
-const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f }, { store }) => {
+const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f,
+  onChangeQuestion,
+  onChangeAnswer }) => {
   return (
     <div className={css.container}>
       {cards.length === 0
@@ -16,8 +17,8 @@ const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f }, { store 
               questionText={card.question}
               answerText={card.answer}
               onDelete={() => onDelete(card.id)}
-              onChangeQuestion={(newQuestion) => store.dispatch(changeQuestion(card.id, newQuestion))}
-              onChangeAnswer={(newAnswer) => store.dispatch(changeAnswer(card.id, newAnswer))}
+              onChangeQuestion={(newQuestion) => onChangeQuestion(card.id, newQuestion)}
+              onChangeAnswer={(newAnswer) => onChangeAnswer(card.id, newAnswer)}
             />
           )
         }

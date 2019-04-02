@@ -8,7 +8,7 @@ import css from './row.module.sass'
 
 class Row extends Component {
   shouldComponentUpdate (nextProps) {
-    return this.props.store.decks !== nextProps.store.decks
+    return this.props.decks !== nextProps.decks
   }
 
   render () {

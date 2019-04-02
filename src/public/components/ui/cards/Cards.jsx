@@ -7,9 +7,11 @@ import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
 import Button from '../common/button/Button'
 
-const Cards = ({ cards, decks, id, onDelete, onAdd, onRenameDeck }) => {
-  console.log('in new Cards: ', cards)
-  console.log('in new Cards: ', decks)
+const Cards = ({ cards, decks, match, onDelete, onAdd,
+  onRenameDeck,
+  onChangeQuestion,
+  onChangeAnswer }) => {
+  const id = match.params.id
   const currentDeck = decks.find(deck => deck.id === id)
   const currentCards = cards.filter(card => card.deckId === id)
   return (
@@ -23,7 +25,12 @@ const Cards = ({ cards, decks, id, onDelete, onAdd, onRenameDeck }) => {
         }}
       />
       <CardsNav deckId={id} />
-      <CardsContainer onDelete={onDelete} cards={currentCards} deckId={id} />
+      <CardsContainer onDelete={onDelete}
+        cards={currentCards}
+        deckId={id}
+        onChangeQuestion={onChangeQuestion}
+        onChangeAnswer={onChangeAnswer}
+      />
       <Button className='default-btn'
         content='Добавить карточку'
         onClick={() => onAdd(id)}
@@ -34,14 +41,6 @@ const Cards = ({ cards, decks, id, onDelete, onAdd, onRenameDeck }) => {
       />
     </div>
   )
-}
-
-Cards.propTypes = {
-  store: PropTypes.object
-}
-
-Cards.contextTypes = {
-  store: PropTypes.object
 }
 
 export default Cards

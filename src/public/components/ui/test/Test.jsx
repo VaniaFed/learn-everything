@@ -21,18 +21,16 @@ class Test extends Component {
   }
 
   render () {
-    const { store } = this.props
-    const state = store.getState()
+    const { cards, decks } = this.props
     const { id } = this.props.match.params
-    const currentDeck = state.decks.find(deck => deck.id === id)
-    const cards = state.cards.filter(card => card.deckId === id)
+    const currentDeck = decks.find(deck => deck.id === id)
+    const currentCards = cards.filter(card => card.deckId === id)
     const { checkAllAnswers } = this
-    console.log('currentDeck: ', cards)
     return (
       <div className='container'>
         <Title className={css.title} title={currentDeck.title} />
         <div className={css.items}>
-          {cards.map((card, i) =>
+          {currentCards.map((card, i) =>
             <Row key={i}
               questionText={card.question}
               // onChange={(userAnswer) => changeCards (card.id, userAnswer)}

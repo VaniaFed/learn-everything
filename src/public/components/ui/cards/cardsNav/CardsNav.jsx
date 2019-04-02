@@ -16,5 +16,5 @@ const CardsNav = ({ deckId = -1 }) => {
 export default CardsNav
 
 CardsNav.propTypes = {
-  id: PropTypes.number.isRequired
+  deckId: PropTypes.string.isRequired
 }
