@@ -21,6 +21,7 @@ import { ReviseList } from './containers/ReviseList'
     2. add propTypes and defaultProps to components
     3. add revise
     4. when there is no one card to revise in revise, render button to come back to previous page
+    5. make footer and started page
 */
 class App extends Component {
   render () {
