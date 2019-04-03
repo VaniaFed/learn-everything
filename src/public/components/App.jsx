@@ -21,7 +21,7 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     3. make revise
     4. make footer and started page
     5. add margins to buttons
-    6. add functional to test: output correct and incorrect answers
+    6. получать title и текущие cards в контейнерных компонентах
 */
 class App extends Component {
   render () {

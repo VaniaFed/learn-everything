@@ -18,7 +18,6 @@ const Rows = ({ cardsToPassTest, isPressedCheck, onChangeAnswer }) => {
         isCorrect={card.isCorrect}
         userAnswer={card.userAnswer}
         onChangeAnswer={(userAnswer) => onChangeAnswer(card.id, userAnswer)}
-        // onChange={(userAnswer) => changeCards (card.id, userAnswer)}
       />
     )
   )
@@ -119,7 +118,6 @@ class Test extends Component {
 }
 
 Test.contextTypes = {
-  store: PropTypes.object
 }
 
 export default Test

@@ -1,5 +1,6 @@
-import C from './constants'
 import { v4 } from 'uuid'
+import C from './constants'
+import { doubleDate } from './lib/time'
 
 export const changeUserName = (userName) => {
   return (
@@ -11,14 +12,19 @@ export const changeUserName = (userName) => {
 }
 
 export const addCard = (deckId) => {
+  const getDate = () => new Date()
+  const y = doubleDate(getDate().getFullYear())
+  const m = doubleDate(getDate().getMonth())
+  const d = doubleDate(getDate().getDay())
+  const currentDate = `${y}.${m}.${d}`
   return (
     {
       type: C.ADD_CARD,
       id: v4(),
       question: '',
       answer: '',
-      datePrevRevise: '',
-      dateNextRevise: '',
+      datePrevRevise: currentDate,
+      dateNextRevise: currentDate,
       deckId
     }
   )
