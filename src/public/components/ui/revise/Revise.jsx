@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
 import Card from './Card/Card'
 
@@ -9,33 +8,73 @@ import NoOneCards from '../common/NoOneCards'
 class Revise extends Component {
   constructor (props) {
     super(props)
-    this.checkAnswer = this.checkAnswer.bind(this)
+    const { id } = props.match.params
+    const cardsToRevise = props.cards.filter(card => card.deckId === id)
     this.state = {
-      isAnswered: false
+      cards: cardsToRevise,
+      isPressedCheck: false
     }
+    this.checkAnswer = this.checkAnswer.bind(this)
+    this.choiceLevel = this.choiceLevel.bind(this)
   }
 
   checkAnswer () {
     console.log(this.state)
     this.setState({
-      isAnswered: !this.state.isAnswered
+      isPressedCheck: !this.state.isPressedCheck
     })
   }
 
+  choiceLevel (level, card) {
+    const { datePrevRevise, dateNextRevise } = card
+    console.log(`currentLevel: ${level}`)
+    console.log(`date: ${datePrevRevise} ${dateNextRevise}`)
+
+    // const difference = datePrevRevise - dateNextRevise
+
+    // const newDateNextRevice = 0
+    // const newDatePrevRevice = 0
+    // switch(level) {
+    //   case 'forget': 
+    //     newDatePrevRevice = dateNextRevise 
+    //     newDateNextRevice = datePrevRevice 
+
+    // }
+    /* 
+      if == forget то
+        dateNextRevice = datePrevRevice 
+      if == difficult то
+        dateNextRevice = difference
+      if == normal то
+        dateNextRevice = difference * 2 - 1
+      if == normal то
+        dateNextRevice = difference * 3 - 1
+
+
+    */
+
+
+    // this.setState()
+  }
+
   render () {
-    const { cards, decks, match, history } = this.props
-    const { checkAnswer } = this
-    const { isAnswered } = this.state
+    const { decks, match, history } = this.props
+    const { checkAnswer, choiceLevel } = this
+    const { cards, isPressedCheck } = this.state
     const deckId = match.params.id
     const currentDeck = decks.find(deck => deck.id === deckId)
+    console.log(cards)
     // FIXME: and also to add the following condition: dateNextRevise < currentDate
-    const cardsToRevise = cards.filter(card => card.deckId === deckId) || []
     return (
       <div className='container'>
         <main className={css.rememberContainer}>
           <h2 className={css.remember__title}>{currentDeck.title}</h2>
-          {(cardsToRevise.length > 0)
-            ? (<Card question={cardsToRevise[0].question} answer={cardsToRevise[0].answer} checkAnswer={checkAnswer} isAnswered={isAnswered} />)
+          {(cards.length > 0)
+            ? (<Card question={cards[0].question}
+              answer={cards[0].answer}
+              onCheckAnswer={checkAnswer}
+              isPressedCheck={isPressedCheck}
+              onChoiceLevel={(level) => choiceLevel(level, cards[0].datePrevRevise, cards[0].dateNextRevise)} />)
             : <NoOneCards textMsg='Here is no one cards to revise' comeBack={history.goBack} />
           }
         </main>
