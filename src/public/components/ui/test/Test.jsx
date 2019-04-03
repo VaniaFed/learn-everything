@@ -90,10 +90,10 @@ class Test extends Component {
   }
 
   render () {
-    const { cards, decks, history } = this.props
+    const { decks, history } = this.props
     const { id } = this.props.match.params
     const currentDeck = decks.find(deck => deck.id === id)
-    const cardsToPassTest = cards.filter(card => card.deckId === id)
+    const cardsToPassTest = this.state.cards
     const { handleCheckAnswers, changeAnswer } = this
     const { isPressedCheck } = this.state
     return (

@@ -16,7 +16,6 @@ class Row extends Component {
 
   render () {
     const { questionText, answerText, userAnswer, isPressedCheck, onChangeAnswer, isCorrect } = this.props
-    console.log(userAnswer)
     return (
       <div className={css.item}>
         <Question questionText={questionText} />

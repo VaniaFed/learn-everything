@@ -5,7 +5,6 @@ import css from './answer.module.sass'
 
 const Answer = ({ onChangeAnswer = f => f, isPressedCheck, finallyUserAnswer }) => {
   const userAnswer = React.createRef()
-  console.log(finallyUserAnswer)
   return (
     <div className={css.answer__bg}>
       <div className={css.title}>{isPressedCheck ? 'Ваш ответ' : 'Ответ'}</div>
