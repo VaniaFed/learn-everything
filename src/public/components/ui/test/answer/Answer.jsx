@@ -6,7 +6,7 @@ import css from './answer.module.sass'
 const Answer = ({ onChangeAnswer = f => f, isPressedCheck, finallyUserAnswer }) => {
   const userAnswer = React.createRef()
   return (
-    <div className={css.answer__bg}>
+    <div className={`${css.answer__bg} ${isPressedCheck ? css.answer_without_shadow : ''}`}>
       <div className={css.title}>{isPressedCheck ? 'Ваш ответ' : 'Ответ'}</div>
       <textarea
         className={`${css.input} ${css.no_resize}`}

@@ -22,7 +22,7 @@ class Row extends Component {
         {isPressedCheck
           ? (
             <div className={`${css.row_answers} ${isCorrect ? css.correct : css.incorrect}`}>
-              <ExpectedAnswer answer={answerText} isCorrect={isCorrect} />
+              <ExpectedAnswer answer={answerText} isCorrect={isCorrect} isPressedCheck={isPressedCheck} />
               <Answer finallyUserAnswer={userAnswer} onChangeAnswer={onChangeAnswer} isPressedCheck={isPressedCheck} />
             </div>)
           : <Answer onChangeAnswer={onChangeAnswer} isPressedCheck={isPressedCheck} />

@@ -39,6 +39,7 @@ class Test extends Component {
       ),
       isPressedCheck: false
     }
+    console.log(this.state)
     this.checkAnswer = this.checkAnswer.bind(this)
     this.handleCheckAnswers = this.handleCheckAnswers.bind(this)
     this.changeAnswer = this.changeAnswer.bind(this)
