@@ -6,13 +6,18 @@ import Row from './row/Row'
 import Button from '../common/button/Button'
 
 import css from './test.module.sass'
-import NoOneCards from '../common/NoOneCards';
+import NoOneCards from '../common/NoOneCards'
 
-const Rows = ({ cardsToPassTest }) => {
+const Rows = ({ cardsToPassTest, isPressedCheck, onChangeAnswer }) => {
   return (
     cardsToPassTest.map((card, i) =>
       <Row key={i}
         questionText={card.question}
+        answerText={card.answer}
+        isPressedCheck={isPressedCheck}
+        isCorrect={card.isCorrect}
+        userAnswer={card.userAnswer}
+        onChangeAnswer={(userAnswer) => onChangeAnswer(card.id, userAnswer)}
         // onChange={(userAnswer) => changeCards (card.id, userAnswer)}
       />
     )
@@ -20,16 +25,68 @@ const Rows = ({ cardsToPassTest }) => {
 }
 
 class Test extends Component {
-  isAnswerCorrectly (correctAnswer, userAnswer) {
+  constructor (props) {
+    super(props)
+    const { id } = props.match.params
+    const cardsToPassTest = props.cards.filter(card => card.deckId === id)
+    this.state = {
+      cards: cardsToPassTest.map(card =>
+        ({
+          ...card,
+          isCorrect: false,
+          userAnswer: ''
+        })
+      ),
+      isPressedCheck: false
+    }
+    this.checkAnswer = this.checkAnswer.bind(this)
+    this.handleCheckAnswers = this.handleCheckAnswers.bind(this)
+    this.changeAnswer = this.changeAnswer.bind(this)
+  }
+
+  checkAnswer () {
+    this.setState({
+      isPressedCheck: !this.state.isPressedCheck
+    })
+  }
+
+  handleCheckAnswers () {
+    this.checkAnswer()
+    this.checkAllAnswers()
+  }
+
+  isAnswerCorrect (correctAnswer, userAnswer) {
     return correctAnswer.toLowerCase() === userAnswer.toLowerCase()
   }
 
   checkAllAnswers () {
-    this.state.cards.map(card =>
-      this.isAnswerCorrectly(card.answer, card.userAnswer)
-        ? console.log(true)
-        : console.log(false)
+    console.log(this.state.cards)
+    const cards = this.state.cards.map(card =>
+      (this.isAnswerCorrect(card.answer, card.userAnswer))
+        ? {
+          ...card,
+          isCorrect: true
+        }
+        : {
+          ...card,
+          isCorrect: false
+        }
     )
+
+    this.setState({ cards })
+  }
+
+  changeAnswer (cardId, userAnswer) {
+    this.setState(prevState => ({
+      cards: prevState.cards.map(card =>
+        (card.id === cardId)
+          ? {
+            ...card,
+            userAnswer
+          }
+          : card
+      )
+    }))
   }
 
   render () {
@@ -37,16 +94,19 @@ class Test extends Component {
     const { id } = this.props.match.params
     const currentDeck = decks.find(deck => deck.id === id)
     const cardsToPassTest = cards.filter(card => card.deckId === id)
-    const { checkAllAnswers } = this
+    const { handleCheckAnswers, changeAnswer } = this
+    const { isPressedCheck } = this.state
     return (
       <div className='container'>
         <Title className={css.title} title={currentDeck.title} />
         <div className={css.items}>
           {(cardsToPassTest.length > 0)
             ? (
-              <div className="">
-                <Rows cardsToPassTest={cardsToPassTest} />
-                <Button className='default-btn' content='Check the result' onClick={checkAllAnswers} />
+              <div>
+                <Rows cardsToPassTest={cardsToPassTest} isPressedCheck={isPressedCheck} onChangeAnswer={changeAnswer} />
+                <Button className='default-btn'
+                  content={(!isPressedCheck) ? 'Check the result' : 'Come back to test'}
+                  onClick={handleCheckAnswers} />
               </div>
             )
             : <NoOneCards textMsg='Here is no one cards to pass the test' comeBack={history.goBack} />

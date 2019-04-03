@@ -5,22 +5,29 @@ import Answer from '../answer/Answer'
 import Question from '../question/Question'
 
 import css from './row.module.sass'
+import ExpectedAnswer from '../ExpectedAnswer'
 
 class Row extends Component {
-  constructor (props) {
-    super (props)
-  }
-
   shouldComponentUpdate (nextProps) {
-    return this.props.questionText !== nextProps.questionText
+    return this.props.questionText !== nextProps.questionText ||
+      this.props.isPressedCheck !== nextProps.isPressedCheck ||
+      this.props.userAnswer !== nextProps.userAnswer
   }
 
   render () {
-    const { questionText, onChange } = this.props
+    const { questionText, answerText, userAnswer, isPressedCheck, onChangeAnswer, isCorrect } = this.props
+    console.log(userAnswer)
     return (
       <div className={css.item}>
         <Question questionText={questionText} />
-        <Answer onChange={onChange} />
+        {isPressedCheck
+          ? (
+            <div className={`${css.row_answers} ${isCorrect ? css.correct : css.incorrect}`}>
+              <ExpectedAnswer answer={answerText} isCorrect={isCorrect} />
+              <Answer finallyUserAnswer={userAnswer} onChangeAnswer={onChangeAnswer} isPressedCheck={isPressedCheck} />
+            </div>)
+          : <Answer onChangeAnswer={onChangeAnswer} isPressedCheck={isPressedCheck} />
+        }
       </div>
     )
   }
