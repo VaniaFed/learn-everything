@@ -4,6 +4,7 @@ import Card from './Card/Card'
 
 import css from './revise.module.sass'
 import NoOneCards from '../common/NoOneCards'
+import { tmpdir } from 'os';
 
 class Revise extends Component {
   constructor (props) {
@@ -26,46 +27,51 @@ class Revise extends Component {
   }
 
   choiceLevel (level, card) {
+    // TODO:
+    // 1. YES найти разницу дат
+    // 2. YES определить уровень
+    // 3. Записать nextRevise и prevRevise в state (глобальный - в redux)
+    //      datePrevRevise = currentDate
+    //      dateNextRevise = currentDate + daysToRevise
+    // 4. next card
+    
     const { datePrevRevise, dateNextRevise } = card
-    console.log(`currentLevel: ${level}`)
-    console.log(`date: ${datePrevRevise} ${dateNextRevise}`)
+    const date = {
+      prevRevise: datePrevRevise
+    }
+    console.log(new Date(datePrevRevise))
 
+    console.log('difference: ', this.datesBetween(datePrevRevise, '2019.04.14'))
 
-    // console.log(this.datesBetween(datePrevRevise, dateNextRevise))
     // console.log(Date.today())
     // const difference = datePrevRevise - dateNextRevise
 
     // const newDateNextRevice = 0
     // const newDatePrevRevice = 0
     // switch(level) {
-    //   case 'forget': 
-    //     newDatePrevRevice = dateNextRevise 
-    //     newDateNextRevice = datePrevRevice 
+    //   case 'forget':
+    //     newDatePrevRevice = dateNextRevise
+    //     newDateNextRevice = datePrevRevice
 
     // }
-    /* 
+    /*
       if == forget то
-        dateNextRevice = datePrevRevice 
+        dateNextRevice = datePrevRevice
       if == difficult то
         dateNextRevice = difference
       if == normal то
         dateNextRevice = difference * 2 - 1
       if == normal то
         dateNextRevice = difference * 3 - 1
-
-
     */
-
-
     // this.setState()
   }
 
   datesBetween (prevDate, nextDate) {
-    const date1 = new Date(prevDate.getYear)
+    const date1 = new Date(prevDate)
     const date2 = new Date(nextDate)
 
-    console.log(date2);
-    return date1.getDate()
+    return Math.abs(date1.getDate() - date2.getDate())
   }
 
   calcLevel (between) {
@@ -89,7 +95,7 @@ class Revise extends Component {
               answer={cards[0].answer}
               onCheckAnswer={checkAnswer}
               isPressedCheck={isPressedCheck}
-              onChoiceLevel={(level) => choiceLevel(level, cards[0].datePrevRevise, cards[0].dateNextRevise)} />)
+              onChoiceLevel={(level) => choiceLevel(level, cards[0])} />)
             : <NoOneCards textMsg='Here is no one cards to revise' comeBack={history.goBack} />
           }
         </main>
