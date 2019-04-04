@@ -30,6 +30,9 @@ class Revise extends Component {
     console.log(`currentLevel: ${level}`)
     console.log(`date: ${datePrevRevise} ${dateNextRevise}`)
 
+
+    // console.log(this.datesBetween(datePrevRevise, dateNextRevise))
+    // console.log(Date.today())
     // const difference = datePrevRevise - dateNextRevise
 
     // const newDateNextRevice = 0
@@ -55,6 +58,18 @@ class Revise extends Component {
 
 
     // this.setState()
+  }
+
+  datesBetween (prevDate, nextDate) {
+    const date1 = new Date(prevDate.getYear)
+    const date2 = new Date(nextDate)
+
+    console.log(date2);
+    return date1.getDate()
+  }
+
+  calcLevel (between) {
+    return prevDate - nextDate
   }
 
   render () {
