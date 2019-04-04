@@ -17,6 +17,7 @@ class Revise extends Component {
     }
     this.checkAnswer = this.checkAnswer.bind(this)
     this.choiceLevel = this.choiceLevel.bind(this)
+    this.calcNextDateRevise = this.calcNextDateRevise.bind(this)
   }
 
   checkAnswer () {
@@ -36,15 +37,11 @@ class Revise extends Component {
     // 4. next card
     
     const { datePrevRevise, dateNextRevise } = card
-    const date = {
-      prevRevise: datePrevRevise
-    }
-    console.log(new Date(datePrevRevise))
-
-    console.log('difference: ', this.datesBetween(datePrevRevise, '2019.04.14'))
-
-    // console.log(Date.today())
-    // const difference = datePrevRevise - dateNextRevise
+    const difference = this.datesDifference(datePrevRevise, '2019.04.04')
+    console.log(datePrevRevise)
+    console.log('difference: ', difference)
+    const newDateNextRevise = this.calcNextDateRevise(level, difference)
+    console.log(newDateNextRevise)
 
     // const newDateNextRevice = 0
     // const newDatePrevRevice = 0
@@ -67,15 +64,40 @@ class Revise extends Component {
     // this.setState()
   }
 
-  datesBetween (prevDate, nextDate) {
+  datesDifference (prevDate, nextDate) {
     const date1 = new Date(prevDate)
     const date2 = new Date(nextDate)
+    const secondsInDay = 1000 * 3600 * 24
 
-    return Math.abs(date1.getDate() - date2.getDate())
+    console.log('date1: ', date1)
+    console.log('date2: ', date2)
+
+    return Math.abs(Math.ceil((date2.getTime() - date1.getTime()) / secondsInDay))
   }
 
-  calcLevel (between) {
-    return prevDate - nextDate
+  calcNextDateRevise (level, difference) {
+    let dateNextRevise = 0
+    switch (level) {
+      case 'forget':
+        dateNextRevise = 0
+        console.log('forget')
+        break
+      case 'difficult':
+        console.log('difficult')
+        dateNextRevise = difference + 1
+        break
+      case 'normal':
+        dateNextRevise = difference * 2 + 1
+        console.log('noramal')
+        break
+      case 'easy':
+        dateNextRevise = difference * 3 + 1
+        console.log('easy')
+        break
+      default:
+        break
+    }
+    return dateNextRevise
   }
 
   render () {
