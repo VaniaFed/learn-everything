@@ -14,8 +14,8 @@ export const changeUserName = (userName) => {
 export const addCard = (deckId) => {
   const getDate = () => new Date()
   const y = doubleDate(getDate().getFullYear())
-  const m = doubleDate(getDate().getMonth())
-  const d = doubleDate(getDate().getDay())
+  const m = doubleDate(getDate().getMonth() + 1)
+  const d = doubleDate(getDate().getDate())
   const currentDate = `${y}.${m}.${d}`
   return (
     {

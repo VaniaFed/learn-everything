@@ -4,7 +4,8 @@ import Card from './Card/Card'
 
 import css from './revise.module.sass'
 import NoOneCards from '../common/NoOneCards'
-import { tmpdir } from 'os';
+
+import { doubleDate } from '../../../lib/time'
 
 class Revise extends Component {
   constructor (props) {
@@ -16,8 +17,7 @@ class Revise extends Component {
       isPressedCheck: false
     }
     this.checkAnswer = this.checkAnswer.bind(this)
-    this.choiceLevel = this.choiceLevel.bind(this)
-    this.calcNextDateRevise = this.calcNextDateRevise.bind(this)
+    this.handleChoiceLevel = this.handleChoiceLevel.bind(this)
   }
 
   checkAnswer () {
@@ -27,41 +27,31 @@ class Revise extends Component {
     })
   }
 
-  choiceLevel (level, card) {
+  handleChoiceLevel (level, card) {
     // TODO:
-    // 1. YES найти разницу дат
-    // 2. YES определить уровень
-    // 3. Записать nextRevise и prevRevise в state (глобальный - в redux)
-    //      datePrevRevise = currentDate
-    //      dateNextRevise = currentDate + daysToRevise
-    // 4. next card
-    
+    // вменсто того, чтобы извлекать по отдельности y, m и d из Date, лучше создать f() возвращающую `${y}.${m}.${d}`
     const { datePrevRevise, dateNextRevise } = card
-    const difference = this.datesDifference(datePrevRevise, '2019.04.04')
-    console.log(datePrevRevise)
-    console.log('difference: ', difference)
-    const newDateNextRevise = this.calcNextDateRevise(level, difference)
-    console.log(newDateNextRevise)
-
-    // const newDateNextRevice = 0
-    // const newDatePrevRevice = 0
-    // switch(level) {
-    //   case 'forget':
-    //     newDatePrevRevice = dateNextRevise
-    //     newDateNextRevice = datePrevRevice
-
-    // }
-    /*
-      if == forget то
-        dateNextRevice = datePrevRevice
-      if == difficult то
-        dateNextRevice = difference
-      if == normal то
-        dateNextRevice = difference * 2 - 1
-      if == normal то
-        dateNextRevice = difference * 3 - 1
-    */
-    // this.setState()
+    const difference = this.datesDifference(datePrevRevise, dateNextRevise)
+    const daysToNextRevise = this.howManyDaysLeftToNextRevise(level, difference)
+    const y = new Date().getFullYear()
+    const m = doubleDate(new Date().getMonth() + 1)
+    const d = doubleDate(new Date().getDate())
+    const currentDate = `${y}.${m}.${d}`
+    const newDateNextRevise = this.currentDatePlusDifference(currentDate, daysToNextRevise)
+    console.log('newDateNextRevise: ', newDateNextRevise)
+    
+    const nextState = this.state.cards.map(cardFromState =>
+      cardFromState.id === card.id
+        ? {
+          ...card,
+          datePrevRevise: currentDate,
+          dateNextRevise: newDateNextRevise
+        }
+        : card
+    )
+    console.log('state was changed', nextState)
+    // TODO:
+    // осталось сделать проверку при выводе карточки и выводить дате следующего повторения =))))
   }
 
   datesDifference (prevDate, nextDate) {
@@ -69,40 +59,61 @@ class Revise extends Component {
     const date2 = new Date(nextDate)
     const secondsInDay = 1000 * 3600 * 24
 
-    console.log('date1: ', date1)
-    console.log('date2: ', date2)
-
     return Math.abs(Math.ceil((date2.getTime() - date1.getTime()) / secondsInDay))
   }
 
-  calcNextDateRevise (level, difference) {
-    let dateNextRevise = 0
+  howManyDaysLeftToNextRevise (level, difference) {
+    let dayNextRevise = 0
     switch (level) {
       case 'forget':
-        dateNextRevise = 0
+        dayNextRevise = 0
         console.log('forget')
         break
       case 'difficult':
         console.log('difficult')
-        dateNextRevise = difference + 1
+        dayNextRevise = difference + 1
         break
       case 'normal':
-        dateNextRevise = difference * 2 + 1
+        dayNextRevise = difference * 2 + 1
         console.log('noramal')
         break
       case 'easy':
-        dateNextRevise = difference * 3 + 1
+        dayNextRevise = difference * 3 + 1
         console.log('easy')
         break
       default:
         break
     }
-    return dateNextRevise
+    return dayNextRevise
+  }
+
+  currentDatePlusDifference (currentDate, dayNextRevise) {
+    const secondsInDay = 1000 * 3600 * 24
+    const currentDateInSeconds = new Date(currentDate).getTime()
+    const sumDates = currentDateInSeconds + (dayNextRevise * secondsInDay)
+    const newDate = new Date(sumDates)
+    console.log('new Date: ', newDate)
+    console.log(newDate.getDate())
+    const y = newDate.getFullYear()
+    const m = doubleDate(newDate.getMonth() + 1)
+    const d = doubleDate(newDate.getDate())
+    const calculatedDate = `${y}.${m}.${d}`
+    return calculatedDate
+    // return new Date(currentDate).getDate() + dayNextRevise
+  }
+
+  calcPotentialNextDates (difference) {
+    return {
+      forget: 0,
+      difficult: difference + 1,
+      normal: difference * 2 + 1,
+      easy: difference * 3 + 1
+    }
   }
 
   render () {
     const { decks, match, history } = this.props
-    const { checkAnswer, choiceLevel } = this
+    const { checkAnswer, handleChoiceLevel } = this
     const { cards, isPressedCheck } = this.state
     const deckId = match.params.id
     const currentDeck = decks.find(deck => deck.id === deckId)
@@ -117,7 +128,7 @@ class Revise extends Component {
               answer={cards[0].answer}
               onCheckAnswer={checkAnswer}
               isPressedCheck={isPressedCheck}
-              onChoiceLevel={(level) => choiceLevel(level, cards[0])} />)
+              onChoiceLevel={(level) => handleChoiceLevel(level, cards[0])} />)
             : <NoOneCards textMsg='Here is no one cards to revise' comeBack={history.goBack} />
           }
         </main>
