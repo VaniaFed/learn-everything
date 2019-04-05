@@ -13,7 +13,7 @@ const Answer = ({ onChangeAnswer = f => f, isPressedCheck, finallyUserAnswer }) 
         ref={userAnswer}
         defaultValue={finallyUserAnswer}
         onChange={() => onChangeAnswer(userAnswer.current.value)}
-        placeholder={!isPressedCheck ? 'Type an answer...' : 'You didn\'t answer this question'}
+        placeholder={!isPressedCheck ? 'Введите ответ...' : 'Вы не ответили на этот вопрос'}
         disabled={isPressedCheck ? 'disabled' : null}
       />
     </div>

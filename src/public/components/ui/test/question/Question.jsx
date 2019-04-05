@@ -5,11 +5,12 @@ import css from './question.module.sass'
 
 const Question = ({ questionText = '' }) => (
   <div className={css.question__bg}>
-    <div className={css.title}>Вопрос</div> 
+    <div className={css.title}>Вопрос</div>
     <input type='text'
       className={`${css.input} ${css.no_resize}`}
       disabled
       value={questionText}
+      placeholder={questionText ? questionText : 'Вы не задали этот вопрос'}
     />
   </div>
 )

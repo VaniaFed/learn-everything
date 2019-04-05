@@ -18,6 +18,10 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
   TODO:
     1. remove { store } from presentation components
     2. add propTypes and defaultProps to components
+    3. преобразовать class components to stateless components везде, где это возможно
+    // complited:
+    // cards/answer &&
+    // cards/question
     4. make footer and started page
     5. получать title и текущие cards в контейнерных компонентах
     6. в Deck выводить сколько карточек готовы к повторению

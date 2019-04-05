@@ -1,46 +1,38 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 
 import css from './answer.module.sass'
 
-class Answer extends Component {
-  constructor (props) {
-    super(props)
-    this.answerValue = React.createRef()
-  }
+const Answer = ({ answerText, onChange }) => {
+  const answerValue = React.createRef()
 
-  render () {
-    const { onChange, answerText } = this.props
-    const { answerValue } = this
-    return (
-      <div className={css.answer__bg}
-        onClick={(e) => {
-          console.log(e.target)
-          answerValue.current.focus()
+  return (
+    <div className={css.answer__bg}
+      onClick={() => answerValue.current.focus()} >
+      <div className={css.title}>Ответ</div>
+      <textarea
+        className={`${css.input} ${css.no_resize}`}
+        ref={answerValue}
+        defaultValue={answerText}
+        placeholder='Type an answer...'
+        onBlur={() => {
+          if (answerText !== answerValue.current.value) {
+            onChange(answerValue.current.value)
+          }
         }}
-      >
-        <div className={css.title}>Ответ</div>
-        <textarea
-          className={`${css.input} ${css.no_resize}`}
-          ref={answerValue}
-          defaultValue={answerText}
-          placeholder='Type an answer...'
-          onBlur={() => {
-            if (answerText !== answerValue.current.value) {
-              onChange(answerValue.current.value)
-            }
-          }}
-        />
-      </div>
-    )
-  }
+      />
+    </div>
+  )
 }
 
 Answer.propTypes = {
-  onChange: PropTypes.func
+  onChange: PropTypes.func.isRequired,
+  answerText: PropTypes.string.isRequired
 }
+
 Answer.defaultProps = {
-  onChange: f => f
+  onChange: f => f,
+  answerText: 'Ответ'
 }
 
 export default Answer
