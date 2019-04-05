@@ -7,7 +7,6 @@ const store = createStore(
     ? JSON.parse(localStorage['redux-learn-everything'])
     : {}
 )
-
 store.subscribe(() => {
   localStorage['redux-learn-everything'] = JSON.stringify(store.getState())
   console.log(store.getState())

@@ -59,6 +59,17 @@ export const removeCard = (cardId) => {
   )
 }
 
+export const changeDateRevise = (id, datePrevRevise, dateNextRevise) => {
+  return (
+    {
+      type: C.CHANGE_DATE_REVISE,
+      id,
+      datePrevRevise,
+      dateNextRevise
+    }
+  )
+}
+
 export const addDeck = () => {
   return (
     {

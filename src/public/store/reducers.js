@@ -41,6 +41,14 @@ const card = (state = {}, action) => {
         answer
       }
     }
+    case C.CHANGE_DATE_REVISE: {
+      const { datePrevRevise, dateNextRevise } = action
+      return {
+        ...state,
+        datePrevRevise,
+        dateNextRevise
+      }
+    }
     default:
       return state
   }
@@ -66,6 +74,14 @@ export const cards = (state = [], action) => {
       })
     }
     case C.CHANGE_ANSWER: {
+      const { id } = action
+      return state.map(oneCard => {
+        return (oneCard.id === id)
+          ? card(oneCard, action)
+          : oneCard
+      })
+    }
+    case C.CHANGE_DATE_REVISE: {
       const { id } = action
       return state.map(oneCard => {
         return (oneCard.id === id)

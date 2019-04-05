@@ -11,24 +11,29 @@ class Revise extends Component {
   constructor (props) {
     super(props)
     const { id } = props.match.params
-    const cardsToRevise = props.cards.filter(card => card.deckId === id)
+    const cardsToRevise = props.cards.filter(card =>
+      card.deckId === id &&
+      new Date().getTime() >= new Date(card.dateNextRevise).getTime()
+    )
     this.state = {
       cards: cardsToRevise,
       isPressedCheck: false
     }
+
     this.checkAnswer = this.checkAnswer.bind(this)
     this.handleChoiceLevel = this.handleChoiceLevel.bind(this)
+    this.datesDifference = this.datesDifference.bind(this)
+    this.calcPotentialNextDates = this.calcPotentialNextDates.bind(this)
+    this.handleCheckAnswer = this.handleCheckAnswer.bind(this)
   }
 
-  checkAnswer () {
-    console.log(this.state)
-    this.setState({
-      isPressedCheck: !this.state.isPressedCheck
-    })
+  shouldComponentUpdate (nextState) {
+    return this.state.cards !== nextState.cards ||
+      this.state.isPressedCheck !== nextState.isPressedCheck
   }
 
   handleChoiceLevel (level, card) {
-    // TODO:
+    // FIXME:
     // вменсто того, чтобы извлекать по отдельности y, m и d из Date, лучше создать f() возвращающую `${y}.${m}.${d}`
     const { datePrevRevise, dateNextRevise } = card
     const difference = this.datesDifference(datePrevRevise, dateNextRevise)
@@ -38,20 +43,34 @@ class Revise extends Component {
     const d = doubleDate(new Date().getDate())
     const currentDate = `${y}.${m}.${d}`
     const newDateNextRevise = this.currentDatePlusDifference(currentDate, daysToNextRevise)
-    console.log('newDateNextRevise: ', newDateNextRevise)
-    
-    const nextState = this.state.cards.map(cardFromState =>
-      cardFromState.id === card.id
-        ? {
-          ...card,
-          datePrevRevise: currentDate,
-          dateNextRevise: newDateNextRevise
-        }
-        : card
-    )
-    console.log('state was changed', nextState)
+
+    if (level !== 'forget') {
+      this.props.onChangeDateRevise(card.id, currentDate, newDateNextRevise)
+      const nextState = this.state.cards.filter(stateCard =>
+        stateCard.id !== card.id
+      )
+
+      this.setState({ cards: nextState })
+    }
+    this.nextCard()
     // TODO:
     // осталось сделать проверку при выводе карточки и выводить дате следующего повторения =))))
+  }
+
+  handleCheckAnswer (prevDate, nextDate) {
+    this.checkAnswer()
+  }
+
+  checkAnswer () {
+    this.setState({
+      isPressedCheck: !this.state.isPressedCheck
+    })
+  }
+
+  nextCard () {
+    this.setState({
+      isPressedCheck: !this.state.isPressedCheck
+    })
   }
 
   datesDifference (prevDate, nextDate) {
@@ -75,7 +94,7 @@ class Revise extends Component {
         break
       case 'normal':
         dayNextRevise = difference * 2 + 1
-        console.log('noramal')
+        console.log('normal')
         break
       case 'easy':
         dayNextRevise = difference * 3 + 1
@@ -92,14 +111,11 @@ class Revise extends Component {
     const currentDateInSeconds = new Date(currentDate).getTime()
     const sumDates = currentDateInSeconds + (dayNextRevise * secondsInDay)
     const newDate = new Date(sumDates)
-    console.log('new Date: ', newDate)
-    console.log(newDate.getDate())
     const y = newDate.getFullYear()
     const m = doubleDate(newDate.getMonth() + 1)
     const d = doubleDate(newDate.getDate())
     const calculatedDate = `${y}.${m}.${d}`
     return calculatedDate
-    // return new Date(currentDate).getDate() + dayNextRevise
   }
 
   calcPotentialNextDates (difference) {
@@ -113,12 +129,11 @@ class Revise extends Component {
 
   render () {
     const { decks, match, history } = this.props
-    const { checkAnswer, handleChoiceLevel } = this
+    const { handleChoiceLevel, handleCheckAnswer, datesDifference, calcPotentialNextDates } = this
     const { cards, isPressedCheck } = this.state
     const deckId = match.params.id
     const currentDeck = decks.find(deck => deck.id === deckId)
     console.log(cards)
-    // FIXME: and also to add the following condition: dateNextRevise < currentDate
     return (
       <div className='container'>
         <main className={css.rememberContainer}>
@@ -126,9 +141,13 @@ class Revise extends Component {
           {(cards.length > 0)
             ? (<Card question={cards[0].question}
               answer={cards[0].answer}
-              onCheckAnswer={checkAnswer}
+              card={cards[0]}
+              onCheckAnswer={handleCheckAnswer}
               isPressedCheck={isPressedCheck}
-              onChoiceLevel={(level) => handleChoiceLevel(level, cards[0])} />)
+              onChoiceLevel={(level) => handleChoiceLevel(level, cards[0])}
+              datesDifference={datesDifference}
+              calcPotentialNextDates={calcPotentialNextDates}
+            />)
             : <NoOneCards textMsg='Here is no one cards to revise' comeBack={history.goBack} />
           }
         </main>
