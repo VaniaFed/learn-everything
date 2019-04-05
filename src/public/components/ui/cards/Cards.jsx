@@ -31,13 +31,9 @@ const Cards = ({ cards, decks, match, onDelete, onAdd,
         onChangeQuestion={onChangeQuestion}
         onChangeAnswer={onChangeAnswer}
       />
-      <Button className='default-btn'
+      <Button className='default-btn default-btn-margin'
         content='Добавить карточку'
         onClick={() => onAdd(id)}
-      />
-      <Button className='default-btn btn-margin'
-        content='Сохранить все'
-        // onClick={() => store.dispatch(addCard(id))}
       />
     </div>
   )

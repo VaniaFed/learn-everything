@@ -11,7 +11,7 @@ const Decks = ({ cards, decks, onDelete, onAdd }) => {
     <div className='container'>
       <h1>Колоды</h1>
       {(decks.length > 0)
-        ? <div className={css.lists}>
+        ? <div>
           {decks.map((deck, i) => {
             const currentCards = cards.filter(card => card.deckId === deck.id)
             const quantityCards = currentCards.length
@@ -27,7 +27,7 @@ const Decks = ({ cards, decks, onDelete, onAdd }) => {
         </div>
         : null
       }
-      <Button className='default-btn'
+      <Button className='default-btn default-btn-margin'
         onClick={() => onAdd()}
         content='Добавить колоду'
       />
