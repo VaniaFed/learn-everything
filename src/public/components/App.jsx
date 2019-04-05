@@ -19,9 +19,8 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     1. remove { store } from presentation components
     2. add propTypes and defaultProps to components
     4. make footer and started page
-    5. add margins to buttons
-    6. получать title и текущие cards в контейнерных компонентах
-    7. в Deck выводить сколько карточек готовы к повторению
+    5. получать title и текущие cards в контейнерных компонентах
+    6. в Deck выводить сколько карточек готовы к повторению
 */
 class App extends Component {
   render () {

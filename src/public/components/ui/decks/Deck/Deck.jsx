@@ -13,10 +13,21 @@ class Deck extends Component {
 
   render () {
     const { id, quantity, title, onDelete } = this.props
+    const formatWordCards = quantity => {
+      if (quantity % 10 === 1) {
+        return 'карточка'
+      }
+      if ((quantity === 0) || (quantity > 4 && quantity < 21)) {
+        return 'карточек'
+      }
+      if (quantity > 21 || quantity > 1) {
+        return 'карточки'
+      }
+    }
     return (
       <div className={css.item}>
         <Link to={`/deck/${id}`} className={`${css.link} button-hover`}>
-          <div className={css.quantity}>{quantity} комбинаций</div>
+          <div className={css.quantity}>{quantity} {formatWordCards(quantity)}</div>
           <div className='card__name' style={this.style}>{title}</div>
         </Link>
         <a href='#' className={`${css.delete} button-hover`}
