@@ -89,6 +89,12 @@ export const cards = (state = [], action) => {
           : oneCard
       })
     }
+    case C.REMOVE_CARDS_BY_DECK_ID: {
+      const { deckId } = action
+      return state.filter(card =>
+        card.deckId !== deckId
+      )
+    }
     default:
       return state
   }

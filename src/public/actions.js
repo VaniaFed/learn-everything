@@ -50,11 +50,20 @@ export const changeAnswer = (id, answer) => {
   )
 }
 
-export const removeCard = (cardId) => {
+export const removeCard = cardId => {
   return (
     {
       type: C.REMOVE_CARD,
       id: cardId
+    }
+  )
+}
+
+export const removeCardsByDeckId = deckId => {
+  return (
+    {
+      type: C.REMOVE_CARDS_BY_DECK_ID,
+      deckId
     }
   )
 }

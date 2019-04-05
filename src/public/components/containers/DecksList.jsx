@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import Decks from '../ui/decks/Decks'
-import { removeDeck, addDeck } from '../../actions'
+import { removeDeck, addDeck, removeCardsByDeckId } from '../../actions'
 
 export const DecksList = connect(
   state => ({
@@ -11,6 +11,7 @@ export const DecksList = connect(
   dispatch => ({
     onDelete (deckId) {
       dispatch(removeDeck(deckId))
+      dispatch(removeCardsByDeckId(deckId))
     },
     onAdd () {
       dispatch(addDeck())
