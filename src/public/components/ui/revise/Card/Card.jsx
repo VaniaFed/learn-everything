@@ -5,7 +5,7 @@ import css from './card.module.sass'
 
 import DifficultyLevel from './difficultyLevel/DifficultyLevel'
 const Card = ({ question, answer, card, onCheckAnswer = f => f, onChoiceLevel, isPressedCheck, datesDifference, calcPotentialNextDates }) => {
-  const difference = datesDifference(card.datePrevRevise, card.datePrevRevise)
+  const difference = datesDifference(card.datePrevRevise, card.dateNextRevise)
   const nextDates = calcPotentialNextDates(difference)
   return (
     <div>
