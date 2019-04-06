@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import css from './difficultyLevel.module.sass'
 const DifficultyLevel = ({ onChoiceLevel, nextDates }) => {
+  console.log(nextDates)
   return (
     <div className={`${css.rememberContainer__complexity} hidden`}>
       <button onClick={() => onChoiceLevel('forget')} className={`${css.complexity__item} button-hover`}>{`Забыл (>_<)`}</button>
