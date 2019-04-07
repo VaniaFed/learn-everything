@@ -4,9 +4,13 @@ import PropTypes from 'prop-types'
 import css from './card.module.sass'
 
 import DifficultyLevel from './difficultyLevel/DifficultyLevel'
-const Card = ({ question, answer, card, onCheckAnswer = f => f, onChoiceLevel, isPressedCheck, datesDifference, calcPotentialNextDates }) => {
-  const difference = datesDifference(card.datePrevRevise, card.dateNextRevise)
-  const nextDates = calcPotentialNextDates(difference)
+const Card = ({
+  question = 'Вопрос не задан',
+  answer = 'Ответ не задан',
+  nextDates = f => f,
+  isPressedCheck = f => f,
+  onCheckAnswer = f => f,
+  onChoiceLevel = f => f }) => {
   return (
     <div>
       <div className={css.remember__question}>{isPressedCheck ? answer : question}</div>
@@ -16,6 +20,15 @@ const Card = ({ question, answer, card, onCheckAnswer = f => f, onChoiceLevel, i
       }
     </div>
   )
+}
+
+Card.propTypes = {
+  question: PropTypes.string.isRequired,
+  answer: PropTypes.string.isRequired,
+  nextDates: PropTypes.string.isRequired,
+  isPressedCheck: PropTypes.bool.isRequired,
+  onCheckAnswer: PropTypes.func.isRequired,
+  onChoiceLevel: PropTypes.func.isRequired
 }
 
 export default Card

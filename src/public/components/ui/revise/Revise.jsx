@@ -15,15 +15,15 @@ class Revise extends Component {
       card.deckId === id &&
       new Date().getTime() >= new Date(card.dateNextRevise).getTime()
     )
+
     this.state = {
       cards: cardsToRevise,
       isPressedCheck: false
     }
 
     this.checkAnswer = this.checkAnswer.bind(this)
+    this.calcAndGetNextDates = this.calcAndGetNextDates.bind(this)
     this.handleChoiceLevel = this.handleChoiceLevel.bind(this)
-    this.datesDifference = this.datesDifference.bind(this)
-    this.calcPotentialNextDates = this.calcPotentialNextDates.bind(this)
     this.handleCheckAnswer = this.handleCheckAnswer.bind(this)
   }
 
@@ -127,26 +127,30 @@ class Revise extends Component {
     }
   }
 
+  calcAndGetNextDates (prevDate, nextDate) {
+    const difference = this.datesDifference(prevDate, nextDate)
+    const nextDates = this.calcPotentialNextDates(difference)
+    return nextDates
+  }
+
   render () {
     const { decks, match, history } = this.props
-    const { handleChoiceLevel, handleCheckAnswer, datesDifference, calcPotentialNextDates } = this
+    const { handleChoiceLevel, handleCheckAnswer, calcAndGetNextDates } = this
     const { cards, isPressedCheck } = this.state
     const deckId = match.params.id
     const currentDeck = decks.find(deck => deck.id === deckId)
-    console.log(cards)
     return (
       <div className='container'>
         <main className={css.rememberContainer}>
           <h2 className={css.remember__title}>{currentDeck.title}</h2>
           {(cards.length > 0)
-            ? (<Card question={cards[0].question}
+            ? (<Card
+              question={cards[0].question}
               answer={cards[0].answer}
-              card={cards[0]}
+              nextDates={calcAndGetNextDates(cards[0].datePrevRevise, cards[0].dateNextRevise)}
               onCheckAnswer={handleCheckAnswer}
               isPressedCheck={isPressedCheck}
               onChoiceLevel={(level) => handleChoiceLevel(level, cards[0])}
-              datesDifference={datesDifference}
-              calcPotentialNextDates={calcPotentialNextDates}
             />)
             : <NoOneCards textMsg='Here is no one cards to revise' comeBack={history.goBack} />
           }
