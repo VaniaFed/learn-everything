@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const babel = require('./webpack/babel');
+const js = require('./webpack/js');
 const pug = require('./webpack/pug');
 const css = require('./webpack/css');
 const sass = require('./webpack/sass');
@@ -28,7 +28,7 @@ module.exports = {
   },
   module: {
     rules: [
-      babel,
+      js,
       pug,
       css,
       ...sass,
