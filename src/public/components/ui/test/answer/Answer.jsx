@@ -21,7 +21,9 @@ const Answer = ({ onChangeAnswer = f => f, isPressedCheck, finallyUserAnswer }) 
 }
 
 Answer.propTypes = {
-  onChange: PropTypes.func
+  onChangeAnswer: PropTypes.func.isRequired,
+  isPressedCheck: PropTypes.bool.isRequired,
+  finallyUserAnswer: PropTypes.string
 }
 
 export default Answer

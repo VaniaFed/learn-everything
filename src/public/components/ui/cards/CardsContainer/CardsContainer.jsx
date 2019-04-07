@@ -27,12 +27,11 @@ const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f,
   )
 }
 
-CardsContainer.contextTypes = {
-  store: PropTypes.object
-}
-
 CardsContainer.propTypes = {
-  store: PropTypes.object
+  cards: PropTypes.array,
+  deckId: PropTypes.number,
+  onChangeAnswer: PropTypes.func,
+  onChangeQuestion: PropTypes.func
 }
 
 export default CardsContainer

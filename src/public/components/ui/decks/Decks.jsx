@@ -1,12 +1,10 @@
 import React from 'react'
 
-import css from './decks.module.sass'
-
 import Deck from './Deck/Deck'
 import Button from '../common/button/Button'
 import { PropTypes } from 'prop-types'
 
-const Decks = ({ cards, decks, onDelete, onAdd }) => {
+const Decks = ({ cards = [], decks = [], onDelete = f => f, onAdd = f => f }) => {
   return (
     <div className='container'>
       <h1>Колоды</h1>
@@ -33,6 +31,13 @@ const Decks = ({ cards, decks, onDelete, onAdd }) => {
       />
     </div>
   )
+}
+
+Decks.propTypes = {
+  cards: PropTypes.array,
+  decks: PropTypes.array,
+  onDelete: PropTypes.func,
+  onAdd: PropTypes.func
 }
 
 export default Decks

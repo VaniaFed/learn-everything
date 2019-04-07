@@ -117,8 +117,9 @@ class Test extends Component {
   }
 }
 
-Test.contextTypes = {
+Test.PropTypes = {
+  cards: PropTypes.array.isRequired,
+  decks: PropTypes.array.isRequired
 }
 
 export default Test
-

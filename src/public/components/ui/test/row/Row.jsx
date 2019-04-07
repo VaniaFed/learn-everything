@@ -33,13 +33,21 @@ class Row extends Component {
 }
 
 Row.propTypes = {
-  questionText: PropTypes.string,
-  onDelete: PropTypes.func
+  questionText: PropTypes.string.isRequired,
+  answerText: PropTypes.string.isRequired,
+  userAnswer: PropTypes.string.isRequired,
+  isCorrect: PropTypes.bool.isRequired,
+  isPressedCheck: PropTypes.func.isRequired,
+  onChangeAnswer: PropTypes.func.isRequired
 }
 
 Row.defaultProps = {
   questionText: 'empty question',
-  onDelete: f => f
+  answerText: 'answer',
+  userAnswer: 'user answer',
+  isCorrect: f => f,
+  isPressedCheck: f => f,
+  onChangeAnswer: f => f
 }
 
 export default Row

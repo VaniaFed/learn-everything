@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import css from './difficultyLevel.module.sass'
-const DifficultyLevel = ({ onChoiceLevel, nextDates }) => {
+const DifficultyLevel = ({ onChoiceLevel = f => f, nextDates = f => f }) => {
   console.log(nextDates)
   return (
     <div className={`${css.rememberContainer__complexity} hidden`}>
@@ -12,6 +12,11 @@ const DifficultyLevel = ({ onChoiceLevel, nextDates }) => {
       <button onClick={() => onChoiceLevel('easy')} className={`${css.complexity__item} button-hover`}>Легко ({nextDates.easy} д.)</button>
     </div>
   )
+}
+
+DifficultyLevel.propTypes = {
+  nextDates: PropTypes.func,
+  onChoiceLevel: PropTypes.func
 }
 
 export default DifficultyLevel

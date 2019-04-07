@@ -10,7 +10,7 @@ const Question = ({ questionText = '' }) => (
       className={`${css.input} ${css.no_resize}`}
       disabled
       value={questionText}
-      placeholder={questionText ? questionText : 'Вы не задали этот вопрос'}
+      placeholder={questionText && 'Вы не задали этот вопрос'}
     />
   </div>
 )

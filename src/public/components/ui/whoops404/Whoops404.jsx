@@ -7,7 +7,7 @@ const Whoops404 = ({ location = '' }) => {
   return (
     <div className={`${css.whoops404__Container} container`}>
       <h1 className={css.number404}>404</h1>
-      <h1 className={css.whoops404__title}>Resource not found at '{location.pathname}'</h1> 
+      <h1 className={css.whoops404__title}>Resource not found at '{location.pathname}'</h1>
     </div>
   )
 }

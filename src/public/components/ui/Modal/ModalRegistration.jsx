@@ -25,14 +25,16 @@ class ModalRegistration extends Component {
     const passwordRepeat = this.passwordRepeat.current.value
 
     console.log(login, password, passwordRepeat)
-    let error = ''
-    (login.length === 0) ?
-      error = 'Вы не заполнили поле логин' :
-      (password.length === 0) ?
-        error = 'Вы не заполнили поле пароль' :
-      (password !== passwordRepeat) ?
-        error = 'Пароли не совпадают' :
-        null
+
+    let error
+
+    // login.length === 0
+    //   ? error = 'Вы не заполнили поле логин'
+    //   : (password.length === 0) ?
+    //     error = 'Вы не заполнили поле пароль' :
+    //   (password !== passwordRepeat) ?
+    //     error = 'Пароли не совпадают' :
+    //     null
 
     error
       ? this.setState({
@@ -53,7 +55,7 @@ class ModalRegistration extends Component {
           <input className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Логин' ref={this.login} />
           <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Пароль' ref={this.password} />
           <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Повторите пароль' ref={this.passwordRepeat} />
-          <p style={{'color': 'red'}}>{this.state.err ? this.state.errText : null}</p>
+          <p style={{ 'color': 'red' }}>{this.state.err ? this.state.errText : null}</p>
           <Submit className={`${css.modal__input} ${css.modal__input__submit}`}
             value='Зарегистрироваться'
             onClick={e => this.register(e)}
