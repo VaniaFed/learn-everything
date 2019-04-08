@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.css'
+import '!style-loader!css-loader!bootstrap/dist/css/bootstrap-grid.min.css'
 import '../../stylesheet/based.sass'
 import '../../stylesheet/auxiliary.sass'
 
@@ -11,13 +11,9 @@ import store from './store/store'
 window.React = React
 window.store = store
 
-const render = () => {
-  ReactDom.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.querySelector('#root')
-  )
-}
-
-render()
+ReactDom.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.querySelector('#root')
+)

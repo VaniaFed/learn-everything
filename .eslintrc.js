@@ -28,6 +28,7 @@ module.exports = {
     'react'
   ],
   'rules': {
-    "react/prop-types": 1
+    "react/prop-types": 1,
+    "import/no-webpack-loader-syntax": 0
   }
 }
