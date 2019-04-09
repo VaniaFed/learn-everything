@@ -3,9 +3,10 @@ import React, { Component } from 'react'
 import Card from './Card/Card'
 
 import css from './revise.module.sass'
-import NoOneCards from '../common/NoOneCards'
+import NoOneCards from '../common/noOneCards/NoOneCards'
 
 import { doubleDate } from '../../../lib/time'
+import Title from '../common/title1/Title'
 
 class Revise extends Component {
   constructor (props) {
@@ -142,7 +143,7 @@ class Revise extends Component {
     return (
       <div className='container'>
         <main className={css.rememberContainer}>
-          <h2 className={css.remember__title}>{currentDeck.title}</h2>
+          <Title className={css.remember__title} content={currentDeck.title} />
           {(cards.length > 0)
             ? (<Card
               question={cards[0].question}
@@ -152,7 +153,7 @@ class Revise extends Component {
               isPressedCheck={isPressedCheck}
               onChoiceLevel={(level) => handleChoiceLevel(level, cards[0])}
             />)
-            : <NoOneCards textMsg='Here is no one cards to revise' comeBack={history.goBack} />
+            : <NoOneCards textMsg='Нет ни одной карточки для повторения. Пожалуйста, зайдите позже.' comeBack={history.goBack} />
           }
         </main>
       </div>

@@ -3,11 +3,12 @@ import React from 'react'
 import Deck from './Deck/Deck'
 import Button from '../common/button/Button'
 import { PropTypes } from 'prop-types'
+import Title2 from '../common/title2/Title2';
 
 const Decks = ({ cards = [], decks = [], onDelete = f => f, onAdd = f => f }) => {
   return (
     <div className='container'>
-      <h1>Колоды</h1>
+      <Title2 content='Колоды' />
       {(decks.length > 0)
         ? <div>
           {decks.map((deck, i) => {

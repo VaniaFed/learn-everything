@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import Title from '../common/Title'
+import Title from '../common/title1/Title'
 import Submit from './Submit'
 
 import css from './defaultModal.module.sass'

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Submit from './Submit'
-import Title from '../common/Title'
+import Title from '../common/title1/Title'
 
 import css from './defaultModal.module.sass'
 class ModalAuthorization extends Component {

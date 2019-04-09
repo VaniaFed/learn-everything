@@ -11,7 +11,7 @@ const Question = ({ questionText, onChange }) => {
       onClick={() => questionValue.current.focus()} >
       <div className={css.title}>Вопрос</div>
       <div className={css.textarea__container}>
-        <input type='text'
+        <textarea
           className={`${css.input} ${css.no_resize}`}
           ref={questionValue}
           defaultValue={questionText}

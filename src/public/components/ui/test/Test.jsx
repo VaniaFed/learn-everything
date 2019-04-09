@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import Title from '../common/Title'
+import Title from '../common/title1/Title'
 import Row from './row/Row'
 import Button from '../common/button/Button'
 
 import css from './test.module.sass'
-import NoOneCards from '../common/NoOneCards'
+import NoOneCards from '../common/noOneCards/NoOneCards'
 
 const Rows = ({ cardsToPassTest, isPressedCheck, onChangeAnswer }) => {
   return (
@@ -98,7 +98,7 @@ class Test extends Component {
     const { isPressedCheck } = this.state
     return (
       <div className='container'>
-        <Title className={css.title} title={currentDeck.title} />
+        <Title className={css.title} content={currentDeck.title} />
         <div className={css.items}>
           {(cardsToPassTest.length > 0)
             ? (

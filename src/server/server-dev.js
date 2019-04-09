@@ -4,8 +4,7 @@ import { renderToString } from 'react-dom/server'
 
 import App from '../public/components/App'
 
-
-// global.React = React
+global.React = React
 
 const logger = (req, res, next) => {
   console.log(`${req.method} request for ${req.url}`)
