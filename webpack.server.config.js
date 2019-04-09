@@ -8,10 +8,11 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
-const js = require('./webpack/js')
-const css = require('./webpack/css')
-const sass = require('./webpack/sass')
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const js = require('./webpack/js.js')
+const sass = require('./webpack/sass.js')
+const sassModule = require('./webpack/sass.module.js')
+const css = require('./webpack/css.js')
 
 module.exports = (env, argv) => {
   const SERVER_PATH = (argv.mode === 'production') ?
@@ -20,10 +21,10 @@ module.exports = (env, argv) => {
 
   return ({
     entry: {
-      server: SERVER_PATH,
+      server: SERVER_PATH
     },
     output: {
-      path: path.join(__dirname, 'dist'),
+      path: path.join(__dirname, 'dist/server'),
       publicPath: '/',
       filename: '[name].js'
     },
@@ -38,12 +39,49 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         js,
-        css,
-        ...sass
+        {
+          test: /\.css$/,
+          use: ExtractTextPlugin.extract({
+            use: [
+              {
+                loader: 'css-loader',
+                query: {
+                  localIdentName: '[hash:8]',
+                  modules: true
+                }
+              }
+            ]
+          })
+        },
+        {
+          test: /\.sass$/,
+          use: ExtractTextPlugin.extract({
+            use: [
+              {
+                loader: 'css-loader',
+                query: {
+                  localIdentName: '[hash:8]',
+                  modules: true
+                }
+              },
+              {
+                loader: 'sass-loader'
+              }
+            ]
+          })
+        }
+        // sassModule,
+        // sass
       ]
     },
+    plugins: [
+      new ExtractTextPlugin({
+        filename: '[name].css',
+        allChunks: true
+      })
+    ],
     resolve: {
-      extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
+      extensions: ['.webpack.js', '.web.js', '.js', '.jsx', 'css', 'sass']
     }
   })
 }

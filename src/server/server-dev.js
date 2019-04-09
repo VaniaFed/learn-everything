@@ -2,7 +2,7 @@ import React from 'react'
 import express from 'express'
 import { renderToString } from 'react-dom/server'
 
-import App from '../public/components/App'
+import Title from '../public/components/ui/common/title1/Title'
 
 global.React = React
 
@@ -15,7 +15,7 @@ const app = express()
   .use(logger)
 
 app.get('*', (req, res) => {
-  const body = renderToString(<App />)
+  const body = renderToString(<Title content={'Hello world!'} />)
   res.status(200).send(`
     <!DOCTYPE html>
     <html lang="en">

@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const babel = require('./webpack/babel');
+const js = require('./webpack/js');
 const pug = require('./webpack/pug');
 const css = require('./webpack/css');
 const sass = require('./webpack/sass');
+const sassModule = require('./webpack/sass.module');
 const images = require('./webpack/images');
 
 module.exports = {
@@ -22,17 +24,23 @@ module.exports = {
   mode: 'production',
   module: {
     rules: [
-      babel,
+      js,
       pug,
       css,
-      ...sass,
-      images,
+      sass,
+      sassModule,
+      images
     ],
   },
   plugins: [
     require('autoprefixer'),
+    // new ExtractTextPlugin({
+    //   filename: '[name].css',
+    //   allChunks: true
+    // }),
     new MiniCssExtractPlugin({
-      filename: 'index.css'
+      filename: '[name].css',
+      allChunks: true
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
@@ -43,9 +51,9 @@ module.exports = {
       filename: 'started.html',
       template: 'src/views/pages/started.pug',
       chunks: false
-    }),
+    })
   ],
   resolve: {
-    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx'],
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.css', '.sass'],
   },
 };

@@ -5,8 +5,10 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack-dev.config.js --hot --inline",
-    "server": "nodemon --exec babel-node src/server.js",
-    "build": "webpack --config webpack-prod.config.js --mode production"
+    "server": "nodemon dist/server.js",
+    "server2": "webpack --mode development --config webpack.server.config.js",
+    "build": "webpack --progress --config webpack-prod.config.js --mode production",
+    "build:server": "BABEL_ENV=server babel src --out-dir ./dist"
   },
   "postcss": {
     "parser": "sugarss",
@@ -17,7 +19,10 @@
     }
   },
   "dependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
     "acorn": "^6.1.1",
+    "babel-plugin-css-modules-transform": "^1.6.2",
     "bootstrap": "^4.2.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
@@ -28,6 +33,7 @@
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
     "redux": "^4.0.1",
+    "styled-jsx": "^3.2.1",
     "terser-webpack-plugin": "^1.2.2",
     "url-loader": "^1.1.2",
     "uuid": "^3.3.2"
@@ -35,13 +41,27 @@
   "devDependencies": {
     "@babel/core": "^7.4.3",
     "@babel/node": "^7.0.0",
-    "@babel/preset-env": "^7.3.1",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/plugin-proposal-decorators": "^7.0.0",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
+    "@babel/plugin-proposal-function-bind": "^7.0.0",
+    "@babel/plugin-proposal-function-sent": "^7.0.0",
+    "@babel/plugin-proposal-json-strings": "^7.0.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-syntax-import-meta": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/preset-stage-0": "^7.0.0",
     "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
-    "babel-preset-env": "^1.7.0",
     "common-config-webpack-plugin": "^1.1.0",
     "css-loader": "^2.0.0",
     "cssnano": "^4.1.8",
@@ -56,6 +76,7 @@
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "isomorphic-style-loader": "^5.0.1",
@@ -70,6 +91,7 @@
     "sugarss": "^2.0.0",
     "webpack": "^4.27.1",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "webpack-node-externals": "^1.7.2"
   }
 }

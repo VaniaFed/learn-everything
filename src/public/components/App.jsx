@@ -25,6 +25,8 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     4. make footer and started page
     5. получать title и текущие cards в контейнерных компонентах
     6. в Deck выводить сколько карточек готовы к повторению
+    7. Revise: если колво дней === 1 то выводить только одну
+    8. Выделять визуально normal
 */
 class App extends Component {
   render () {

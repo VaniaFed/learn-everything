@@ -6,14 +6,17 @@ const js = require('./webpack/js');
 const pug = require('./webpack/pug');
 const css = require('./webpack/css');
 const sass = require('./webpack/sass');
+const sassModule = require('./webpack/sass.module');
 const images = require('./webpack/images');
+
+console.log('sass: ', sass)
 
 module.exports = {
   entry: {
     index: './src/public/index.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/client'),
     filename: '[name].js',
     sourceMapFilename: 'name.js'
   },
@@ -31,9 +34,10 @@ module.exports = {
       js,
       pug,
       css,
-      ...sass,
-      images,
-    ],
+      sass,
+      sassModule,
+      images
+    ]
   },
   plugins: [
     require('autoprefixer'),
