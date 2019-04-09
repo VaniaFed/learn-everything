@@ -4,8 +4,8 @@ module.exports = {
     {
       loader: 'file-loader',
       options: {
-        outputPath: '../views/',
-      },
-    },
-  ],
-};
+        outputPath: '../views/'
+      }
+    }
+  ]
+}

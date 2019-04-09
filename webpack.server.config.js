@@ -8,6 +8,10 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
+const js = require('./webpack/js')
+const css = require('./webpack/css')
+const sass = require('./webpack/sass')
+
 
 module.exports = (env, argv) => {
   const SERVER_PATH = (argv.mode === 'production') ?
@@ -33,15 +37,13 @@ module.exports = (env, argv) => {
     externals: [nodeExternals()], // Need this to avoid error when working with Express
     module: {
       rules: [
-        {
-          // Transpiles ES6-8 into ES5
-          test: /\.js$/,
-          exclude: /node_modules/,
-          use: {
-            loader: "babel-loader"
-          }
-        }
+        js,
+        css,
+        ...sass
       ]
+    },
+    resolve: {
+      extensions: ['.webpack.js', '.web.js', '.js', '.jsx']
     }
   })
 }
