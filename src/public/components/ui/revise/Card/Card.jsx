@@ -13,10 +13,10 @@ const Card = ({
   onChoiceLevel = f => f }) => {
   return (
     <div>
-      <div className={css.remember__question}>{isPressedCheck ? answer : question}</div>
+      <div className={css.question}>{isPressedCheck ? answer : question}</div>
       {(isPressedCheck)
         ? <DifficultyLevel onChoiceLevel={onChoiceLevel} nextDates={nextDates} />
-        : <button className={`${css.remember__check} button-hover`} onClick={onCheckAnswer}>Проверить</button>
+        : <button className={`${css.check} button-hover`} onClick={onCheckAnswer}>Проверить</button>
       }
     </div>
   )

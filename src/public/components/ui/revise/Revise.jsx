@@ -141,8 +141,8 @@ class Revise extends Component {
     const currentDeck = decks.find(deck => deck.id === deckId)
     return (
       <div className='container'>
-        <main className={css.rememberContainer}>
-          <Title className={css.remember__title} content={currentDeck.title} />
+        <main>
+          <Title className={css.title} content={currentDeck.title} />
           {(cards.length > 0)
             ? (<Card
               question={cards[0].question}
