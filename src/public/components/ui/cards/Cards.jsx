@@ -14,6 +14,12 @@ const Cards = ({ cards = [], decks = [], match = {}, onDelete = f => f, onAdd = 
   const id = match.params.id
   const currentDeck = decks.find(deck => deck.id === id)
   const currentCards = cards.filter(card => card.deckId === id)
+  const deckAndCards = {
+    'deck': currentDeck,
+    'cards': currentCards
+  }
+  const fileName = `${currentDeck.title}.json`
+  const deckData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(deckAndCards))
   return (
     <div className='container'>
       <input className={css.input_deck_name}
@@ -35,6 +41,7 @@ const Cards = ({ cards = [], decks = [], match = {}, onDelete = f => f, onAdd = 
         content='Добавить карточку'
         onClick={() => onAdd(id)}
       />
+      <a href={`data:${deckData}`} download={fileName} className={css.link}>Скачать колоду</a>
     </div>
   )
 }
