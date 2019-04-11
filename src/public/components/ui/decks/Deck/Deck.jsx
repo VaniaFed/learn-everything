@@ -12,7 +12,7 @@ class Deck extends Component {
   }
 
   render () {
-    const { id, quantity, title, onDelete } = this.props
+    const { id, quantity, quantityCardsToRevise, title, onDelete } = this.props
     const formatWordCards = quantity => {
       if (quantity % 10 === 1) {
         return 'карточка'
@@ -27,8 +27,8 @@ class Deck extends Component {
     return (
       <div className={css.item}>
         <Link to={`/deck/${id}`} className={`${css.link} button-hover`}>
-          <div className={css.quantity}>{quantity} {formatWordCards(quantity)}</div>
-          <div className='card__name' style={this.style}>{title}</div>
+          <div className={css.quantity}>{quantity} {`${formatWordCards(quantity)}, к повторению: ${quantityCardsToRevise}`}</div>
+          <div className='card__name'>{title}</div>
         </Link>
         <a href='#' className={`${css.delete} button-hover`}
           onClick={() => {

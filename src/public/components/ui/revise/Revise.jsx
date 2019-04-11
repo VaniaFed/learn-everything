@@ -5,7 +5,7 @@ import Card from './Card/Card'
 import css from './revise.module.sass'
 import NoOneCards from '../common/noOneCards/NoOneCards'
 
-import { doubleDate } from '../../../lib/time'
+import { doubleDate, isTimeToRevise } from '../../../lib/time'
 import Title from '../common/title1/Title'
 
 class Revise extends Component {
@@ -13,8 +13,7 @@ class Revise extends Component {
     super(props)
     const { id } = props.match.params
     const cardsToRevise = props.cards.filter(card =>
-      card.deckId === id &&
-      new Date().getTime() >= new Date(card.dateNextRevise).getTime()
+      card.deckId === id && isTimeToRevise(card.dateNextRevise)
     )
 
     this.state = {
