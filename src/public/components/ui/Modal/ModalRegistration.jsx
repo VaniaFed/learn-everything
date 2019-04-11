@@ -51,7 +51,7 @@ class ModalRegistration extends Component {
     return (
       <div className={css.modal_bg}>
         <div className={css.modalContainer}>
-          <Title title={this.props.title} />
+          <Title content={this.props.title} />
           <input className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Логин' ref={this.login} />
           <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Пароль' ref={this.password} />
           <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Повторите пароль' ref={this.passwordRepeat} />

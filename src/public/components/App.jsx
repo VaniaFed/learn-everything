@@ -20,12 +20,13 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     2. add propTypes and defaultProps to components
     3. преобразовать class components to stateless components везде, где это возможно
     // complited:
-    // cards/answer &&
-    // cards/question
+    // cards
     4. make footer and started page
     9. В revise если нет ни одной карточки для revise, выводить список топ 5 ближайших к повторению карточек
     10. В revise и test не выводить карточки, где пропущен вопрос или ответ
-    11. пофиксить css in Deck (quanty)
+    11. пофиксить css in Deck (quantity)
+    12. адаприровать cssCards
+    13. пофиксить css в Revise. Сделать контейнер в 600px а все внутри w: 100%
 */
 class App extends Component {
   render () {

@@ -5,7 +5,7 @@ import Button from '../common/button/Button'
 import { PropTypes } from 'prop-types'
 import Title2 from '../common/title2/Title2'
 import { isTimeToRevise } from '../../../lib/time'
-import NoOneCards from '../common/noOneCards/NoOneCards';
+import NoOneCards from '../common/noOneCards/NoOneCards'
 
 const Decks = ({ cards = [], decks = [], onDelete = f => f, onAdd = f => f }) => {
   return (

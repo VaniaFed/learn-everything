@@ -52,7 +52,7 @@ class ModalAuthorization extends Component {
     return (
       <div className={css.modal_bg}>
         <div className={css.modalContainer}>
-          <Title title={this.props.title} />
+          <Title content={this.props.title} />
           <input className={`${css.modal__input} ${css.modal__input__text} ${css.borderError}`}
             placeholder='Логин'
             ref={this.userLogin} />

@@ -5,8 +5,8 @@ import Row from '../row/Row'
 import css from './CardsContainer.module.sass'
 
 const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f,
-  onChangeQuestion,
-  onChangeAnswer }) => {
+  onChangeQuestion = f => f,
+  onChangeAnswer = f => f }) => {
   return (
     <div className={css.container}>
       {cards.length === 0
@@ -30,8 +30,9 @@ const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f,
 CardsContainer.propTypes = {
   cards: PropTypes.array,
   deckId: PropTypes.number,
-  onChangeAnswer: PropTypes.func,
-  onChangeQuestion: PropTypes.func
+  onDelete: PropTypes.func,
+  onChangeQuestion: PropTypes.func,
+  onChangeAnswer: PropTypes.func
 }
 
 export default CardsContainer

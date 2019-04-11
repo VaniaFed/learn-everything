@@ -1,5 +1,5 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 import css from './cards.module.sass'
 
@@ -7,10 +7,10 @@ import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
 import Button from '../common/button/Button'
 
-const Cards = ({ cards, decks, match, onDelete, onAdd,
-  onRenameDeck,
-  onChangeQuestion,
-  onChangeAnswer }) => {
+const Cards = ({ cards = [], decks = [], match = {}, onDelete = f => f, onAdd = f => f,
+  onRenameDeck = f => f,
+  onChangeQuestion = f => f,
+  onChangeAnswer = f => f }) => {
   const id = match.params.id
   const currentDeck = decks.find(deck => deck.id === id)
   const currentCards = cards.filter(card => card.deckId === id)
@@ -37,6 +37,17 @@ const Cards = ({ cards, decks, match, onDelete, onAdd,
       />
     </div>
   )
+}
+
+Cards.propTypes = {
+  cards: PropTypes.array.isRequired,
+  decks: PropTypes.array.isRequired,
+  match: PropTypes.object.isRequired,
+  onDelete: PropTypes.func,
+  onAdd: PropTypes.func,
+  onRenameDeck: PropTypes.func,
+  onChangeQuestion: PropTypes.func,
+  onChangeAnswer: PropTypes.func
 }
 
 export default Cards

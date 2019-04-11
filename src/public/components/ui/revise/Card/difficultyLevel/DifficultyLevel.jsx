@@ -13,8 +13,8 @@ const DifficultyLevel = ({ onChoiceLevel = f => f, nextDates = f => f }) => {
           <button onClick={() => onChoiceLevel('easy')} className={`${css.item} button-hover`}>Легко ({nextDates.easy} д.)</button>
         </div>
         : <div className={`${css.container} ${css.container_two} hidden`} >
-          <button onClick={() => onChoiceLevel('forget')} className={`${css.item} ${css.item_two} button-hover`}>{`Забыл (>_<)`}</button>
-          <button onClick={() => onChoiceLevel('normal')} className={`${css.item} ${css.item_two} ${css.item_normal} button-hover`}>Нормально ({nextDates.normal} д.)</button>
+          <button onClick={() => onChoiceLevel('forget')} className={`${css.item} button-hover`}>{`Забыл (>_<)`}</button>
+          <button onClick={() => onChoiceLevel('normal')} className={`${css.item} ${css.item_normal} button-hover`}>Нормально ({nextDates.normal} д.)</button>
         </div>
       }
     </div>

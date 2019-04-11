@@ -26,7 +26,8 @@ module.exports = {
   mode: 'development',
   devServer: {
     contentBase: 'dist',
-    port: 3001,
+    host: '192.168.0.47',
+    port: 8080
   },
   module: {
     rules: [
