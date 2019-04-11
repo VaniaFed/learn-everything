@@ -10,18 +10,16 @@ const Question = ({ questionText, onChange }) => {
       className={css.question__bg}
       onClick={() => questionValue.current.focus()} >
       <div className={css.title}>Вопрос</div>
-      <div className={css.textarea__container}>
-        <textarea
-          className={`${css.input} ${css.no_resize}`}
-          ref={questionValue}
-          defaultValue={questionText}
-          placeholder='Type a question'
-          onBlur={(e) => {
-            if (questionText !== questionValue.current.value || e.target !== questionValue.current) {
-              onChange(questionValue.current.value)
-            }
-          }} />
-      </div>
+      <textarea
+        className={`${css.input} ${css.no_resize}`}
+        ref={questionValue}
+        defaultValue={questionText}
+        placeholder='Type a question'
+        onBlur={(e) => {
+          if (questionText !== questionValue.current.value || e.target !== questionValue.current) {
+            onChange(questionValue.current.value)
+          }
+        }} />
     </div>
   )
 }

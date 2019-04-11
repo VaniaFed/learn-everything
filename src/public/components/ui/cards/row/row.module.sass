@@ -6,6 +6,10 @@
   position: relative
   &:last-child
     margin-bottom: 0
+  @media (max-width: 767px)
+    flex-direction: column
+    width: 100%
+    margin-bottom: 40px
 
 .delete
   font-weight: 400
@@ -14,3 +18,4 @@
   top: 15px
   right: 15px
   cursor: pointer
+  z-index: 1

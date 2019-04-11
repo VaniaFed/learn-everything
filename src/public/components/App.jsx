@@ -25,8 +25,9 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     9. В revise если нет ни одной карточки для revise, выводить список топ 5 ближайших к повторению карточек
     10. В revise и test не выводить карточки, где пропущен вопрос или ответ
     11. пофиксить css in Deck (quantity)
-    12. адаприровать cssCards
+    12. адаприровать css Cards
     13. пофиксить css в Revise. Сделать контейнер в 600px а все внутри w: 100%
+    14. реализовать возможность экспорта Decks и импорта
 */
 class App extends Component {
   render () {
