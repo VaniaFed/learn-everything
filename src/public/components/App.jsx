@@ -23,10 +23,9 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     // cards/answer &&
     // cards/question
     4. make footer and started page
-    7. Revise: если колво дней === 1 то выводить только одну
-    8. Выделять визуально normal
     9. В revise если нет ни одной карточки для revise, выводить список топ 5 ближайших к повторению карточек
     10. В revise и test не выводить карточки, где пропущен вопрос или ответ
+    11. пофиксить css in Deck (quanty)
 */
 class App extends Component {
   render () {
