@@ -11,7 +11,7 @@ export const changeUserName = (userName) => {
   )
 }
 
-export const addCard = (deckId) => {
+export const addCard = (newDeckId, cardId, question, answer) => {
   const getDate = () => new Date()
   const y = doubleDate(getDate().getFullYear())
   const m = doubleDate(getDate().getMonth() + 1)
@@ -20,12 +20,12 @@ export const addCard = (deckId) => {
   return (
     {
       type: C.ADD_CARD,
-      id: v4(),
-      question: '',
-      answer: '',
+      id: cardId || v4(),
+      question: question || '',
+      answer: answer || '',
       datePrevRevise: currentDate,
       dateNextRevise: currentDate,
-      deckId
+      deckId: newDeckId
     }
   )
 }
@@ -79,13 +79,12 @@ export const changeDateRevise = (id, datePrevRevise, dateNextRevise) => {
   )
 }
 
-export const addDeck = () => {
+export const addDeck = (id, title) => {
   return (
     {
       type: C.ADD_DECK,
-      id: v4(),
-      title: 'Untitled Deck',
-      quantityCards: 0
+      id: id || v4(),
+      title: title || 'Untitled Deck'
     }
   )
 }

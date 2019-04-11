@@ -5,9 +5,9 @@ import Button from '../common/button/Button'
 import { PropTypes } from 'prop-types'
 import Title2 from '../common/title2/Title2'
 import { isTimeToRevise } from '../../../lib/time'
-import NoOneCards from '../common/noOneCards/NoOneCards'
+import { v4 } from 'uuid'
 
-const Decks = ({ cards = [], decks = [], onDelete = f => f, onAdd = f => f }) => {
+const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, onAddDeck }) => {
   return (
     <div className='container'>
       <Title2 content='Колоды' />
@@ -33,9 +33,28 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAdd = f => f }) =>
         : <Title2 content='У вас нет ни одной карточки. Создайте новую.' />
       }
       <Button className='default-btn default-btn-margin'
-        onClick={() => onAdd()}
+        onClick={() => onAddDeck()}
         content='Добавить колоду'
       />
+      <form name='uploadFile'>
+        <input type='file' multiple onChange={(e) => {
+          // TODO: разбить на функцию. Сделать загрузку нескольких файлов
+          const files = e.target.files
+          const reader = new FileReader()
+          reader.onload = (e) => {
+            const resultJson = JSON.parse(e.target.result)
+            const deck = resultJson.deck
+            const cards = resultJson.cards
+            const newDeckId = v4()
+            deck.id = newDeckId
+            onAddDeck(deck)
+            cards.map(card => onAddCard(deck.id, card))
+          }
+          const arrayFiles = Array.from(files)
+          arrayFiles.map(file => reader.readAsText(file))
+        }} />
+        <input type='submit' className='default-btn default-btn-margin' id='submit' value='Загрузить из файла' />
+      </form>
     </div>
   )
 }
@@ -44,7 +63,8 @@ Decks.propTypes = {
   cards: PropTypes.array,
   decks: PropTypes.array,
   onDelete: PropTypes.func,
-  onAdd: PropTypes.func
+  onAddCard: PropTypes.func,
+  onAddDeck: PropTypes.func
 }
 
 export default Decks

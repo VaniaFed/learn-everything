@@ -6,8 +6,11 @@ import css from './deck.module.sass'
 
 class Deck extends Component {
   shouldComponentUpdate (nextProps) {
-    return (this.props.name !== nextProps.name &&
-            this.props.quantity !== nextProps.quantity
+    return (this.props.name !== nextProps.name ||
+            this.props.id !== nextProps.id ||
+            this.props.quantity !== nextProps.quantity ||
+            this.props.title !== nextProps.title ||
+            this.props.quantityCardsToRevise !== nextProps.quantityCardsToRevise
     )
   }
 
