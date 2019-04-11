@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import css from './difficultyLevel.module.sass'
 const DifficultyLevel = ({ onChoiceLevel = f => f, nextDates = f => f }) => {
-  console.log(nextDates)
   return (
     <div>
       {(nextDates.normal > 1)
