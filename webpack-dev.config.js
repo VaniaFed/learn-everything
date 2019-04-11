@@ -9,7 +9,6 @@ const sass = require('./webpack/sass');
 const sassModule = require('./webpack/sass.module');
 const images = require('./webpack/images');
 
-console.log('sass: ', sass)
 
 module.exports = {
   entry: {

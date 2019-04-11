@@ -1,9 +1,8 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   test: /\.sass$/,
   exclude: /\.module\.sass$/,
   use: [
-    'isomorphic-style-loader',
+    'style-loader',
     {
       loader: 'css-loader',
       options: {
