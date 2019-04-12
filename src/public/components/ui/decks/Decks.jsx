@@ -51,7 +51,7 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, 
             )
           })}
         </div>
-        : <Title2 content='У вас нет ни одной карточки. Создайте новую.' />
+        : <h3>У вас нет ни одной колоды. Создайте новую.</h3>
       }
       <Button className='default-btn default-btn-margin'
         onClick={() => onAddDeck()}
