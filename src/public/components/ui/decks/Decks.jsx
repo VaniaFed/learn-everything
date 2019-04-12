@@ -7,6 +7,26 @@ import Title2 from '../common/title2/Title2'
 import { isTimeToRevise } from '../../../lib/time'
 import { v4 } from 'uuid'
 
+const addDeckAndCardFromFile = (e, onAddDeck, onAddCard) => {
+  const files = e.target.files
+  const arrayFiles = Array.from(files)
+  arrayFiles.map(file => readFiles(file, onAddDeck, onAddCard))
+}
+
+const readFiles = (file, onAddDeck, onAddCard) => {
+  const reader = new FileReader()
+  reader.readAsText(file)
+  reader.onload = (e) => {
+    const resultJson = JSON.parse(e.target.result)
+    const deck = resultJson.deck
+    const cards = resultJson.cards
+    const newDeckId = v4()
+    deck.id = newDeckId
+    onAddDeck(deck)
+    cards.map(card => onAddCard(deck.id, card))
+  }
+}
+
 const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, onAddDeck }) => {
   return (
     <div className='container'>
@@ -37,22 +57,7 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, 
         content='Добавить колоду'
       />
       <form name='uploadFile'>
-        <input type='file' multiple onChange={(e) => {
-          // TODO: разбить на функцию. Сделать загрузку нескольких файлов
-          const files = e.target.files
-          const reader = new FileReader()
-          reader.onload = (e) => {
-            const resultJson = JSON.parse(e.target.result)
-            const deck = resultJson.deck
-            const cards = resultJson.cards
-            const newDeckId = v4()
-            deck.id = newDeckId
-            onAddDeck(deck)
-            cards.map(card => onAddCard(deck.id, card))
-          }
-          const arrayFiles = Array.from(files)
-          arrayFiles.map(file => reader.readAsText(file))
-        }} />
+        <input type='file' multiple onChange={(e) => addDeckAndCardFromFile(e, onAddDeck, onAddCard)} />
         <input type='submit' className='default-btn default-btn-margin' id='submit' value='Загрузить из файла' />
       </form>
     </div>
