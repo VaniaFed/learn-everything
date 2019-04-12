@@ -24,7 +24,6 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     4. make footer and started page
     9. В revise если нет ни одной карточки для revise, выводить список топ 5 ближайших к повторению карточек
     10. В revise и test не выводить карточки, где пропущен вопрос или ответ
-    11. пофиксить css in Deck (quantity)
 */
 class App extends Component {
   render () {

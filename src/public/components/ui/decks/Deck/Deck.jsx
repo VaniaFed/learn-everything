@@ -45,7 +45,7 @@ class Deck extends Component {
 }
 
 Deck.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   quantity: PropTypes.number,
   name: PropTypes.string,
   onDelete: PropTypes.func

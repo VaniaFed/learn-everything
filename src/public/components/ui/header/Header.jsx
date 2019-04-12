@@ -34,7 +34,7 @@ class Header extends Component {
             <Link to='/decks'>
               <Logo />
             </Link>
-            <div className={`hamburger hamburger--collapse ${css.hamburger} ${isPressedHamburger ? 'is-active' : ''}`}
+            <div className={`hamburger hamburger--emphatic ${css.hamburger} ${isPressedHamburger ? 'is-active' : ''}`}
               ref={hamburger}
               onClick={
                 (e) => {
