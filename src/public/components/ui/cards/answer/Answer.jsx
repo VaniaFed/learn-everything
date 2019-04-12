@@ -3,9 +3,8 @@ import PropTypes from 'prop-types'
 
 import css from './answer.module.sass'
 
-const Answer = ({ answerText, onChange }) => {
+const Answer = ({ answerText = '', onChange = f => f }) => {
   const answerValue = React.createRef()
-
   return (
     <div className={css.answer__bg}
       onClick={() => answerValue.current.focus()} >
@@ -14,7 +13,7 @@ const Answer = ({ answerText, onChange }) => {
         className={`${css.input} ${css.no_resize}`}
         ref={answerValue}
         defaultValue={answerText}
-        placeholder='Type an answer...'
+        placeholder='Введите ответ'
         onBlur={() => {
           if (answerText !== answerValue.current.value) {
             onChange(answerValue.current.value)

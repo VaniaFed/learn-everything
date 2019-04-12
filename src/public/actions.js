@@ -84,7 +84,7 @@ export const addDeck = (id, title) => {
     {
       type: C.ADD_DECK,
       id: id || v4(),
-      title: title || 'Untitled Deck'
+      title: title || 'Без названия'
     }
   )
 }

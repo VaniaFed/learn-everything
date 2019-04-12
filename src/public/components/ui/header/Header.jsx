@@ -25,12 +25,7 @@ class Header extends Component {
     const { toggleState, hamburger } = this
     const { isPressedHamburger } = this.state
     window.onclick = e => {
-      console.log(e.currentTarget)
-      console.log(e.target)
-      console.log(hamburger.current)
-      console.log('state: ', isPressedHamburger);
       (isPressedHamburger && e.currentTarget !== hamburger.current) && toggleState()
-      console.log('state: ', isPressedHamburger)
     }
     return (
       <header className={css.header}>
