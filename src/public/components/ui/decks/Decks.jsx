@@ -7,6 +7,8 @@ import Title2 from '../common/title2/Title2'
 import { isTimeToRevise } from '../../../lib/time'
 import { v4 } from 'uuid'
 
+import css from './decks.module.sass'
+
 const addDeckAndCardFromFile = (e, onAddDeck, onAddCard) => {
   const files = e.target.files
   const arrayFiles = Array.from(files)
@@ -38,7 +40,6 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, 
             const quantityCards = currentCards.length
             const quantityCardsToRevise = currentCards.filter(card =>
               isTimeToRevise(card.dateNextRevise)).length
-            console.log('quantity to revise: ', quantityCardsToRevise)
             return (
               <Deck key={deck.id}
                 id={deck.id}
@@ -56,10 +57,8 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, 
         onClick={() => onAddDeck()}
         content='Добавить колоду'
       />
-      <form name='uploadFile'>
-        <input type='file' multiple onChange={(e) => addDeckAndCardFromFile(e, onAddDeck, onAddCard)} />
-        <input type='submit' className='default-btn default-btn-margin' id='submit' value='Загрузить из файла' />
-      </form>
+      <label className={css.link} htmlFor='loadFile'>Загрузить из файла</label>
+      <input id='loadFile' className={css.input_file} type='file' multiple onChange={(e) => addDeckAndCardFromFile(e, onAddDeck, onAddCard)} />
     </div>
   )
 }

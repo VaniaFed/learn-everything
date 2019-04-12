@@ -105,7 +105,7 @@ class Test extends Component {
               <div>
                 <Rows cardsToPassTest={cardsToPassTest} isPressedCheck={isPressedCheck} onChangeAnswer={changeAnswer} />
                 <Button className='default-btn-margin'
-                  content={(!isPressedCheck) ? 'Check the result' : 'Come back to test'}
+                  content={(!isPressedCheck) ? 'Проверить' : 'Сброс'}
                   onClick={handleCheckAnswers} />
               </div>
             )
