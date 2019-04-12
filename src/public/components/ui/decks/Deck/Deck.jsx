@@ -29,11 +29,12 @@ class Deck extends Component {
     }
     return (
       <div className={css.item}>
-        <Link to={`/deck/${id}`} className={`${css.link} button-hover`}>
+        <Link to={`/deck/${id}`} className={`${css.link} button-hover button-blue`}>
+          <div className={css.quantity_mobile}>{`${quantity}:${quantityCardsToRevise}`}</div>
           <div className={css.quantity}>{quantity} {`${formatWordCards(quantity)}, к повторению: ${quantityCardsToRevise}`}</div>
           <div className='card__name'>{title}</div>
         </Link>
-        <a href='#' className={`${css.delete} button-hover`}
+        <a href='#' className={`${css.delete} button-hover button-red`}
           onClick={() => {
             onDelete()
           }}>

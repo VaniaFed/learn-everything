@@ -16,7 +16,7 @@ const Card = ({
       <div className={css.question}>{isPressedCheck ? answer : question}</div>
       {(isPressedCheck)
         ? <DifficultyLevel onChoiceLevel={onChoiceLevel} nextDates={nextDates} />
-        : <button className={`${css.check} button-hover`} onClick={onCheckAnswer}>Проверить</button>
+        : <button className={`${css.check} button-hover button-blue`} onClick={onCheckAnswer}>Проверить</button>
       }
     </div>
   )

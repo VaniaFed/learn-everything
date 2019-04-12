@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 import css from './user.module.sass'
 
-const User = () => {
+const User = ({ isPressedHamburger = false }) => {
   return (
-    <div>
-      <Link className={css.user__link} to='/login'>Войти</Link>
-      <Link className={css.user__link} to='/registration'>Зарегестрироваться</Link>
+    <div className={`${css.nav} ${isPressedHamburger ? css.active : 'jeje'}`}>
+      <Link className={css.link} to='/login'>Войти</Link>
+      <Link className={css.link} to='/registration'>Зарегестрироваться</Link>
     </div>
   )
 }

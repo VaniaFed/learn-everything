@@ -1,4 +1,33 @@
-.user__link
+.nav
+  @media screen and (min-width: 700px)
+    display: block
+  @media screen and (max-width: 700px)
+    display: none
+    background: #fff
+
+.active
+  display: flex
+  flex-direction: column
+  position: absolute
+  right: 0
+  bottom: 0
+  left: 0
+  margin-bottom: -128px
+  // padding: 20px
+
+.link
   color: #000
   font-weight: 300
   margin-left: 8px
+  &:hover
+    color: #304ffe
+  &:first-child
+    margin-left: 0
+    border-bottom: none
+  @media screen and (max-width: 700px)
+    padding: 20px
+    margin: 0
+    border: 1px solid rgba(#304ffe, 0.4)
+    &:hover
+      background: #304ffe
+      color: #fff

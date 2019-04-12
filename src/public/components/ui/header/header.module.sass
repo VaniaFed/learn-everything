@@ -2,12 +2,13 @@
   background: #fff
   margin-bottom: 40px
   position: relative
-  z-index: 1
+  z-index: 2
 
 .header_inner
   display: flex
   justify-content: space-between
   align-items: center
+  position: relative
   padding: 20px 0
 
 .logo__text
@@ -24,3 +25,8 @@
   color: #000
   font-weight: 300
   margin-left: 8px
+
+div.hamburger
+  display: none
+  @media screen and (max-width: 700px)
+    display: block
