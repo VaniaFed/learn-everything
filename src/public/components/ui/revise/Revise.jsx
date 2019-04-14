@@ -6,6 +6,7 @@ import css from './revise.module.sass'
 import NoOneCards from '../common/noOneCards/NoOneCards'
 
 import { doubleDate, isTimeToRevise } from '../../../lib/time'
+import { isQuestionOrAnswerEmpty } from '../../../lib/cards'
 import Title from '../common/title1/Title'
 
 class Revise extends Component {
@@ -13,7 +14,9 @@ class Revise extends Component {
     super(props)
     const { id } = props.match.params
     const cardsToRevise = props.cards.filter(card =>
-      card.deckId === id && isTimeToRevise(card.dateNextRevise)
+      card.deckId === id &&
+      isTimeToRevise(card.dateNextRevise) &&
+      !isQuestionOrAnswerEmpty(card.question, card.answer)
     )
 
     this.state = {

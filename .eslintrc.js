@@ -30,6 +30,7 @@ module.exports = {
   'rules': {
     "react/prop-types": 1,
     "import/no-webpack-loader-syntax": 0,
-    'no-unused-vars': 1
+    'no-unused-vars': 1,
+    'react/self-closing-comp': 0
   }
 }

@@ -4,5 +4,4 @@ export const doubleDate = date =>
     : date
 
 export const isTimeToRevise = nextDateRevise =>
-  // console.log(nextDateRevise)
   new Date().getTime() >= new Date(nextDateRevise).getTime()
