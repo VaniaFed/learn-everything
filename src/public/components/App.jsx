@@ -26,7 +26,6 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     12. в Revise добавить кнопку "показать график",
     которая перенаправит на страницу с графиком текущей Deck при помощи chart.js
     13. в started page добавить график Deck
-    14. В Test сделать кнопку вернуться назад
     15. В Cards кнопка для перехода к Decks
 */
 class App extends Component {
