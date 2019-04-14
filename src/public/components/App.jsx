@@ -19,7 +19,7 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     1. remove { store } from presentation components
     2. add propTypes and defaultProps to components
     3. преобразовать class components to stateless components везде, где это возможно
-    // complited:
+    // completed:
     // cards
     4. make footer and started page
     11. создать анимацию для выпадающего адаптивного меню
