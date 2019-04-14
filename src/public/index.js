@@ -1,4 +1,3 @@
-import '../../stylesheet/reset.sass'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import '../../stylesheet/based.sass'
 import '../../stylesheet/auxiliary.sass'
