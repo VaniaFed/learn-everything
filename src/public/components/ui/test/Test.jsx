@@ -3,10 +3,11 @@ import PropTypes from 'prop-types'
 
 import Title from '../common/title1/Title'
 import Row from './row/Row'
+import NoOneCards from '../common/noOneCards/NoOneCards'
 import Button from '../common/button/Button'
 
 import css from './test.module.sass'
-import NoOneCards from '../common/noOneCards/NoOneCards'
+import { isQuestionOrAnswerEmpty } from '../../../lib/cards'
 
 const Rows = ({ cardsToPassTest, isPressedCheck, onChangeAnswer }) => {
   return (
@@ -27,7 +28,10 @@ class Test extends Component {
   constructor (props) {
     super(props)
     const { id } = props.match.params
-    const cardsToPassTest = props.cards.filter(card => card.deckId === id)
+    const cardsToPassTest = props.cards.filter(
+      card => card.deckId === id &&
+      !isQuestionOrAnswerEmpty(card.question, card.answer)
+    )
     this.state = {
       cards: cardsToPassTest.map(card =>
         ({
@@ -109,7 +113,7 @@ class Test extends Component {
                   onClick={handleCheckAnswers} />
               </div>
             )
-            : <NoOneCards textMsg='Here is no one cards to pass the test' comeBack={history.goBack} />
+            : <NoOneCards textMsg='Ни одной карточки для прохождения теста. Убедитесь, что у карточек заданы вопрос и ответ, и что они вообще существуют.' comeBack={history.goBack} />
           }
         </div>
       </div>
