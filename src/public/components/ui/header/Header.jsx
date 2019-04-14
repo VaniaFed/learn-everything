@@ -3,9 +3,9 @@ import React, { Component } from 'react'
 
 import css from './header.module.sass'
 
-import Logo from './nav/Logo/Logo'
-import User from './nav/User/User'
-import 'hamburgers/dist/hamburgers.min.css'
+import Logo from './nav/logo/Logo'
+import Hamburger from './nav/hamburger/Hamburger'
+import User from './nav/user/User'
 
 class Header extends Component {
   constructor (props) {
@@ -13,7 +13,6 @@ class Header extends Component {
     this.state = {
       isPressedHamburger: false
     }
-    this.hamburger = new React.createRef()
     this.toggleState = this.toggleState.bind(this)
   }
 
@@ -22,11 +21,8 @@ class Header extends Component {
   }
 
   render () {
-    const { toggleState, hamburger } = this
+    const { toggleState } = this
     const { isPressedHamburger } = this.state
-    window.onclick = e => {
-      (isPressedHamburger && e.currentTarget !== hamburger.current) && toggleState()
-    }
     return (
       <header className={css.header}>
         <div className='container'>
@@ -34,18 +30,7 @@ class Header extends Component {
             <Link to='/decks'>
               <Logo />
             </Link>
-            <div className={`hamburger hamburger--emphatic ${css.hamburger} ${isPressedHamburger ? 'is-active' : ''}`}
-              ref={hamburger}
-              onClick={
-                (e) => {
-                  e.stopPropagation()
-                  toggleState()
-                }
-              } >
-              <div className='hamburger-box'>
-                <div className='hamburger-inner'></div>
-              </div>
-            </div>
+            <Hamburger isPressedHamburger={isPressedHamburger} toggleState={toggleState} />
             {<User isPressedHamburger={isPressedHamburger} />}
           </div>
         </div>
