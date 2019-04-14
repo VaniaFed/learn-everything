@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Row from '../row/Row'
 import css from './CardsContainer.module.sass'
 
-const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f,
+const CardsContainer = ({ cards = [], onDelete = f => f,
   onChangeQuestion = f => f,
   onChangeAnswer = f => f }) => {
   return (
@@ -29,7 +29,6 @@ const CardsContainer = ({ cards = [], deckId = -1, onDelete = f => f,
 
 CardsContainer.propTypes = {
   cards: PropTypes.array,
-  deckId: PropTypes.number,
   onDelete: PropTypes.func,
   onChangeQuestion: PropTypes.func,
   onChangeAnswer: PropTypes.func

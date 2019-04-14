@@ -33,7 +33,6 @@ const Cards = ({ cards = [], decks = [], match = {}, onDelete = f => f, onAdd = 
       <CardsNav deckId={id} />
       <CardsContainer onDelete={onDelete}
         cards={currentCards}
-        deckId={id}
         onChangeQuestion={onChangeQuestion}
         onChangeAnswer={onChangeAnswer}
       />
