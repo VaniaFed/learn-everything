@@ -8,6 +8,7 @@ import { isTimeToRevise } from '../../../lib/time'
 import { v4 } from 'uuid'
 
 import css from './decks.module.sass'
+import Text from '../common/text/Text';
 
 const addDeckAndCardFromFile = (e, onAddDeck, onAddCard) => {
   const files = e.target.files
@@ -51,7 +52,7 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, 
             )
           })}
         </div>
-        : <h3>У вас нет ни одной колоды. Создайте новую.</h3>
+        : <Text>У вас нет ни одной колоды. Создайте новую.</Text>
       }
       <Button className='default-btn default-btn-margin' onClick={() => onAddDeck()}>
         Добавить колоду

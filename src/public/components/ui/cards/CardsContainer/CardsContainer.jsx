@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import Row from '../row/Row'
 import css from './CardsContainer.module.sass'
+import Text from '../../common/text/Text';
 
 const CardsContainer = ({ cards = [], onDelete = f => f,
   onChangeQuestion = f => f,
@@ -10,7 +11,7 @@ const CardsContainer = ({ cards = [], onDelete = f => f,
   return (
     <div className={css.container}>
       {cards.length === 0
-        ? <h3>Тут пусто. (Создать карточку?)</h3>
+        ? <Text>Тут пусто. (Создать карточку?)</Text>
         : cards.map((card, i) => {
           return (
             <Row key={card.id}

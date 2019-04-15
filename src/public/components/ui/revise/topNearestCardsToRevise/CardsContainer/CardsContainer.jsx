@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 import Row from '../row/Row'
 import CardInfo from '../cardInfo/CardInfo'
 import css from './cardsContainer.module.sass'
+import Text from '../../../common/text/Text';
 
 const CardsContainer = ({ cards = [] }) => {
   return (
     <div className={css.container}>
       {cards.length === 0
-        ? <h3>Тут пусто. (Вы не создали ни одной карточки или не заполнены поля вопрос / ответ)</h3>
+        ? <Text>Тут пусто. (Вы не создали ни одной карточки или не заполнены поля вопрос / ответ)</Text>
         : cards.map((card, i) => {
           return (
             <div className={css.item}>
