@@ -1,0 +1,57 @@
+.welcomeScreen
+  height: 100vh
+  background-size: cover
+  color: #333
+  text-align: center
+  position: relative
+  z-index: 1
+  display: flex
+  align-items: center
+  justify-content: center
+  margin-top: -40px
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    background: #000
+    opacity: 0
+    z-index: -1
+
+.bg
+  position: absolute
+  left: 0
+  bottom: 0
+  right: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: -1
+
+.welcomeScreen__logo
+  font-size: 60px
+  font-weight: 900
+
+.welcomeScreen__motivation
+  font-weight: 300
+
+.motivation__text
+  max-width: 800px
+  margin: 0 auto
+  font-size: 20px
+
+.welcomeScreen__btn
+  color: #333
+  border: 3px solid #333
+  display: inline-block
+  padding: 8px 14px
+  margin-top: 30px
+  font-weight: 700
+  font-size: 24px
+  &:hover
+    background: #fff
+    color: #333
+    border-color: #fff
