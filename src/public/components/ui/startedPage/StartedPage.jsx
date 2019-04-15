@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import css from './StartedPage.module.sass'
-import Granim from '../../../libs/granim.js-2.0.0/lib/Granim'
+import  '../../../libs/granim.min'
 
 class StartedPage extends Component {
   componentDidMount () {
