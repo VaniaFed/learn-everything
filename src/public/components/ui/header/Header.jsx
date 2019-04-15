@@ -2,10 +2,7 @@ import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
 
 import css from './header.module.sass'
-
-import Logo from './nav/logo/Logo'
-import Hamburger from './nav/hamburger/Hamburger'
-import User from './nav/user/User'
+import Nav from './nav/Nav';
 
 class Header extends Component {
   constructor (props) {
@@ -27,11 +24,7 @@ class Header extends Component {
       <header className={css.header}>
         <div className='container'>
           <div className={css.header_inner}>
-            <Link to='/decks'>
-              <Logo />
-            </Link>
-            <Hamburger isPressedHamburger={isPressedHamburger} toggleState={toggleState} />
-            {<User isPressedHamburger={isPressedHamburger} />}
+            <Nav isPressedHamburger={isPressedHamburger} toggleState={toggleState} />
           </div>
         </div>
       </header>
