@@ -9,8 +9,8 @@ const CardInfo = ({ prevDate = '', nextDate = '' }) => {
     <div className={css.container}>
       <p className={css.item}>{`Предыдущая дата: ${prevDate}`}</p>
       <p className={css.item}>{`Следующая дата: ${nextDate}`}</p>
-      <p className={css.item}>{`Разница: ${datesDifference(prevDate, nextDate)} д.`}</p>
-      <p className={css.item}>{`Следущая средняя разница: ${calcAndGetNextDates(prevDate, nextDate).normal} д.`}</p>
+      <p className={css.item}>{`Интервал: ${datesDifference(prevDate, nextDate)} д.`}</p>
+      <p className={css.item}>{`Следущий интервал: ${calcAndGetNextDates(prevDate, nextDate).normal} д.`}</p>
     </div>
   )
 }
