@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 
 import css from './title1.module.sass'
 
-const Title = ({ content = 'Title', margin }) => (
-  <h2 className={`${css.title} ${margin === 'bottom' ? css.marginBottom : ''}`}>{content}</h2>
+const Title = ({ children, margin }) => (
+  <h2 className={`${css.title} ${margin === 'bottom' ? css.marginBottom : ''}`}>{children}</h2>
 )
 
 Title.propTypes = {
-  content: PropTypes.string
+  children: PropTypes.string.isRequired
 }
 
 export default Title

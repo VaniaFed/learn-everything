@@ -92,7 +92,7 @@ class Revise extends Component {
     return (
       <div className='container'>
         <main>
-          <Title className={css.title} content={currentDeck.title} />
+          <Title className={css.title}>{currentDeck.title}</Title>
           {(cards.length > 0)
             ? (<Card
               question={cards[0].question}

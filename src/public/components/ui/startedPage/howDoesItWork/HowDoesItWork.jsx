@@ -12,7 +12,7 @@ const HowDoesItWork = props => {
     <div className={css.container}>
       <div className='container'>
         <ArticleBlock>
-          <Title content='Какую задачу решает приложение' margin='bottom' />
+          <Title margin='bottom'>Какую задачу решает приложение</Title>
           <Text>
             Наверное, все знают такую поговорку — "Повторение мать учения".
             Эта поговорка имеет и научное объяснение. Когда человек встречает информацию,
@@ -27,7 +27,7 @@ const HowDoesItWork = props => {
           </Text>
         </ArticleBlock>
         <ArticleBlock>
-          <Title content='Я не хочу читать статью' margin='bottom' />
+          <Title margin='bottom'>Я не хочу читать статью</Title>
           <Text>
             Тогда я постораюсь объяснить, но очень кратко.
           </Text>
@@ -40,7 +40,7 @@ const HowDoesItWork = props => {
           </Text>
         </ArticleBlock>
         <ArticleBlock>
-          <Title content='График — для наглядности' margin='bottom' />
+          <Title margin='bottom'>График — для наглядности</Title>
           <GraphExample />
         </ArticleBlock>
       </div>

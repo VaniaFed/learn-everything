@@ -5,7 +5,7 @@ import css from './text.module.sass'
 const Text = ({ children }) => {
   return (
     <p className={css.text}>
-      {children} 
+      {children}
     </p>
   )
 }

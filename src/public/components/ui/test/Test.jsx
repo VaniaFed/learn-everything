@@ -102,7 +102,7 @@ class Test extends Component {
     const { isPressedCheck } = this.state
     return (
       <div className='container'>
-        <Title className={css.title} content={currentDeck.title} />
+        <Title className={css.title}>{currentDeck.title}</Title>
         {(cardsToPassTest.length > 0)
           ? (
             <div className={css.items}>

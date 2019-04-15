@@ -32,7 +32,7 @@ const readFiles = (file, onAddDeck, onAddCard) => {
 const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, onAddDeck }) => {
   return (
     <div className='container'>
-      <Title2 content='Колоды' />
+      <Title2>Колоды</Title2>
       {(decks.length > 0)
         ? <div>
           {decks.map((deck, i) => {
@@ -53,8 +53,7 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, 
         </div>
         : <h3>У вас нет ни одной колоды. Создайте новую.</h3>
       }
-      <Button className='default-btn default-btn-margin'
-        onClick={() => onAddDeck()}>
+      <Button className='default-btn default-btn-margin' onClick={() => onAddDeck()}>
         Добавить колоду
       </Button>
       <label className={css.link} htmlFor='loadFile'>Загрузить из файла</label>
