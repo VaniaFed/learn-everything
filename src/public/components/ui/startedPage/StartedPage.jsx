@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import css from './StartedPage.module.sass'
-import  '../../../libs/granim.min'
+import  '../../../../../libs/granim.min'
 
 class StartedPage extends Component {
   componentDidMount () {
@@ -31,7 +31,7 @@ class StartedPage extends Component {
             <div className={css.welcomeScreen__motivation}>
               <p className={css.motivation__text}>Это приложение позволяет
               помочь организовать свое обучение. Изначально создавалось для изучения языков.</p>
-              <Link className={css.welcomeScreen__btn} to='/checkin'>Попробовать</Link>
+              <Link className={css.welcomeScreen__btn} to='/registration'>Попробовать</Link>
             </div>
           </div>
         </div>

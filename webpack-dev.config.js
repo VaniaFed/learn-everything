@@ -1,14 +1,13 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-const js = require('./webpack/js');
-const pug = require('./webpack/pug');
-const css = require('./webpack/css');
-const sass = require('./webpack/sass');
-const sassModule = require('./webpack/sass.module');
-const images = require('./webpack/images');
-
+const js = require('./webpack/js')
+const pug = require('./webpack/pug')
+const css = require('./webpack/css')
+const sass = require('./webpack/sass')
+const sassModule = require('./webpack/sass.module')
+const images = require('./webpack/images')
 
 module.exports = {
   entry: {
@@ -21,7 +20,7 @@ module.exports = {
   },
   devtool: '#source-map',
   node: {
-    fs: 'empty',
+    fs: 'empty'
   },
   mode: 'development',
   devServer: {
@@ -42,20 +41,15 @@ module.exports = {
   plugins: [
     require('autoprefixer'),
     new MiniCssExtractPlugin({
-      filename: 'index.css',
+      filename: 'index.css'
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'src/views/pages/index.pug',
-      chunks: false,
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'started.html',
-      template: 'src/views/pages/started.pug',
-      chunks: false,
-    }),
+      chunks: false
+    })
   ],
   resolve: {
-    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx'],
-  },
-};
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx']
+  }
+}

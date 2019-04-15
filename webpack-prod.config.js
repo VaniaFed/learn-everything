@@ -1,25 +1,25 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const js = require('./webpack/js');
-const pug = require('./webpack/pug');
-const css = require('./webpack/css');
-const sass = require('./webpack/sass');
-const sassModule = require('./webpack/sass.module');
-const images = require('./webpack/images');
+const js = require('./webpack/js')
+const pug = require('./webpack/pug')
+const css = require('./webpack/css')
+const sass = require('./webpack/sass')
+const sassModule = require('./webpack/sass.module')
+const images = require('./webpack/images')
 
 module.exports = {
   entry: {
-    index: './src/public/index.js',
+    index: './src/public/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: "[name].js",
+    filename: '[name].js'
   },
   node: {
-    fs: 'empty',
+    fs: 'empty'
   },
   mode: 'production',
   module: {
@@ -30,14 +30,10 @@ module.exports = {
       sass,
       sassModule,
       images
-    ],
+    ]
   },
   plugins: [
     require('autoprefixer'),
-    // new ExtractTextPlugin({
-    //   filename: '[name].css',
-    //   allChunks: true
-    // }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       allChunks: true
@@ -46,14 +42,9 @@ module.exports = {
       filename: 'index.html',
       template: 'src/views/pages/index.pug',
       chunks: false
-    }),
-    new HtmlWebpackPlugin({
-      filename: 'started.html',
-      template: 'src/views/pages/started.pug',
-      chunks: false
     })
   ],
   resolve: {
-    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.css', '.sass'],
-  },
-};
+    extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.css', '.sass']
+  }
+}
