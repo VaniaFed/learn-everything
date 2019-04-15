@@ -37,9 +37,9 @@ const Cards = ({ cards = [], decks = [], match = {}, onDelete = f => f, onAdd = 
         onChangeAnswer={onChangeAnswer}
       />
       <Button className='default-btn default-btn-margin'
-        content='Добавить карточку'
-        onClick={() => onAdd(id)}
-      />
+        onClick={() => onAdd(id)}>
+        Добавить карточку
+      </Button>
       <a href={`data:${deckData}`} download={fileName} className={css.link}>Скачать колоду</a>
     </div>
   )

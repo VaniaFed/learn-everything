@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 import css from './button.module.sass'
 
-const Button = ({ content = 'Button', className = '', onClick = f => f }) => (
-  <button className={`${css.button_default} ${className}`} onClick={onClick}>{content}</button>
+const Button = ({ children, className = '', onClick = f => f }) => (
+  <button className={`${css.button_default} ${className}`} onClick={onClick}>{children}</button>
 )
 
 Button.propTypes = {
-  content: PropTypes.string,
-  className: PropTypes.string
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired
 }
 
 export default Button

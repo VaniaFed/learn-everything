@@ -54,9 +54,9 @@ const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, 
         : <h3>У вас нет ни одной колоды. Создайте новую.</h3>
       }
       <Button className='default-btn default-btn-margin'
-        onClick={() => onAddDeck()}
-        content='Добавить колоду'
-      />
+        onClick={() => onAddDeck()}>
+        Добавить колоду
+      </Button>
       <label className={css.link} htmlFor='loadFile'>Загрузить из файла</label>
       <input id='loadFile' className={css.input_file} type='file' multiple onChange={(e) => addDeckAndCardFromFile(e, onAddDeck, onAddCard)} />
     </div>

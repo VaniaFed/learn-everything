@@ -107,10 +107,10 @@ class Test extends Component {
           ? (
             <div className={css.items}>
               <Rows cardsToPassTest={cardsToPassTest} isPressedCheck={isPressedCheck} onChangeAnswer={changeAnswer} />
-              <Button className='default-btn-margin'
-                content={(!isPressedCheck) ? 'Проверить' : 'Сброс'}
-                onClick={handleCheckAnswers} />
-              <Button content='Вернуться обратно' className='default-btn-margin' onClick={() => history.goBack()} />
+              <Button className='default-btn-margin' onClick={handleCheckAnswers}>
+                {(!isPressedCheck) ? 'Проверить' : 'Сброс'}
+              </Button>
+              <Button className='default-btn-margin' onClick={() => history.goBack()}>Вернуться обратно</Button>
             </div>
           )
           : <NoOneCards textMsg='Ни одной карточки для прохождения теста. Убедитесь, что у карточек заданы вопрос и ответ, и что они вообще существуют.' comeBack={history.goBack} />

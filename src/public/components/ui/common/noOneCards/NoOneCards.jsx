@@ -10,7 +10,7 @@ const NoOneCards = ({ textMsg = 'Here is no one cards', comeBack = f => f }) => 
   return (
     <div className={css.not_found}>
       <SimpleText content={textMsg} className={css.simple_text} />
-      <Button content='Вернуться обратно' onClick={comeBack} />
+      <Button onClick={comeBack}>Вернуться обратно</Button>
     </div>
   )
 }
