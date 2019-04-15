@@ -3,11 +3,14 @@ import Title2 from '../../common/title2/Title2'
 import css from './topNearestCardsToRevise.module.sass'
 import CardsContainer from './CardsContainer/CardsContainer'
 import { sortByDate } from '../../../../lib/time'
+import { isQuestionOrAnswerEmpty } from '../../../../lib/cards'
 
 export default class TopNearestCardsToRevise extends Component {
   constructor (props) {
     super(props)
-    this.sortedCards = props.cards.sort(sortByDate)
+    const cards = props.cards.filter(card => !isQuestionOrAnswerEmpty(card.question, card.answer))
+    this.sortedCards = cards.sort(sortByDate)
+
     this.state = {
       quantityCardsToShow: 5,
       filteredCards: this.sortedCards.slice(0, 5)

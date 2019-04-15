@@ -57,17 +57,13 @@ class Revise extends Component {
     const currentDate = `${y}.${m}.${d}`
     const newDateNextRevise = currentDatePlusDifference(currentDate, daysToNextRevise)
 
-    if (level !== 'forget') {
-      this.props.onChangeDateRevise(card.id, currentDate, newDateNextRevise)
-      const nextState = this.state.cards.filter(stateCard =>
-        stateCard.id !== card.id
-      )
+    const nextState = (level === 'forget')
+      ? this.state.cards
+      : this.state.cards.filter(stateCard => stateCard.id !== card.id)
 
-      this.setState({ cards: nextState })
-    }
+    this.props.onChangeDateRevise(card.id, currentDate, newDateNextRevise)
+    this.setState({ cards: nextState })
     this.nextCard()
-    // TODO:
-    // осталось сделать проверку при выводе карточки и выводить дате следующего повторения =))))
   }
 
   handleCheckAnswer (prevDate, nextDate) {
