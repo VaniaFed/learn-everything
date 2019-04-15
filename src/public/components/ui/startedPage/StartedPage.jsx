@@ -23,16 +23,14 @@ class StartedPage extends Component {
 
   render () {
     return (
-      <main className={css.welcomeScreen}>
+      <main className={css.container}>
         <canvas className={css.bg}></canvas>
-        <div className={css.container}>
-          <div className={css.welcomeScreen__ttContent}>
-            <h2 className={css.welcomeScreen__logo}>Revise on Time!</h2>
-            <div className={css.welcomeScreen__motivation}>
-              <p className={css.motivation__text}>Это приложение позволяет
-              помочь организовать свое обучение. Изначально создавалось для изучения языков.</p>
-              <Link className={css.welcomeScreen__btn} to='/registration'>Попробовать</Link>
-            </div>
+        <div className='container'>
+          <h2 className={css.logo}>Revise on Time!</h2>
+          <div className={css.desc}>
+            <p className={css.text}>Это приложение позволяет
+            помочь организовать свое обучение. Изначально создавалось для изучения языков.</p>
+            <Link className={css.btn} to='/registration'>Попробовать</Link>
           </div>
         </div>
       </main>
