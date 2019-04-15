@@ -4,7 +4,7 @@ import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 import Header from './ui/header/Header'
 import Whoops404 from './ui/whoops404/Whoops404'
 // import Footer from './footer/Footer'
-// import StartedPage from './started'
+import StartedPage from './ui/startedPage/StartedPage'
 
 import { DecksList } from './containers/DecksList'
 import { CardsList } from './containers/CardsList'
@@ -37,6 +37,7 @@ class App extends Component {
           <Route exact path='/' component={DecksList} />
           <Redirect from='/decks' to='/' />
           <Route exact path='/decks' component={DecksList} />
+          <Route path='/started' component={StartedPage} />
           <Route path='/deck/:id' component={CardsList} />
           <Route path='/test/:id' component={TestList} />
           <Route path='/revise/:id' component={ReviseList} />
