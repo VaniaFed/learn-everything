@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import css from './howDoesItWork.module.sass'
 import Title from '../../common/title1/Title'
@@ -48,10 +47,6 @@ const HowDoesItWork = () => {
       </div>
     </div>
   )
-}
-
-HowDoesItWork.propTypes = {
-
 }
 
 export default HowDoesItWork

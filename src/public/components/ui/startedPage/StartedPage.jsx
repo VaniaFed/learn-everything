@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import WelcomeScreen from './welcomeScreen/WelcomeScreen'
 import HowDoesItWork from './howDoesItWork/HowDoesItWork'
+import Opportunities from './opportunities/Opportunities'
 
 class StartedPage extends Component {
-
   render () {
     return (
       <div>
         <WelcomeScreen />
         <HowDoesItWork />
+        <Opportunities />
       </div>
     )
   }
-}
-
-StartedPage.propTypes = {
-
 }
 
 export default StartedPage

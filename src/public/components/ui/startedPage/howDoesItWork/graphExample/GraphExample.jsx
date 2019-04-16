@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Chart from 'chart.js/dist/Chart.bundle.min'
 import moment from 'moment'
 import css from './graphExample.module.sass'
@@ -49,6 +48,7 @@ export default class GraphExample extends Component {
       }
     })
   }
+
   render () {
     return (
       <div className={css.container}>
