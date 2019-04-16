@@ -21,7 +21,6 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     3. преобразовать class components to stateless components везде, где это возможно
     // completed:
     // cards
-    4. make footer and started page
     11. создать анимацию для выпадающего адаптивного меню
     12. в Revise добавить кнопку "показать график",
     которая перенаправит на страницу с графиком текущей Deck при помощи chart.js
@@ -44,7 +43,6 @@ class App extends Component {
               <Route path='/registration' component={() => <ModalRegistration title='Регистрация' />} />
               <Route path='/login' component={() => <ModalAuthorization title='Авторизация' />} />
               <Route component={Whoops404} />
-              {/* <Footer /> */}
             </Switch>
           </div>
           <Footer />
