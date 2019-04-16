@@ -10,13 +10,15 @@ import css from './nav.module.sass'
 const Nav = ({ isPressedHamburger = false, toggleState = f => f }) => {
   return (
     <div className={css.nav}>
-      <Link to='/decks'>
-        <Logo />
-      </Link>
-      <ul className={css.list}>
-        <Link className={css.item} to='/started'>Главная</Link>
-        <Link className={css.item} to='/decks'>Колоды</Link>
-      </ul>
+      <div className={css.logoAndNav}>
+        <Link to='/decks'>
+          <Logo />
+        </Link>
+        <ul className={css.list}>
+          <Link className={css.item} to='/started'>Главная</Link>
+          <Link className={css.item} to='/decks'>Колоды</Link>
+        </ul>
+      </div>
       <Hamburger isPressedHamburger={isPressedHamburger} toggleState={toggleState} />
       {<User isPressedHamburger={isPressedHamburger} />}
     </div>
