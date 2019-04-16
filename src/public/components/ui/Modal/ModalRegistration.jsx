@@ -28,13 +28,13 @@ class ModalRegistration extends Component {
 
     let error
 
-    // login.length === 0
-    //   ? error = 'Вы не заполнили поле логин'
-    //   : (password.length === 0) ?
-    //     error = 'Вы не заполнили поле пароль' :
-    //   (password !== passwordRepeat) ?
-    //     error = 'Пароли не совпадают' :
-    //     null
+    login.length === 0
+      ? error = 'Вы не заполнили поле логин'
+      : (password.length === 0) ?
+        error = 'Вы не заполнили поле пароль' :
+      (password !== passwordRepeat) ?
+        error = 'Пароли не совпадают' :
+        null
 
     error
       ? this.setState({
@@ -51,7 +51,7 @@ class ModalRegistration extends Component {
     return (
       <div className={css.modal_bg}>
         <div className={css.modalContainer}>
-          <Title content={this.props.title} />
+          <Title>{this.props.title}</Title>
           <input className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Логин' ref={this.login} />
           <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Пароль' ref={this.password} />
           <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Повторите пароль' ref={this.passwordRepeat} />
