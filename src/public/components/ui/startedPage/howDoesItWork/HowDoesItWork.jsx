@@ -23,7 +23,7 @@ const HowDoesItWork = () => {
             Таким образом смысл всего обучения сводится к повторению информации. Но как часто её нужно повторять?
           </Text>
           <Text>
-            На этот вопрос может ответит статья <a target='_blank' href='https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D0%B5%D0%BD%D0%B8%D1%8F'>клик (wikipedia.org)</a> 
+            На этот вопрос может ответит статья <a target='_blank' href='https://ru.wikipedia.org/wiki/%D0%98%D0%BD%D1%82%D0%B5%D1%80%D0%B2%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B5_%D0%BF%D0%BE%D0%B2%D1%82%D0%BE%D1%80%D0%B5%D0%BD%D0%B8%D1%8F'>клик (wikipedia.org)</a>
           </Text>
         </ArticleBlock>
         <ArticleBlock>
@@ -41,6 +41,8 @@ const HowDoesItWork = () => {
         </ArticleBlock>
         <ArticleBlock>
           <Title margin='bottom'>График — для наглядности</Title>
+          <Text>Таким образом, если мы начнем повторение с 1 апреля, будут следующие даты повторения: 4 апреля, 11 апреля, 26 апреля, 27 мая, 28 июля.</Text>
+          <Text>И так, пока вы не ошибетесь. Если это произойдет, переменная интервала сбросится и все начнется с начала.</Text>
           <GraphExample />
         </ArticleBlock>
       </div>

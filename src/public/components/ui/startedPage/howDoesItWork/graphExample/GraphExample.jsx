@@ -9,20 +9,20 @@ export default class GraphExample extends Component {
     const ctx = document.querySelector('#graphExample')
     const data = {
       labels: [
-        moment('2019.05.15', 'YYYY.MM.DD'),
-        moment('2019.05.16', 'YYYY.MM.DD'),
-        moment('2019.05.19', 'YYYY.MM.DD'),
-        moment('2019.05.26', 'YYYY.MM.DD'),
-        moment('2019.06.10', 'YYYY.MM.DD'),
-        moment('2019.06.10', 'YYYY.MM.DD'),
+        moment('2019.04.01', 'YYYY.MM.DD'),
+        moment('2019.04.04', 'YYYY.MM.DD'),
+        moment('2019.04.11', 'YYYY.MM.DD'),
+        moment('2019.04.26', 'YYYY.MM.DD'),
+        moment('2019.05.27', 'YYYY.MM.DD'),
+        moment('2019.07.28', 'YYYY.MM.DD')
       ],
       datasets: [
         {
-          label: 'Кривая повторения',
+          label: 'Интервал повторения (в днях)',
           borderColor: '#304ffe',
           borderWidth: 2,
           fill: false,
-          data: [1, 3, 7, 15]
+          data: [1, 3, 7, 15, 31, 63]
         }
       ]
     }
