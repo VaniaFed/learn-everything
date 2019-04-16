@@ -5,9 +5,9 @@ import css from './howDoesItWork.module.sass'
 import Title from '../../common/title1/Title'
 import ArticleBlock from '../acticleBlock/ArticleBlock'
 import Text from '../../common/text/Text'
-import GraphExample from './graphExample/GraphExample';
+import GraphExample from './graphExample/GraphExample'
 
-const HowDoesItWork = props => {
+const HowDoesItWork = () => {
   return (
     <div className={css.container}>
       <div className='container'>

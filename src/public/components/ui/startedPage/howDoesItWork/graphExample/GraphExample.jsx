@@ -1,50 +1,38 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Chart from 'chart.js'
-
+import Chart from 'chart.js/dist/Chart.bundle.min'
+import moment from 'moment'
 import css from './graphExample.module.sass'
 
 export default class GraphExample extends Component {
   componentDidMount () {
     const ctx = document.querySelector('#graphExample')
-    // const dataSet = [
-    //   {
-    //     x: new Date(2019, 5, 16),
-    //     y: 10
-    //   },
-    //   {
-    //     x: new Date(2019, 6, 16),
-    //     y: 20
-    //   },
-    //   {
-    //     x: new Date(2019, 7, 16),
-    //     y: 20
-    //   },
-    //   {
-    //     x: new Date(2019, 8, 16),
-    //     y: 20
-    //   },
-    //   {
-    //     x: new Date(2019, 9, 16),
-    //     y: 20
-    //   },
-    //   {
-    //     x: new Date(2019, 10, 16),
-    //     y: 20
-    //   }
-    // ]
-    const set = [1, 2, 4, 5, 6, 3]
+    const data = {
+      labels: [
+        moment('2019.05.15', 'YYYY.MM.DD'),
+        moment('2019.05.16', 'YYYY.MM.DD'),
+        moment('2019.05.19', 'YYYY.MM.DD'),
+        moment('2019.05.26', 'YYYY.MM.DD'),
+        moment('2019.06.10', 'YYYY.MM.DD'),
+        moment('2019.06.10', 'YYYY.MM.DD'),
+      ],
+      datasets: [
+        {
+          label: 'Кривая повторения',
+          borderColor: '#304ffe',
+          borderWidth: 2,
+          fill: false,
+          data: [1, 3, 7, 15]
+        }
+      ]
+    }
     const exampleChart = new Chart(ctx, {
       type: 'line',
-      data: {
-        labels: 'hello',
-        backgroundColor: '#fff',
-        data: set
-      },
+      data,
       options: {
         tooltips: {
-          // mode: 'point',
-          // axis: 'y'
+          mode: 'point',
+          axis: 'y'
         },
         title: {
           display: true,
