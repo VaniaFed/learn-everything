@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const js = require('./webpack/js')
 const pug = require('./webpack/pug')
@@ -47,7 +48,10 @@ module.exports = {
       filename: 'index.html',
       template: 'src/views/pages/index.pug',
       chunks: false
-    })
+    }),
+    new CopyWebpackPlugin([
+      { from: './public/favicon.png' }
+    ])
   ],
   resolve: {
     extensions: ['.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx']
