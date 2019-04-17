@@ -19,11 +19,9 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     1. remove { store } from presentation components
     2. add propTypes and defaultProps to components
     3. преобразовать class components to stateless components везде, где это возможно
-    // completed:
-    // cards
-    // common
-    // decks
-    // header
+    left to do:
+      - Test
+      - Revise
     11. создать анимацию для выпадающего адаптивного меню
     12. в Revise добавить кнопку "показать график",
     которая перенаправит на страницу с графиком текущей Deck при помощи chart.js
