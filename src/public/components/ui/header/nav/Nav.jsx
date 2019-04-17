@@ -26,7 +26,8 @@ const Nav = ({ isPressedHamburger = false, toggleState = f => f }) => {
 }
 
 Nav.propTypes = {
-
+  isPressedHamburger: PropTypes.bool.isRequired,
+  toggleState: PropTypes.func.isRequired
 }
 
 export default Nav

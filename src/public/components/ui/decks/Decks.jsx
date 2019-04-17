@@ -7,7 +7,7 @@ import Title2 from '../common/title2/Title2'
 import { v4 } from 'uuid'
 
 import css from './decks.module.sass'
-import DeckContainer from './DeckContainer';
+import DeckContainer from './DeckContainer'
 
 const addDeckAndCardFromFile = (e, onAddDeck, onAddCard) => {
   const files = e.target.files

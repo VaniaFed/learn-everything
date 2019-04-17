@@ -1,8 +1,7 @@
-import { Link } from 'react-router-dom'
 import React, { Component } from 'react'
 
 import css from './header.module.sass'
-import Nav from './nav/Nav';
+import Nav from './nav/Nav'
 
 class Header extends Component {
   constructor (props) {
