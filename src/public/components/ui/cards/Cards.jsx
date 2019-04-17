@@ -7,19 +7,20 @@ import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
 import Button from '../common/button/Button'
 
-const Cards = ({ cards = [], decks = [], match = {}, onDelete = f => f, onAdd = f => f,
-  onRenameDeck = f => f,
-  onChangeQuestion = f => f,
-  onChangeAnswer = f => f }) => {
+const combineDeckAndCards = (deck, cards) => {
+  const deckAndCards = {
+    deck,
+    cards
+  }
+  const deckData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(deckAndCards))
+  return deckData
+}
+
+const Cards = ({ cards, decks, match, onAdd, onDelete, onRenameDeck, onChangeQuestion, onChangeAnswer }) => {
   const id = match.params.id
   const currentDeck = decks.find(deck => deck.id === id)
   const currentCards = cards.filter(card => card.deckId === id)
-  const deckAndCards = {
-    'deck': currentDeck,
-    'cards': currentCards
-  }
   const fileName = `${currentDeck.title}.json`
-  const deckData = 'text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(deckAndCards))
   return (
     <div className='container'>
       <input className={css.input_deck_name}
@@ -40,7 +41,7 @@ const Cards = ({ cards = [], decks = [], match = {}, onDelete = f => f, onAdd = 
         onClick={() => onAdd(id)}>
         Добавить карточку
       </Button>
-      <a href={`data:${deckData}`} download={fileName} className={css.link}>Скачать колоду</a>
+      <a href={`data:${combineDeckAndCards(currentDeck, currentCards)}`} download={fileName} className={css.link}>Скачать колоду</a>
     </div>
   )
 }
@@ -54,6 +55,17 @@ Cards.propTypes = {
   onRenameDeck: PropTypes.func,
   onChangeQuestion: PropTypes.func,
   onChangeAnswer: PropTypes.func
+}
+
+Cards.defaultProps = {
+  cards: [],
+  decks: [],
+  match: {},
+  onAdd: f => f,
+  onDelete: f => f,
+  onRenameDeck: f => f,
+  onChangeQuestion: f => f,
+  onChangeAnswer: f => f
 }
 
 export default Cards

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import css from './question.module.sass'
 
-const Question = ({ questionText = '', onChange = f => f }) => {
+const Question = ({ children, onChange = f => f }) => {
   const questionValue = React.createRef()
   return (
     <div
@@ -13,10 +13,10 @@ const Question = ({ questionText = '', onChange = f => f }) => {
       <textarea
         className={`${css.input} ${css.no_resize}`}
         ref={questionValue}
-        defaultValue={questionText}
+        defaultValue={children}
         placeholder='Введите вопрос'
         onBlur={(e) => {
-          if (questionText !== questionValue.current.value || e.target !== questionValue.current) {
+          if (children !== questionValue.current.value || e.target !== questionValue.current) {
             onChange(questionValue.current.value)
           }
         }} />
@@ -25,7 +25,7 @@ const Question = ({ questionText = '', onChange = f => f }) => {
 }
 
 Question.propTypes = {
-  questionText: PropTypes.string,
+  children: PropTypes.element.isRequired,
   onChange: PropTypes.func
 }
 

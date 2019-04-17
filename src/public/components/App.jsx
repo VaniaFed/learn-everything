@@ -24,6 +24,7 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     11. создать анимацию для выпадающего адаптивного меню
     12. в Revise добавить кнопку "показать график",
     которая перенаправит на страницу с графиком текущей Deck при помощи chart.js
+    13. В Revise: если забыл, обнулять
 */
 class App extends Component {
   render () {
