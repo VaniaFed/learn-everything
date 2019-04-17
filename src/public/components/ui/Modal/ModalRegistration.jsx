@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
+import ModalContainer from './modalContainer/ModalContainer'
 import Title from '../common/title1/Title'
 import Submit from './Submit'
 
@@ -28,13 +30,13 @@ class ModalRegistration extends Component {
 
     let error
 
-    login.length === 0
-      ? error = 'Вы не заполнили поле логин'
-      : (password.length === 0) ?
-        error = 'Вы не заполнили поле пароль' :
-      (password !== passwordRepeat) ?
-        error = 'Пароли не совпадают' :
-        null
+    // login.length === 0
+    //   ? error = 'Вы не заполнили поле логин'
+    //   : (password.length === 0) ?
+    //     error = 'Вы не заполнили поле пароль' :
+    //   (password !== passwordRepeat) ?
+    //     error = 'Пароли не совпадают' :
+    //     null
 
     error
       ? this.setState({
@@ -49,21 +51,23 @@ class ModalRegistration extends Component {
 
   render () {
     return (
-      <div className={css.modal_bg}>
-        <div className={css.modalContainer}>
-          <Title>{this.props.title}</Title>
-          <input className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Логин' ref={this.login} />
-          <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Пароль' ref={this.password} />
-          <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Повторите пароль' ref={this.passwordRepeat} />
-          <p style={{ 'color': 'red' }}>{this.state.err ? this.state.errText : null}</p>
-          <Submit className={`${css.modal__input} ${css.modal__input__submit}`}
-            value='Зарегистрироваться'
-            onClick={e => this.register(e)}
-          />
-        </div>
-      </div>
+      <ModalContainer>
+        <Title>{this.props.title}</Title>
+        <input className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Логин' ref={this.login} />
+        <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Пароль' ref={this.password} />
+        <input type='password' className={`${css.modal__input} ${css.modal__input__text}`} placeholder='Повторите пароль' ref={this.passwordRepeat} />
+        <p style={{ 'color': 'red' }}>{this.state.err ? this.state.errText : null}</p>
+        <Submit className={`${css.modal__input} ${css.modal__input__submit}`}
+          value='Зарегистрироваться'
+          onClick={e => this.register(e)}
+        />
+      </ModalContainer>
     )
   }
+}
+
+ModalRegistration.propTypes = {
+  title: PropTypes.string
 }
 
 export default ModalRegistration

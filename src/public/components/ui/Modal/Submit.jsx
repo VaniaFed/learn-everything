@@ -9,7 +9,8 @@ const Submit = ({ className, value = 'Submit', onClick = f => f }) => (
 )
 
 Submit.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  className: PropTypes.string,
   onClick: PropTypes.func
 }
 
