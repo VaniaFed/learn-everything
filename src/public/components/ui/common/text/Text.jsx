@@ -11,7 +11,7 @@ const Text = ({ children }) => {
 }
 
 Text.propTypes = {
-
+  children: PropTypes.element
 }
 
 export default Text

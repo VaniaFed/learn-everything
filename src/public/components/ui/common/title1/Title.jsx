@@ -8,7 +8,8 @@ const Title = ({ children, margin }) => (
 )
 
 Title.propTypes = {
-  children: PropTypes.string.isRequired
+  children: PropTypes.string.isRequired,
+  margin: PropTypes.string
 }
 
 export default Title

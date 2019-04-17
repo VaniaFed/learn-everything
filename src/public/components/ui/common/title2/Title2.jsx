@@ -10,6 +10,7 @@ const Title2 = ({ children }) => {
 }
 
 Title2.propTypes = {
+  children: PropTypes.element.isRequired
 }
 
 export default Title2
