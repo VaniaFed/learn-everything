@@ -4,11 +4,10 @@ import Deck from './Deck/Deck'
 import Button from '../common/button/Button'
 import { PropTypes } from 'prop-types'
 import Title2 from '../common/title2/Title2'
-import { isTimeToRevise } from '../../../lib/time'
 import { v4 } from 'uuid'
 
 import css from './decks.module.sass'
-import Text from '../common/text/Text';
+import DeckContainer from './DeckContainer';
 
 const addDeckAndCardFromFile = (e, onAddDeck, onAddCard) => {
   const files = e.target.files
@@ -30,30 +29,11 @@ const readFiles = (file, onAddDeck, onAddCard) => {
   }
 }
 
-const Decks = ({ cards = [], decks = [], onDelete = f => f, onAddCard = f => f, onAddDeck }) => {
+const Decks = ({ cards, decks, onDelete, onAddCard, onAddDeck }) => {
   return (
     <div className='container'>
       <Title2>Колоды</Title2>
-      {(decks.length > 0)
-        ? <div>
-          {decks.map((deck, i) => {
-            const currentCards = cards.filter(card => card.deckId === deck.id)
-            const quantityCards = currentCards.length
-            const quantityCardsToRevise = currentCards.filter(card =>
-              isTimeToRevise(card.dateNextRevise)).length
-            return (
-              <Deck key={deck.id}
-                id={deck.id}
-                title={deck.title}
-                quantity={quantityCards}
-                quantityCardsToRevise={quantityCardsToRevise}
-                onDelete={() => onDelete(deck.id)}
-              />
-            )
-          })}
-        </div>
-        : <Text>У вас нет ни одной колоды. Создайте новую.</Text>
-      }
+      <DeckContainer cards={cards} decks={decks} onDelete={onDelete} />
       <Button className='default-btn default-btn-margin' onClick={() => onAddDeck()}>
         Добавить колоду
       </Button>
@@ -69,6 +49,15 @@ Decks.propTypes = {
   onDelete: PropTypes.func,
   onAddCard: PropTypes.func,
   onAddDeck: PropTypes.func
+}
+
+Deck.defaultTypes = {
+  cards: [],
+  decks: [],
+  onDelete: f => f,
+  onAddCard: f => f,
+  onAddDeck: f => f
+
 }
 
 export default Decks

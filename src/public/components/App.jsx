@@ -21,10 +21,13 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     3. преобразовать class components to stateless components везде, где это возможно
     // completed:
     // cards
+    // common
+    // decks
     11. создать анимацию для выпадающего адаптивного меню
     12. в Revise добавить кнопку "показать график",
     которая перенаправит на страницу с графиком текущей Deck при помощи chart.js
     13. В Revise: если забыл, обнулять
+    14. написать тесты
 */
 class App extends Component {
   render () {
