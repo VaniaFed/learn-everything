@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import css from './question.module.sass'
 
-const Question = ({ questionText = '' }) => {
+const Question = ({ questionText }) => {
   return (
     <div className={css.question__bg}>
       <div className={css.title}>Вопрос</div>

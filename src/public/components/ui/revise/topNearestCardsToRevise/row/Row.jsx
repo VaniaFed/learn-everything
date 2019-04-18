@@ -13,7 +13,7 @@ class Row extends Component {
   }
 
   render () {
-    const { questionText = '', answerText = '' } = this.props
+    const { questionText, answerText } = this.props
     return (
       <div className={css.item}>
         <Question questionText={questionText} />
@@ -26,6 +26,11 @@ class Row extends Component {
 Row.propTypes = {
   questionText: PropTypes.string,
   answerText: PropTypes.string
+}
+
+Row.defaultProps = {
+  questionText: '',
+  answerText: ''
 }
 
 export default Row

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import Card from './Card/Card'
 import NoOneCards from '../common/noOneCards/NoOneCards'
@@ -12,7 +13,6 @@ import { doubleDate,
   datesDifference,
   howManyDaysLeftToNextRevise,
   currentDatePlusDifference,
-  calcPotentialNextDates,
   calcAndGetNextDates
 } from '../../../lib/time'
 
@@ -111,6 +111,14 @@ class Revise extends Component {
       </div>
     )
   }
+}
+
+Revise.propTypes = {
+  decks: PropTypes.array.isRequired,
+  cards: PropTypes.array.isRequired,
+  match: PropTypes.object,
+  history: PropTypes.object,
+  onChangeDateRevise: PropTypes.func.isRequired
 }
 
 export default Revise

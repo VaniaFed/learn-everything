@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import Title2 from '../../common/title2/Title2'
 import css from './topNearestCardsToRevise.module.sass'
 import CardsContainer from './CardsContainer/CardsContainer'
@@ -45,7 +47,7 @@ export default class TopNearestCardsToRevise extends Component {
     const { quantityCardsToShow, filteredCards } = this.state
     return (
       <div className={css.container}>
-        <Title2 content='Ближайшие карточки для повторения' />
+        <Title2>Ближайшие карточки для повторения</Title2>
         <label className={css.quantity_label} htmlFor='quantity_cards'>Количество карточек:</label>
         <input className={css.quantity_input}
           id='quantity_cards'
@@ -60,4 +62,8 @@ export default class TopNearestCardsToRevise extends Component {
       </div>
     )
   }
+}
+
+TopNearestCardsToRevise.propTypes = {
+  cards: PropTypes.array
 }

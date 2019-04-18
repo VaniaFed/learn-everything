@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import css from './answer.module.sass'
 
-const Answer = ({ answerText = '' }) => {
+const Answer = ({ answerText }) => {
   return (
     <div className={css.answer__bg}>
       <div className={css.title}>Ответ</div>
