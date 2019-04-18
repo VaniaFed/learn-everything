@@ -5,18 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --config webpack-dev.config.js --hot --inline",
-    "server": "nodemon dist/server.js",
-    "server2": "webpack --mode development --config webpack.server.config.js",
-    "build": "webpack --progress --config webpack-prod.config.js --mode production",
-    "build:server": "BABEL_ENV=server babel src --out-dir ./dist"
-  },
-  "postcss": {
-    "parser": "sugarss",
-    "map": false,
-    "plugins": {
-      "cssnano": {},
-      "autoprefixer": {}
-    }
+    "test": "jest",
+    "build": "webpack --progress --config webpack-prod.config.js --mode production"
   },
   "dependencies": {
     "@babel/cli": "^7.0.0",
@@ -71,6 +61,7 @@
     "copy-webpack-plugin": "^5.0.2",
     "css-loader": "^2.0.0",
     "cssnano": "^4.1.8",
+    "deep-freeze": "^0.0.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",

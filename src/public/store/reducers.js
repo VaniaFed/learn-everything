@@ -100,7 +100,7 @@ export const cards = (state = [], action) => {
   }
 }
 
-const deck = (state = {}, action) => {
+export const deck = (state = {}, action) => {
   switch (action.type) {
     case C.ADD_DECK: {
       const { id, title, quantityCards } = action
@@ -139,7 +139,6 @@ export const decks = (state = [], action) => {
     }
     case C.REMOVE_DECK:
       return state.filter(oneDeck => oneDeck.id !== id)
-      // TODO: нужно также удалить все карточки, ссылающиеся на deck
     default:
       return state
   }

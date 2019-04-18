@@ -1,31 +1,30 @@
 import C from '../../../src/public/constants'
 import { card } from '../../../src/public/store/reducers'
+import deepFreeze from 'deep-freeze'
 
 describe('card Reducer', () => {
   it(`${C.ADD_CARD} success`, () => {
     const state = {}
-    const newDeckId = 0
-    const question = 'Some question'
-    const answer = 'Some answer'
-    const id = 0
     const action = {
       type: C.ADD_CARD,
-      id,
-      question,
-      answer,
+      id: 0,
+      question: 'Some answer',
+      answer: 'Some question',
       datePrevRevise: '',
       dateNextRevise: '',
-      deckId: newDeckId
+      deckId: 0
     }
+    deepFreeze(state)
+    deepFreeze(action)
     const result = card(state, action)
     expect(result)
       .toEqual({
-        id,
-        question,
-        answer,
+        id: 0,
+        question: 'Some answer',
+        answer: 'Some question',
         datePrevRevise: '',
         dateNextRevise: '',
-        deckId: newDeckId
+        deckId: 0
       })
   })
 
@@ -38,6 +37,8 @@ describe('card Reducer', () => {
       type: C.CHANGE_QUESTION,
       question
     }
+    deepFreeze(state)
+    deepFreeze(action)
     const result = card(state, action)
     expect(result)
       .toEqual({
@@ -53,6 +54,8 @@ describe('card Reducer', () => {
       type: C.CHANGE_ANSWER,
       answer: 'Some answer'
     }
+    deepFreeze(state)
+    deepFreeze(action)
     const result = card(state, action)
     expect(result)
       .toEqual({
@@ -74,6 +77,8 @@ describe('card Reducer', () => {
       datePrevRevise: '2019.05.21',
       dateNextRevise: '2019.05.24'
     }
+    deepFreeze(state)
+    deepFreeze(action)
     const result = card(state, action)
     expect(result)
       .toEqual({
