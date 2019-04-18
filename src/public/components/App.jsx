@@ -20,9 +20,10 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     12. в Revise добавить кнопку "показать график",
     которая перенаправит на страницу с графиком текущей Deck при помощи chart.js
     13. В Revise: если забыл, обнулять
-    14. написать тесты
     15. Cards: поиск по картачкам
     16. Cards: sort by date revise (by default)
+    17. React tests
+    18. Redux tests
 */
 class App extends Component {
   render () {

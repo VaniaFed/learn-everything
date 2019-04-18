@@ -14,7 +14,7 @@ export const user = (state = {}, action) => {
   }
 }
 
-const card = (state = {}, action) => {
+export const card = (state = {}, action) => {
   switch (action.type) {
     case C.ADD_CARD: {
       const { id, question, answer, datePrevRevise, dateNextRevise, deckId } = action
