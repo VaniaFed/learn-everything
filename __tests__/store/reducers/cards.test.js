@@ -19,6 +19,14 @@ describe('cards Reducers', () => {
       answer: 'Answer 2',
       datePrevRevise: '2019.05.15',
       dateNextRevise: '2019.05.22'
+    },
+    {
+      id: 3,
+      deckId: 1,
+      question: 'Question 3',
+      answer: 'Answer 3',
+      datePrevRevise: '2019.05.21',
+      dateNextRevise: '2019.05.22'
     }
   ]
   deepFreeze(state)
@@ -58,7 +66,8 @@ describe('cards Reducers', () => {
     const result = cards(state, action)
     expect(result)
       .toEqual([
-        state[0]
+        state[0],
+        state[2]
       ])
   })
 
@@ -76,7 +85,8 @@ describe('cards Reducers', () => {
           ...state[0],
           question: 'New question'
         },
-        state[1]
+        state[1],
+        state[2]
       ])
   })
 
@@ -94,7 +104,8 @@ describe('cards Reducers', () => {
           ...state[0],
           answer: 'New answer'
         },
-        state[1]
+        state[1],
+        state[2]
       ])
   })
 
@@ -114,7 +125,28 @@ describe('cards Reducers', () => {
           datePrevRevise: '2019.05.18',
           dateNextRevise: '2019.05.25'
         },
-        state[1]
+        state[1],
+        state[2]
       ])
-  });
+  })
+
+  it(`${C.REMOVE_CARDS_BY_DECK_ID}`, () => {
+    const action = {
+      type: C.REMOVE_CARDS_BY_DECK_ID,
+      deckId: 0
+    }
+    deepFreeze(action)
+    const result = cards(state, action)
+    expect(result)
+      .toEqual([
+        {
+          id: 3,
+          deckId: 1,
+          question: 'Question 3',
+          answer: 'Answer 3',
+          datePrevRevise: '2019.05.21',
+          dateNextRevise: '2019.05.22'
+        }
+      ])
+  })
 })
