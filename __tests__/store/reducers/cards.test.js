@@ -79,4 +79,42 @@ describe('cards Reducers', () => {
         state[1]
       ])
   })
+
+  it(`${C.CHANGE_ANSWER}`, () => {
+    const action = {
+      type: C.CHANGE_ANSWER,
+      id: 0,
+      answer: 'New answer'
+    }
+    deepFreeze(action)
+    const result = cards(state, action)
+    expect(result)
+      .toEqual([
+        {
+          ...state[0],
+          answer: 'New answer'
+        },
+        state[1]
+      ])
+  })
+
+  it(`${C.CHANGE_DATE_REVISE}`, () => {
+    const action = {
+      type: C.CHANGE_DATE_REVISE,
+      id: 0,
+      datePrevRevise: '2019.05.18',
+      dateNextRevise: '2019.05.25'
+    }
+    deepFreeze(action)
+    const result = cards(state, action)
+    expect(result)
+      .toEqual([
+        {
+          ...state[0],
+          datePrevRevise: '2019.05.18',
+          dateNextRevise: '2019.05.25'
+        },
+        state[1]
+      ])
+  });
 })
