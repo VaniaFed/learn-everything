@@ -29,7 +29,7 @@ describe('card Reducer', () => {
       })
   })
 
-  it(`${C.CHANGE_ANSWER} success`, () => {
+  it(`${C.CHANGE_QUESTION} success`, () => {
     const state = {
       question: 'My own question'
     }
@@ -42,6 +42,47 @@ describe('card Reducer', () => {
     expect(result)
       .toEqual({
         question
+      })
+  })
+
+  it(`${C.CHANGE_ANSWER} success`, () => {
+    const state = {
+      answer: 'My own answer'
+    }
+    const action = {
+      type: C.CHANGE_ANSWER,
+      answer: 'Some answer'
+    }
+    const result = card(state, action)
+    expect(result)
+      .toEqual({
+        answer: 'Some answer'
+      })
+  })
+
+  it(`${C.CHANGE_DATE_REVISE}`, () => {
+    const state = {
+      id: 0,
+      deckId: 0,
+      question: 'questin',
+      answer: 'answer',
+      datePrevRevise: '2019.05.20',
+      dateNextRevise: '2019.05.21'
+    }
+    const action = {
+      type: C.CHANGE_DATE_REVISE,
+      datePrevRevise: '2019.05.21',
+      dateNextRevise: '2019.05.24'
+    }
+    const result = card(state, action)
+    expect(result)
+      .toEqual({
+        id: 0,
+        deckId: 0,
+        question: 'questin',
+        answer: 'answer',
+        datePrevRevise: '2019.05.21',
+        dateNextRevise: '2019.05.24'
       })
   })
 })
