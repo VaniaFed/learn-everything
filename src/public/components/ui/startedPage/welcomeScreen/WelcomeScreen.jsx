@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-
 import { Link } from 'react-router-dom'
 
 import css from './welcomeScreen.module.sass'
-import  '../../../../../../libs/granim.min'
+import '../../../../../../libs/granim.min'
 
 class WelcomeScreen extends Component {
   componentDidMount () {
@@ -36,10 +34,6 @@ class WelcomeScreen extends Component {
       </div>
     )
   }
-}
-
-WelcomeScreen.propTypes = {
-
 }
 
 export default WelcomeScreen

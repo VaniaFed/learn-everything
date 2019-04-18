@@ -100,9 +100,11 @@ class Test extends Component {
   }
 }
 
-Test.PropTypes = {
+Test.propTypes = {
   cards: PropTypes.array.isRequired,
-  decks: PropTypes.array.isRequired
+  decks: PropTypes.array.isRequired,
+  match: PropTypes.object,
+  history: PropTypes.object
 }
 
 export default Test

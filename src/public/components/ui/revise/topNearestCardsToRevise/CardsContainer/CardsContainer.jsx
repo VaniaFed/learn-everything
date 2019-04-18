@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Row from '../row/Row'
 import CardInfo from '../cardInfo/CardInfo'
 import css from './cardsContainer.module.sass'
-import Text from '../../../common/text/Text';
+import Text from '../../../common/text/Text'
 
 const CardsContainer = ({ cards = [] }) => {
   return (
