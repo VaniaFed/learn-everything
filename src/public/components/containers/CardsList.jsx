@@ -24,8 +24,8 @@ export const CardsList = connect(
       dispatch(changeAnswer(id, newAnswer))
     },
 
-    onRenameDeck (id, newName) {
-      dispatch(renameDeck(id, newName))
+    onRenameDeck (id, title) {
+      dispatch(renameDeck(id, title))
     }
   })
 )(Cards)

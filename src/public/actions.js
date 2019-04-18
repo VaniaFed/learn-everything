@@ -89,12 +89,12 @@ export const addDeck = (id, title) => {
   )
 }
 
-export const renameDeck = (id, newDeckName) => {
+export const renameDeck = (id, title) => {
   return (
     {
       type: C.RENAME_DECK,
       id,
-      newDeckName
+      title
     }
   )
 }

@@ -111,10 +111,10 @@ export const deck = (state = {}, action) => {
       }
     }
     case C.RENAME_DECK: {
-      const { newDeckName } = action
+      const { title } = action
       return {
         ...state,
-        title: newDeckName
+        title
       }
     }
     default:
