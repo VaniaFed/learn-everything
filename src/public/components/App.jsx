@@ -27,6 +27,8 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     которая перенаправит на страницу с графиком текущей Deck при помощи chart.js
     13. В Revise: если забыл, обнулять
     14. написать тесты
+    15. Cards: поиск по картачкам
+    16. Cards: sort by date revise (by default)
 */
 class App extends Component {
   render () {

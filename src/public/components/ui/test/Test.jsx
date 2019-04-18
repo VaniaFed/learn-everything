@@ -2,27 +2,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Title from '../common/title1/Title'
-import Row from './row/Row'
 import NoOneCards from '../common/noOneCards/NoOneCards'
-import Button from '../common/button/Button'
+import Rows from './rowContainer/RowContainer'
 
 import css from './test.module.sass'
 import { isQuestionOrAnswerEmpty } from '../../../lib/cards'
-
-const Rows = ({ cardsToPassTest, isPressedCheck, onChangeAnswer }) => {
-  return (
-    cardsToPassTest.map((card, i) =>
-      <Row key={i}
-        questionText={card.question}
-        answerText={card.answer}
-        isPressedCheck={isPressedCheck}
-        isCorrect={card.isCorrect}
-        userAnswer={card.userAnswer}
-        onChangeAnswer={(userAnswer) => onChangeAnswer(card.id, userAnswer)}
-      />
-    )
-  )
-}
 
 class Test extends Component {
   constructor (props) {
@@ -104,16 +88,12 @@ class Test extends Component {
       <div className='container'>
         <Title className={css.title}>{currentDeck.title}</Title>
         {(cardsToPassTest.length > 0)
-          ? (
-            <div className={css.items}>
-              <Rows cardsToPassTest={cardsToPassTest} isPressedCheck={isPressedCheck} onChangeAnswer={changeAnswer} />
-              <Button className='default-btn-margin' onClick={handleCheckAnswers}>
-                {(!isPressedCheck) ? 'Проверить' : 'Сброс'}
-              </Button>
-              <Button className='default-btn-margin' onClick={() => history.goBack()}>Вернуться обратно</Button>
-            </div>
-          )
-          : <NoOneCards textMsg='Ни одной карточки для прохождения теста. Убедитесь, что у карточек заданы вопрос и ответ, и что они вообще существуют.' comeBack={history.goBack} />
+          ? <Rows cardsToPassTest={cardsToPassTest}
+            isPressedCheck={isPressedCheck}
+            onChangeAnswer={changeAnswer}
+            handleCheckAnswers={handleCheckAnswers} />
+          : <NoOneCards textMsg='Ни одной карточки для прохождения теста. Убедитесь, что у карточек заданы вопрос и ответ, и что они вообще существуют.'
+            comeBack={history.goBack} />
         }
       </div>
     )

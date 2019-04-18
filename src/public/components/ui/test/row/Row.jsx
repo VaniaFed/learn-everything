@@ -19,7 +19,7 @@ class Row extends Component {
     return (
       <div className={css.item}>
         <Question questionText={questionText} />
-        {isPressedCheck
+        {(isPressedCheck)
           ? (
             <div className={`${css.row_answers} ${isCorrect ? css.correct : css.incorrect}`}>
               <ExpectedAnswer answer={answerText} isCorrect={isCorrect} isPressedCheck={isPressedCheck} />
