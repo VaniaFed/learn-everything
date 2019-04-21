@@ -1,5 +1,5 @@
-import C from '../../../src/public/constants'
-import { card } from '../../../src/public/store/reducers'
+import C from '../../src/public/constants'
+import { card } from '../../src/public/store/reducers'
 import deepFreeze from 'deep-freeze'
 
 describe('card Reducer', () => {

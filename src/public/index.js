@@ -6,7 +6,9 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './components/App'
-import store from './store/store'
+import storeFactory from './store/store'
+
+const store = storeFactory()
 
 window.React = React
 window.store = store
