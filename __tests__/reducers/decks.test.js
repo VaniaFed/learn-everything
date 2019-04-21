@@ -1,6 +1,6 @@
-import C from '../../../src/public/constants'
+import C from '../../src/public/constants'
 import deepFreeze from 'deep-freeze'
-import { decks } from '../../../src/public/store/reducers'
+import { decks } from '../../src/public/store/reducers'
 
 describe('decks Reducer', () => {
   it(`${C.ADD_DECK} success`, () => {

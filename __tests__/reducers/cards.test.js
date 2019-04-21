@@ -1,6 +1,6 @@
-import C from '../../../src/public/constants'
+import C from '../../src/public/constants'
 import deepFreeze from 'deep-freeze'
-import { cards } from '../../../src/public/store/reducers'
+import { cards } from '../../src/public/store/reducers'
 
 describe('cards Reducers', () => {
   const state = [
