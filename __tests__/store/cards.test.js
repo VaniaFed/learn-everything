@@ -1,13 +1,13 @@
 import storeFactory from '../../src/public/store/store'
 import { cards } from '../../src/public/store/reducers'
-import { addCard, removeCard } from '../../src/public/actions'
+import { addCard, removeCard, changeQuestion } from '../../src/public/actions'
 import { createStore } from 'redux'
 
 describe('addCard', () => {
   let store = {}
   const myCards = [
     {
-      id: '0',
+      id: 0,
       question: '121fsdff',
       answer: 'fdss12',
       deckId: '0',
@@ -15,7 +15,7 @@ describe('addCard', () => {
       datePrevRevise: '2019.04.21'
     },
     {
-      id: '1',
+      id: 1,
       question: '121fsdff',
       answer: 'fdss12',
       deckId: '0',
@@ -23,7 +23,7 @@ describe('addCard', () => {
       datePrevRevise: '2019.04.21'
     },
     {
-      id: '2',
+      id: 2,
       question: '121fsdff',
       answer: 'fdss12',
       deckId: '1',
@@ -94,10 +94,49 @@ describe('removeCard', () => {
 
   beforeAll(() => {
     store = storeFactory({cards: myCards})
-    store.dispatch((removeCard(1)))
+    store.dispatch((removeCard(2)))
   })
 
   it('should remove a card', () => {
     expect(store.getState().cards.length).toBe(3)
+  })
+})
+
+describe('changQuestion', () => {
+  let store = {}
+  const myCards = [
+    {
+      id: 0,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 1,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 2,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '1',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    }
+  ]
+
+  beforeAll(() => {
+    store = storeFactory({cards: myCards})
+    store.dispatch((changeQuestion(0, 'my special question')))
+  })
+
+  it('should change question', () => {
+    expect(store.getState().cards[0].question).toBe('my special question')
   })
 })
