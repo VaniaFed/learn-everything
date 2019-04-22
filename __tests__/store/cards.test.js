@@ -8,7 +8,7 @@ describe('addCard', () => {
       id: 0,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -16,7 +16,7 @@ describe('addCard', () => {
       id: 1,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -24,7 +24,7 @@ describe('addCard', () => {
       id: 2,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '1',
+      deckId: 1,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     }
@@ -32,7 +32,7 @@ describe('addCard', () => {
 
   beforeAll(() => {
     store = storeFactory({ cards: myCards })
-    store.dispatch((addCard(1, 3, 'new question', 'new answer')))
+    store.dispatch((addCard(1, 0, 'new question', 'new answer')))
   })
 
   it('should add a new Card', () => {
@@ -41,7 +41,11 @@ describe('addCard', () => {
   })
 
   it('should add an id', () => {
-    expect(store.getState().cards[3].id).toBeDefined()
+    expect(store.getState().cards[3].id).toBe(0)
+  })
+
+  it('should add an deckId', () => {
+    expect(store.getState().cards[3].deckId).toBe(1)
   })
 
   it('should add a question', () => {
@@ -68,7 +72,7 @@ describe('removeCard', () => {
       id: 0,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -76,7 +80,7 @@ describe('removeCard', () => {
       id: 1,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -84,7 +88,7 @@ describe('removeCard', () => {
       id: 2,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '1',
+      deckId: 1,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     }
@@ -107,7 +111,7 @@ describe('changeQuestion', () => {
       id: 0,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -115,7 +119,7 @@ describe('changeQuestion', () => {
       id: 1,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -123,7 +127,7 @@ describe('changeQuestion', () => {
       id: 2,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '1',
+      deckId: 1,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     }
@@ -146,7 +150,7 @@ describe('changeAnswer', () => {
       id: 0,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -154,7 +158,7 @@ describe('changeAnswer', () => {
       id: 1,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -162,7 +166,7 @@ describe('changeAnswer', () => {
       id: 2,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '1',
+      deckId: 1,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     }
@@ -186,7 +190,7 @@ describe('changeDateRevise', () => {
       id: 0,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -194,7 +198,7 @@ describe('changeDateRevise', () => {
       id: 1,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '0',
+      deckId: 0,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     },
@@ -202,7 +206,7 @@ describe('changeDateRevise', () => {
       id: 2,
       question: '121fsdff',
       answer: 'fdss12',
-      deckId: '1',
+      deckId: 1,
       dateNextRevise: '2019.04.21',
       datePrevRevise: '2019.04.21'
     }
@@ -224,42 +228,23 @@ describe('changeDateRevise', () => {
 
 describe('delete all the cards by deck id', () => {
   let store = {}
-  const myCards = [
-    {
-      id: 0,
-      question: '121fsdff',
-      answer: 'fdss12',
-      deckId: '0',
-      dateNextRevise: '2019.04.21',
-      datePrevRevise: '2019.04.21'
-    },
-    {
-      id: 1,
-      question: '121fsdff',
-      answer: 'fdss12',
-      deckId: '0',
-      dateNextRevise: '2019.04.21',
-      datePrevRevise: '2019.04.21'
-    },
-    {
-      id: 2,
-      question: '121fsdff',
-      answer: 'fdss12',
-      deckId: '1',
-      dateNextRevise: '2019.04.21',
-      datePrevRevise: '2019.04.21'
-    }
-  ]
 
   beforeAll(() => {
-    store = storeFactory({ cards: myCards })
-    const cards = store.getState()
-    cards.map(
-      store.dispatch(removeCardsByDeckId(0))
-    )
+    store = storeFactory()
+    store.dispatch(removeCardsByDeckId(0))
   })
 
   it('should deleted all the cards with id 0', () => {
-    expect(store.getState().cards).toBe('2019.04.23')
+    expect(store.getState().cards)
+      .toEqual([
+        {
+          id: 0,
+          question: 'my special question',
+          answer: 'my special answer',
+          deckId: 1,
+          dateNextRevise: '2019.04.30',
+          datePrevRevise: '2019.04.23'
+        }
+      ])
   })
 })
