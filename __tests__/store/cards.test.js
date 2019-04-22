@@ -1,7 +1,5 @@
 import storeFactory from '../../src/public/store/store'
-import { cards } from '../../src/public/store/reducers'
-import { addCard, removeCard, changeQuestion } from '../../src/public/actions'
-import { createStore } from 'redux'
+import { addCard, removeCard, changeQuestion, changeAnswer } from '../../src/public/actions'
 
 describe('addCard', () => {
   let store = {}
@@ -33,7 +31,7 @@ describe('addCard', () => {
   ] 
 
   beforeAll(() => {
-    store = storeFactory({cards: myCards})
+    store = storeFactory({ cards: myCards })
     store.dispatch((addCard(1, 3, 'new question', 'new answer')))
   })
 
@@ -93,7 +91,7 @@ describe('removeCard', () => {
   ]
 
   beforeAll(() => {
-    store = storeFactory({cards: myCards})
+    store = storeFactory({ cards: myCards })
     store.dispatch((removeCard(2)))
   })
 
@@ -102,7 +100,7 @@ describe('removeCard', () => {
   })
 })
 
-describe('changQuestion', () => {
+describe('changeQuestion', () => {
   let store = {}
   const myCards = [
     {
@@ -132,11 +130,50 @@ describe('changQuestion', () => {
   ]
 
   beforeAll(() => {
-    store = storeFactory({cards: myCards})
+    store = storeFactory({ cards: myCards })
     store.dispatch((changeQuestion(0, 'my special question')))
   })
 
   it('should change question', () => {
     expect(store.getState().cards[0].question).toBe('my special question')
+  })
+})
+
+describe('changeAnswer', () => {
+  let store = {}
+  const myCards = [
+    {
+      id: 0,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 1,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 2,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '1',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    }
+  ]
+
+  beforeAll(() => {
+    store = storeFactory({ cards: myCards })
+    store.dispatch((changeAnswer(0, 'my special answer')))
+  })
+
+  it('should change answer', () => {
+    expect(store.getState().cards[0].answer).toBe('my special answer')
   })
 })
