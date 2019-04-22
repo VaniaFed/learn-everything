@@ -1,5 +1,5 @@
 import storeFactory from '../../src/public/store/store'
-import { addCard, removeCard, changeQuestion, changeAnswer } from '../../src/public/actions'
+import { addCard, removeCard, changeQuestion, changeAnswer, changeDateRevise } from '../../src/public/actions'
 
 describe('addCard', () => {
   let store = {}
@@ -175,5 +175,49 @@ describe('changeAnswer', () => {
 
   it('should change answer', () => {
     expect(store.getState().cards[0].answer).toBe('my special answer')
+  })
+})
+
+
+describe('changeDateRevise', () => {
+  let store = {}
+  const myCards = [
+    {
+      id: 0,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 1,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 2,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '1',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    }
+  ]
+
+  beforeAll(() => {
+    store = storeFactory({ cards: myCards })
+    store.dispatch((changeDateRevise(0, '2019.04.23', '2019.04.30')))
+  })
+
+  it('should change date prev revise', () => {
+    expect(store.getState().cards[0].datePrevRevise).toBe('2019.04.23')
+  })
+
+  it('should change date next revise', () => {
+    expect(store.getState().cards[0].dateNextRevise).toBe('2019.04.30')
   })
 })
