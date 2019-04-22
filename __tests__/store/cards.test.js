@@ -1,5 +1,5 @@
 import storeFactory from '../../src/public/store/store'
-import { addCard, removeCard, changeQuestion, changeAnswer, changeDateRevise } from '../../src/public/actions'
+import { addCard, removeCard, changeQuestion, changeAnswer, changeDateRevise, removeCardsByDeckId } from '../../src/public/actions'
 
 describe('addCard', () => {
   let store = {}
@@ -219,5 +219,47 @@ describe('changeDateRevise', () => {
 
   it('should change date next revise', () => {
     expect(store.getState().cards[0].dateNextRevise).toBe('2019.04.30')
+  })
+})
+
+describe('delete all the cards by deck id', () => {
+  let store = {}
+  const myCards = [
+    {
+      id: 0,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 1,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '0',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    },
+    {
+      id: 2,
+      question: '121fsdff',
+      answer: 'fdss12',
+      deckId: '1',
+      dateNextRevise: '2019.04.21',
+      datePrevRevise: '2019.04.21'
+    }
+  ]
+
+  beforeAll(() => {
+    store = storeFactory({ cards: myCards })
+    const cards = store.getState()
+    cards.map(
+      store.dispatch(removeCardsByDeckId(0))
+    )
+  })
+
+  it('should deleted all the cards with id 0', () => {
+    expect(store.getState().cards).toBe('2019.04.23')
   })
 })
