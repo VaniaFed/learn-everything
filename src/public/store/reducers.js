@@ -24,7 +24,7 @@ export const card = (state = {}, action) => {
         answer,
         datePrevRevise,
         dateNextRevise,
-        deckId: deckId
+        deckId
       }
     }
     case C.CHANGE_QUESTION: {
