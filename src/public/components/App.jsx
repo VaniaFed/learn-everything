@@ -26,6 +26,7 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     18. Redux tests
     19. Зарефакторить modals: вынести общий код в контейнер и не только :)
     20. Изучить и добавить HOC везде, где это необходимо
+    21. Make code schem: with the help of UML diagrams
 */
 class App extends Component {
   render () {
