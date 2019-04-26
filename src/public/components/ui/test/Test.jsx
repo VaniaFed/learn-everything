@@ -26,19 +26,15 @@ class Test extends Component {
       ),
       isPressedCheck: false
     }
-    console.log(this.state)
-    this.checkAnswer = this.checkAnswer.bind(this)
-    this.handleCheckAnswers = this.handleCheckAnswers.bind(this)
-    this.changeAnswer = this.changeAnswer.bind(this)
   }
 
-  checkAnswer () {
+  checkAnswer = () => {
     this.setState({
       isPressedCheck: !this.state.isPressedCheck
     })
   }
 
-  handleCheckAnswers () {
+  handleCheckAnswers = () => {
     this.checkAnswer()
     this.checkAllAnswers()
   }
@@ -64,7 +60,7 @@ class Test extends Component {
     this.setState({ cards })
   }
 
-  changeAnswer (cardId, userAnswer) {
+  changeAnswer = (cardId, userAnswer) => {
     this.setState(prevState => ({
       cards: prevState.cards.map(card =>
         (card.id === cardId)

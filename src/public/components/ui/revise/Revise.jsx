@@ -27,17 +27,13 @@ class Revise extends Component {
       isTimeToRevise(card.dateNextRevise) &&
       !isQuestionOrAnswerEmpty(card.question, card.answer)
     )
-    console.log(cardsToRevise)
 
     this.state = {
       cards: cardsToRevise,
       isPressedCheck: false
     }
 
-    this.checkAnswer = this.checkAnswer.bind(this)
     this.calcAndGetNextDates = calcAndGetNextDates.bind(this)
-    this.handleChoiceLevel = this.handleChoiceLevel.bind(this)
-    this.handleCheckAnswer = this.handleCheckAnswer.bind(this)
   }
 
   shouldComponentUpdate (nextState) {
@@ -45,7 +41,7 @@ class Revise extends Component {
       this.state.isPressedCheck !== nextState.isPressedCheck
   }
 
-  handleChoiceLevel (level, card) {
+  handleChoiceLevel = (level, card) => {
     // FIXME:
     // вменсто того, чтобы извлекать по отдельности y, m и d из Date, лучше создать f() возвращающую `${y}.${m}.${d}`
     const { datePrevRevise, dateNextRevise } = card
@@ -66,11 +62,11 @@ class Revise extends Component {
     this.nextCard()
   }
 
-  handleCheckAnswer (prevDate, nextDate) {
+  handleCheckAnswer = (prevDate, nextDate) => {
     this.checkAnswer()
   }
 
-  checkAnswer () {
+  checkAnswer = () => {
     this.setState({
       isPressedCheck: !this.state.isPressedCheck
     })

@@ -34,11 +34,12 @@ const Decks = ({ cards, decks, onDelete, onAddCard, onAddDeck }) => {
     <div className='container'>
       <Title2>Колоды</Title2>
       <DeckContainer cards={cards} decks={decks} onDelete={onDelete} />
-      <Button className='default-btn default-btn-margin' onClick={() => onAddDeck()}>
+      <Button className='default-btn default-btn-margin' onClick={onAddDeck}>
         Добавить колоду
       </Button>
       <label className={css.link} htmlFor='loadFile'>Загрузить из файла</label>
-      <input id='loadFile' className={css.input_file} type='file' multiple onChange={(e) => addDeckAndCardFromFile(e, onAddDeck, onAddCard)} />
+      <input id='loadFile' className={css.input_file} type='file' multiple
+        onChange={(e) => addDeckAndCardFromFile(e, onAddDeck, onAddCard)} />
     </div>
   )
 }

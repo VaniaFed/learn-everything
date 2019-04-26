@@ -9,10 +9,9 @@ class Header extends Component {
     this.state = {
       isPressedHamburger: false
     }
-    this.toggleState = this.toggleState.bind(this)
   }
 
-  toggleState () {
+  toggleState = () => {
     this.setState({ isPressedHamburger: !this.state.isPressedHamburger })
   }
 
