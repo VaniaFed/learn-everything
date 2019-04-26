@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import DifficultyLevel from './difficultyLevel/DifficultyLevel'
+
 import css from './card.module.sass'
 
-import DifficultyLevel from './difficultyLevel/DifficultyLevel'
 const Card = ({ question, answer, nextDates, isPressedCheck, onCheckAnswer, onChoiceLevel }) => {
   return (
     <div>

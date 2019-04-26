@@ -1,9 +1,11 @@
 import React from 'react'
-import css from './opportunities.module.sass'
+
+import ArticleBlock from '../acticleBlock/ArticleBlock'
 import Title from '../../common/title1/Title'
 import Text from '../../common/text/Text'
 import List from '../../common/list/List'
-import ArticleBlock from '../acticleBlock/ArticleBlock'
+
+import css from './opportunities.module.sass'
 
 const Opportunities = () => {
   return (

@@ -1,5 +1,5 @@
-import Cards from '../ui/cards/Cards'
 import { connect } from 'react-redux'
+import Cards from '../ui/cards/Cards'
 import { addCard, removeCard, renameDeck, changeQuestion, changeAnswer } from '../../actions'
 
 export const CardsList = connect(

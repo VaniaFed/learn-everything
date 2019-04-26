@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import css from './cards.module.sass'
-
 import CardsNav from './cardsNav/CardsNav'
 import CardsContainer from './CardsContainer/CardsContainer'
 import Button from '../common/button/Button'
+
+import css from './cards.module.sass'
 
 const combineDeckAndCards = (deck, cards) => {
   const deckAndCards = {

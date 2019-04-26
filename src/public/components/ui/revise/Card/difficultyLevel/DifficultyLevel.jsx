@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import css from './difficultyLevel.module.sass'
+
 const DifficultyLevel = ({ onChoiceLevel = f => f, nextDates = f => f }) => {
   return (
     <div>

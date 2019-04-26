@@ -1,6 +1,8 @@
 import React from 'react'
-import css from './footer.module.sass'
+
 import Title2 from '../common/title2/Title2'
+
+import css from './footer.module.sass'
 
 const Footer = () => {
   return (

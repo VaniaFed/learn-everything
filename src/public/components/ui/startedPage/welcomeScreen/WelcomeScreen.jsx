@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-import css from './welcomeScreen.module.sass'
 import '../../../../../../libs/granim.min'
+
+import css from './welcomeScreen.module.sass'
 
 class WelcomeScreen extends Component {
   componentDidMount () {

@@ -5,8 +5,9 @@ import Title from '../common/title1/Title'
 import NoOneCards from '../common/noOneCards/NoOneCards'
 import Rows from './rowContainer/RowContainer'
 
-import css from './test.module.sass'
 import { isQuestionOrAnswerEmpty } from '../../../lib/cards'
+
+import css from './test.module.sass'
 
 class Test extends Component {
   constructor (props) {

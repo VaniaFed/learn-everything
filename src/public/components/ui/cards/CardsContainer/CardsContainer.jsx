@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Row from '../row/Row'
-import css from './CardsContainer.module.sass'
 import Text from '../../common/text/Text'
+
+import css from './CardsContainer.module.sass'
 
 const CardsContainer = ({ cards, onDelete, onChangeQuestion, onChangeAnswer }) => {
   return (

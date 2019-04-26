@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { HashRouter, Route, Switch, Redirect } from 'react-router-dom'
 
 import Header from './ui/header/Header'
-import Whoops404 from './ui/whoops404/Whoops404'
 import Footer from './ui/footer/Footer'
 import StartedPage from './ui/startedPage/StartedPage'
+import Whoops404 from './ui/whoops404/Whoops404'
 
 import { DecksList } from './containers/DecksList'
 import { CardsList } from './containers/CardsList'
@@ -24,6 +24,7 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     16. Cards: sort by date revise (by default)
     17. React tests
     18. Redux tests
+    19. Зарефакторить modals: вынести общий код в контейнер и не только :)
 */
 class App extends Component {
   render () {

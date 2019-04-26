@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import 'hamburgers/dist/hamburgers.min.css'
 import css from './hamburger.module.sass'
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import css from './cardInfo.module.sass'
 
 import { datesDifference, calcAndGetNextDates } from '../../../../../lib/time'
+
+import css from './cardInfo.module.sass'
 
 const CardInfo = ({ prevDate = '', nextDate = '' }) => {
   return (

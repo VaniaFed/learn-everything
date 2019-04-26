@@ -1,13 +1,13 @@
 import React from 'react'
-
-import Deck from './Deck/Deck'
-import Button from '../common/button/Button'
 import { PropTypes } from 'prop-types'
-import Title2 from '../common/title2/Title2'
 import { v4 } from 'uuid'
 
-import css from './decks.module.sass'
+import Deck from './Deck/Deck'
 import DeckContainer from './DeckContainer'
+import Button from '../common/button/Button'
+import Title2 from '../common/title2/Title2'
+
+import css from './decks.module.sass'
 
 const addDeckAndCardFromFile = (e, onAddDeck, onAddCard) => {
   const files = e.target.files

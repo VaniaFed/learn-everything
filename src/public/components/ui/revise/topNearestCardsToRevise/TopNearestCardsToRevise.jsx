@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 import Title2 from '../../common/title2/Title2'
-import css from './topNearestCardsToRevise.module.sass'
 import CardsContainer from './CardsContainer/CardsContainer'
+
 import { sortByDate } from '../../../../lib/time'
 import { isQuestionOrAnswerEmpty } from '../../../../lib/cards'
+
+import css from './topNearestCardsToRevise.module.sass'
 
 export default class TopNearestCardsToRevise extends Component {
   constructor (props) {

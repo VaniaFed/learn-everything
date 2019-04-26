@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 
 import Answer from '../answer/Answer'
 import Question from '../question/Question'
+import ExpectedAnswer from '../ExpectedAnswer'
 
 import css from './row.module.sass'
-import ExpectedAnswer from '../ExpectedAnswer'
 
 class Row extends Component {
   shouldComponentUpdate (nextProps) {

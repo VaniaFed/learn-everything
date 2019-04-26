@@ -1,10 +1,12 @@
 import React from 'react'
 
-import css from './howDoesItWork.module.sass'
+import GraphExample from './graphExample/GraphExample'
+
 import Title from '../../common/title1/Title'
 import ArticleBlock from '../acticleBlock/ArticleBlock'
 import Text from '../../common/text/Text'
-import GraphExample from './graphExample/GraphExample'
+
+import css from './howDoesItWork.module.sass'
 
 const HowDoesItWork = () => {
   return (

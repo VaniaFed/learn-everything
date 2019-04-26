@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 
-import css from './header.module.sass'
 import Nav from './nav/Nav'
+
+import css from './header.module.sass'
 
 class Header extends Component {
   constructor (props) {

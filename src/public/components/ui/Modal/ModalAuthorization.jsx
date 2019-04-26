@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import ModalContainer from './modalContainer/ModalContainer'
 import Submit from './Submit'
 import Title from '../common/title1/Title'
 
 import css from './defaultModal.module.sass'
-import ModalContainer from './modalContainer/ModalContainer'
+
 class ModalAuthorization extends Component {
   constructor (props) {
     super(props)
-    this.login = this.login.bind(this)
     this.userLogin = React.createRef()
     this.userPassword = React.createRef()
 
@@ -19,11 +19,11 @@ class ModalAuthorization extends Component {
     }
   }
 
-  login (e) {
+  login = (e) => {
     e.preventDefault()
-    const login = this.userLogin.current.value
-    const password = this.userPassword.current.value
-    console.log(login, password)
+    // const login = this.userLogin.current.value
+    // const password = this.userPassword.current.value
+    // console.log(login, password)
 
     // let error = ''
     // let errorCode = 0

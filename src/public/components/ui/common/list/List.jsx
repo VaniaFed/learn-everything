@@ -1,6 +1,7 @@
 import React from 'react'
-import css from './list.module.sass'
 import PropTypes from 'prop-types'
+
+import css from './list.module.sass'
 
 const List = ({ children }) => {
   return (
