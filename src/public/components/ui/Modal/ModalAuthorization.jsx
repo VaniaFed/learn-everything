@@ -21,28 +21,6 @@ class ModalAuthorization extends Component {
 
   login = (e) => {
     e.preventDefault()
-    // const login = this.userLogin.current.value
-    // const password = this.userPassword.current.value
-    // console.log(login, password)
-
-    // let error = ''
-    // let errorCode = 0
-    // (login.length === 0)
-    //   ? error = 'Вы не заполнили поле логин'
-    //   : password.length === 0
-    //     ? error = 'Вы не заполнили поле пароль'
-    //     : null
-    //     (error)
-    //       ? this.setState({
-    //         err: true,
-    //         errText: error,
-    //         errCode: errorCode
-    //       })
-    //       : this.setState({
-    //         err: false,
-    //         errText: '',
-    //         errCode: errorCode
-    //       })
   }
 
   isError () {

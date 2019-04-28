@@ -1,1 +1,1 @@
-const db = require('./options');
+const db = require('./options')

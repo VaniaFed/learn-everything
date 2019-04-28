@@ -30,14 +30,6 @@ class ModalRegistration extends Component {
 
     let error
 
-    // login.length === 0
-    //   ? error = 'Вы не заполнили поле логин'
-    //   : (password.length === 0) ?
-    //     error = 'Вы не заполнили поле пароль' :
-    //   (password !== passwordRepeat) ?
-    //     error = 'Пароли не совпадают' :
-    //     null
-
     error
       ? this.setState({
         err: true,
