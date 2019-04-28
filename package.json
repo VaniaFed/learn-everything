@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack-dev.config.js --hot --inline",
     "test": "jest",
+    "test:watch": "npm test -- --watch",
     "build": "webpack --progress --config webpack-prod.config.js --mode production"
   },
   "dependencies": {
