@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
-const js = require('./webpack/js')
+const babel = require('./webpack/babel')
 const pug = require('./webpack/pug')
 const css = require('./webpack/css')
 const sass = require('./webpack/sass')
@@ -24,7 +24,7 @@ module.exports = {
   mode: 'production',
   module: {
     rules: [
-      js,
+      babel,
       pug,
       css,
       sass,

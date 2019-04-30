@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const js = require('./webpack/js')
+const eslintAndBabel = require('./webpack/eslintAndBabel')
 const pug = require('./webpack/pug')
 const css = require('./webpack/css')
 const sass = require('./webpack/sass')
@@ -31,7 +31,7 @@ module.exports = {
   },
   module: {
     rules: [
-      js,
+      eslintAndBabel,
       pug,
       css,
       sass,
