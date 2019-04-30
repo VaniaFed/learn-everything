@@ -21,7 +21,7 @@ export const addCard = (newDeckId, cardId, question, answer) => {
   return (
     {
       type: C.ADD_CARD,
-      id: (typeof cardId !== undefined) ? cardId : v4(),
+      id: (typeof cardId !== 'undefined') ? cardId : v4(),
       question: question || '',
       answer: answer || '',
       datePrevRevise: currentDate,
