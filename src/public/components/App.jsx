@@ -27,6 +27,8 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     19. Зарефакторить modals: вынести общий код в контейнер и не только :)
     20. Изучить и добавить HOC везде, где это необходимо
     21. Make code schem: with the help of UML diagrams
+    22. Пофиксить кнопку comeBack in Test
+    23. Пофиксить отсутствие кнопок выбора сложности in Revice
 */
 class App extends Component {
   render () {
