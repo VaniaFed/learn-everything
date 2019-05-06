@@ -103,11 +103,10 @@ export const cards = (state = [], action) => {
 export const deck = (state = {}, action) => {
   switch (action.type) {
     case C.ADD_DECK: {
-      const { id, title, quantityCards } = action
+      const { id, title } = action
       return {
         id,
-        title: title || 'untitled',
-        quantityCards
+        title: title || 'untitled'
       }
     }
     case C.RENAME_DECK: {
