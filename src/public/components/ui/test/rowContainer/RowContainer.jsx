@@ -6,7 +6,7 @@ import Button from '../../common/button/Button'
 
 import css from './rowContainer.module.sass'
 
-const RowContainer = ({ cardsToPassTest, isPressedCheck, onChangeAnswer, handleCheckAnswers }) => {
+const RowContainer = ({ cardsToPassTest, isPressedCheck, onChangeAnswer, handleCheckAnswers, history }) => {
   return (
     <div className={css.container}>
       {cardsToPassTest.map((card, i) =>
@@ -29,14 +29,16 @@ RowContainer.propTypes = {
   cardsToPassTest: PropTypes.array.isRequired,
   isPressedCheck: PropTypes.bool.isRequired,
   onChangeAnswer: PropTypes.func.isRequired,
-  handleCheckAnswers: PropTypes.func.isRequired
+  handleCheckAnswers: PropTypes.func.isRequired,
+  history: PropTypes.object
 }
 
 RowContainer.defaultProps = {
   cardsToPassTest: [],
   isPressedCheck: false,
   onChangeAnswer: f => f,
-  handleCheckAnswers: f => f
+  handleCheckAnswers: f => f,
+  history: {}
 }
 
 export default RowContainer

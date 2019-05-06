@@ -88,7 +88,8 @@ class Test extends Component {
           ? <Rows cardsToPassTest={cardsToPassTest}
             isPressedCheck={isPressedCheck}
             onChangeAnswer={changeAnswer}
-            handleCheckAnswers={handleCheckAnswers} />
+            handleCheckAnswers={handleCheckAnswers}
+            history={history} />
           : <NoOneCards textMsg='Ни одной карточки для прохождения теста. Убедитесь, что у карточек заданы вопрос и ответ, и что они вообще существуют.'
             comeBack={history.goBack} />
         }
