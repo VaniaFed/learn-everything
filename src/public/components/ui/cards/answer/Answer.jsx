@@ -9,17 +9,19 @@ const Answer = ({ children, onChange = f => f }) => {
     <div className={css.answer__bg}
       onClick={() => answerValue.current.focus()} >
       <div className={css.title}>Ответ</div>
-      <textarea
+      <div
         className={`${css.input} ${css.no_resize}`}
         ref={answerValue}
-        defaultValue={children}
         placeholder='Введите ответ'
+        contentEditable='true'
         onBlur={() => {
           if (children !== answerValue.current.value) {
-            onChange(answerValue.current.value)
+            onChange(answerValue.current.innerText)
           }
         }}
-      />
+      >
+        {children}
+      </div>
     </div>
   )
 }
