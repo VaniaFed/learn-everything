@@ -72,7 +72,7 @@ class Revise extends Component {
     })
   }
 
-  nextCard () {
+  nextCard = () => {
     this.setState({
       isPressedCheck: !this.state.isPressedCheck
     })
