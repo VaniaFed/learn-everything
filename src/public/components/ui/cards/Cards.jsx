@@ -21,15 +21,15 @@ const Cards = ({ cards, decks, match, onAdd, onDelete, onRenameDeck, onChangeQue
   const currentDeck = decks.find(deck => deck.id === id)
   const currentCards = cards.filter(card => card.deckId === id)
   const fileName = `${currentDeck.title}.json`
+  const handleChangeDeckTitle = e => {
+    onRenameDeck(id, e.target.value)
+  }
   return (
     <div className='container'>
       <input className={css.input_deck_name}
         defaultValue={currentDeck.title}
         type='text'
-        onBlur={(e) => {
-          const newName = e.target.value
-          onRenameDeck(id, newName)
-        }}
+        onBlur={handleChangeDeckTitle}
       />
       <CardsNav deckId={id} />
       <CardsContainer onDelete={onDelete}
