@@ -23,6 +23,7 @@ import ModalRegistration from './ui/Modal/ModalRegistration'
     15. Cards: поиск по картачкам
     16. Cards: sort by date revise (by default)
     17. React tests
+    18. Добавить страницу с выводом слов для обзора (like in flexbox test)
     19. Зарефакторить modals: вынести общий код в контейнер и не только :)
     20. Изучить и добавить HOC везде, где это необходимо
     21. Make code schem: with the help of UML diagrams
