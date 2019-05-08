@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import css from './question.module.sass'
 
-const Question = ({ children, onChange = f => f }) => {
+const Question = ({ children, onChange }) => {
   const questionValue = React.createRef()
   return (
     <div
@@ -14,11 +14,7 @@ const Question = ({ children, onChange = f => f }) => {
         className={`${css.input} ${css.no_resize}`}
         ref={questionValue}
         contentEditable='true'
-        onBlur={(e) => {
-          if (children !== questionValue.current.value || e.target !== questionValue.current) {
-            onChange(questionValue.current.innerText)
-          }
-        }}
+        onBlur={onChange}
       >
         {children}
       </div>
@@ -27,12 +23,11 @@ const Question = ({ children, onChange = f => f }) => {
 }
 
 Question.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
   onChange: PropTypes.func
 }
 
 Question.defaultProps = {
-  questionText: 'Вопрос',
   onChange: f => f
 }
 

@@ -12,13 +12,8 @@ const Answer = ({ children, onChange = f => f }) => {
       <div
         className={`${css.input} ${css.no_resize}`}
         ref={answerValue}
-        placeholder='Введите ответ'
         contentEditable='true'
-        onBlur={() => {
-          if (children !== answerValue.current.value) {
-            onChange(answerValue.current.innerText)
-          }
-        }}
+        onBlur={onChange}
       >
         {children}
       </div>
@@ -27,7 +22,7 @@ const Answer = ({ children, onChange = f => f }) => {
 }
 
 Answer.propTypes = {
-  children: PropTypes.element.isRequired,
+  children: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 }
 

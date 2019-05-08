@@ -24,6 +24,12 @@ const Cards = ({ cards, decks, match, onAdd, onDelete, onRenameDeck, onChangeQue
   const handleChangeDeckTitle = e => {
     onRenameDeck(id, e.target.value)
   }
+  const handleChangeAnswer = (id, e) => {
+    onChangeAnswer(id, e.target.innerText)
+  }
+  const handleChangeQuestion = (id, e) => {
+    onChangeQuestion(id, e.target.innerText)
+  }
   return (
     <div className='container'>
       <input className={css.input_deck_name}
@@ -34,8 +40,8 @@ const Cards = ({ cards, decks, match, onAdd, onDelete, onRenameDeck, onChangeQue
       <CardsNav deckId={id} />
       <CardsContainer onDelete={onDelete}
         cards={currentCards}
-        onChangeQuestion={onChangeQuestion}
-        onChangeAnswer={onChangeAnswer}
+        onChangeQuestion={handleChangeQuestion}
+        onChangeAnswer={handleChangeAnswer}
       />
       <Button className='default-btn default-btn-margin'
         onClick={() => onAdd(id)}>

@@ -17,8 +17,8 @@ const CardsContainer = ({ cards, onDelete, onChangeQuestion, onChangeAnswer }) =
               questionText={card.question}
               answerText={card.answer}
               onDelete={() => onDelete(card.id)}
-              onChangeQuestion={(newQuestion) => onChangeQuestion(card.id, newQuestion)}
-              onChangeAnswer={(newAnswer) => onChangeAnswer(card.id, newAnswer)}
+              onChangeQuestion={newQuestion => onChangeQuestion(card.id, newQuestion)}
+              onChangeAnswer={e => onChangeAnswer(card.id, e)}
             />
           )
         }
