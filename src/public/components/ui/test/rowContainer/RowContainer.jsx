@@ -16,7 +16,7 @@ const RowContainer = ({ cardsToPassTest, isPressedCheck, onChangeAnswer, handleC
           isPressedCheck={isPressedCheck}
           isCorrect={card.isCorrect}
           userAnswer={card.userAnswer}
-          onChangeAnswer={userAnswer => onChangeAnswer(card.id, userAnswer)} />)}
+          onChangeAnswer={e => onChangeAnswer(card.id, e)} />)}
       <Button className='default-btn-margin' onClick={handleCheckAnswers}>
         {(!isPressedCheck) ? 'Проверить' : 'Сброс'}
       </Button>

@@ -61,6 +61,10 @@ class Test extends Component {
     this.setState({ cards })
   }
 
+  handleChangeAnswer = (id, e) => {
+    this.changeAnswer(id, e.target.value)
+  }
+
   changeAnswer = (cardId, userAnswer) => {
     this.setState(prevState => ({
       cards: prevState.cards.map(card =>
@@ -79,7 +83,7 @@ class Test extends Component {
     const { id } = this.props.match.params
     const currentDeck = decks.find(deck => deck.id === id)
     const cardsToPassTest = this.state.cards
-    const { handleCheckAnswers, changeAnswer } = this
+    const { handleCheckAnswers, handleChangeAnswer } = this
     const { isPressedCheck } = this.state
     return (
       <div className='container'>
@@ -87,7 +91,7 @@ class Test extends Component {
         {(cardsToPassTest.length > 0)
           ? <Rows cardsToPassTest={cardsToPassTest}
             isPressedCheck={isPressedCheck}
-            onChangeAnswer={changeAnswer}
+            onChangeAnswer={handleChangeAnswer}
             handleCheckAnswers={handleCheckAnswers}
             history={history} />
           : <NoOneCards textMsg='Ни одной карточки для прохождения теста. Убедитесь, что у карточек заданы вопрос и ответ, и что они вообще существуют.'
